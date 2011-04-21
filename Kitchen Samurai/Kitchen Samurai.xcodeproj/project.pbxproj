@@ -1,0 +1,267 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1F913606D5200425F16 /* UIKit.framework */; };
+		80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FB13606D5200425F16 /* Foundation.framework */; };
+		80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FD13606D5200425F16 /* CoreGraphics.framework */; };
+		80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB20213606D5200425F16 /* InfoPlist.strings */; };
+		80CEB20713606D5200425F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20613606D5200425F16 /* main.m */; };
+		80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */; };
+		80CEB20D13606D5200425F16 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB20B13606D5200425F16 /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		80CEB1F513606D5200425F16 /* Kitchen Samurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Samurai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80CEB1F913606D5200425F16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		80CEB1FB13606D5200425F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		80CEB1FD13606D5200425F16 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		80CEB20113606D5200425F16 /* Kitchen Samurai-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Kitchen Samurai-Info.plist"; sourceTree = "<group>"; };
+		80CEB20313606D5200425F16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		80CEB20513606D5200425F16 /* Kitchen Samurai-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kitchen Samurai-Prefix.pch"; sourceTree = "<group>"; };
+		80CEB20613606D5200425F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kitchen_SamuraiAppDelegate.h; sourceTree = "<group>"; };
+		80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kitchen_SamuraiAppDelegate.m; sourceTree = "<group>"; };
+		80CEB20C13606D5200425F16 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80CEB1F213606D5200425F16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */,
+				80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */,
+				80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80CEB1EA13606D5200425F16 = {
+			isa = PBXGroup;
+			children = (
+				80CEB1FF13606D5200425F16 /* Kitchen Samurai */,
+				80CEB1F813606D5200425F16 /* Frameworks */,
+				80CEB1F613606D5200425F16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80CEB1F613606D5200425F16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80CEB1F513606D5200425F16 /* Kitchen Samurai.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80CEB1F813606D5200425F16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80CEB1F913606D5200425F16 /* UIKit.framework */,
+				80CEB1FB13606D5200425F16 /* Foundation.framework */,
+				80CEB1FD13606D5200425F16 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80CEB1FF13606D5200425F16 /* Kitchen Samurai */ = {
+			isa = PBXGroup;
+			children = (
+				80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */,
+				80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */,
+				80CEB20B13606D5200425F16 /* MainWindow.xib */,
+				80CEB20013606D5200425F16 /* Supporting Files */,
+			);
+			path = "Kitchen Samurai";
+			sourceTree = "<group>";
+		};
+		80CEB20013606D5200425F16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				80CEB20113606D5200425F16 /* Kitchen Samurai-Info.plist */,
+				80CEB20213606D5200425F16 /* InfoPlist.strings */,
+				80CEB20513606D5200425F16 /* Kitchen Samurai-Prefix.pch */,
+				80CEB20613606D5200425F16 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80CEB1F413606D5200425F16 /* Kitchen Samurai */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80CEB21013606D5200425F16 /* Build configuration list for PBXNativeTarget "Kitchen Samurai" */;
+			buildPhases = (
+				80CEB1F113606D5200425F16 /* Sources */,
+				80CEB1F213606D5200425F16 /* Frameworks */,
+				80CEB1F313606D5200425F16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kitchen Samurai";
+			productName = "Kitchen Samurai";
+			productReference = 80CEB1F513606D5200425F16 /* Kitchen Samurai.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80CEB1EC13606D5200425F16 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 80CEB1EF13606D5200425F16 /* Build configuration list for PBXProject "Kitchen Samurai" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 80CEB1EA13606D5200425F16;
+			productRefGroup = 80CEB1F613606D5200425F16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80CEB1F413606D5200425F16 /* Kitchen Samurai */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80CEB1F313606D5200425F16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */,
+				80CEB20D13606D5200425F16 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80CEB1F113606D5200425F16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CEB20713606D5200425F16 /* main.m in Sources */,
+				80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		80CEB20213606D5200425F16 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80CEB20313606D5200425F16 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		80CEB20B13606D5200425F16 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80CEB20C13606D5200425F16 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		80CEB20E13606D5200425F16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		80CEB20F13606D5200425F16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		80CEB21113606D5200425F16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kitchen Samurai/Kitchen Samurai-Prefix.pch";
+				INFOPLIST_FILE = "Kitchen Samurai/Kitchen Samurai-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		80CEB21213606D5200425F16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kitchen Samurai/Kitchen Samurai-Prefix.pch";
+				INFOPLIST_FILE = "Kitchen Samurai/Kitchen Samurai-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80CEB1EF13606D5200425F16 /* Build configuration list for PBXProject "Kitchen Samurai" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80CEB20E13606D5200425F16 /* Debug */,
+				80CEB20F13606D5200425F16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80CEB21013606D5200425F16 /* Build configuration list for PBXNativeTarget "Kitchen Samurai" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80CEB21113606D5200425F16 /* Debug */,
+				80CEB21213606D5200425F16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80CEB1EC13606D5200425F16 /* Project object */;
+}
