@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80079E7F136078C9001ABBFD /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 80079E7D136078C9001ABBFD /* MainMenu.m */; };
+		80079E80136078C9001ABBFD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E7E136078C9001ABBFD /* MainMenu.xib */; };
+		80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E8913607CA8001ABBFD /* MainWindow.xib */; };
 		80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1F913606D5200425F16 /* UIKit.framework */; };
 		80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FB13606D5200425F16 /* Foundation.framework */; };
 		80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FD13606D5200425F16 /* CoreGraphics.framework */; };
 		80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB20213606D5200425F16 /* InfoPlist.strings */; };
 		80CEB20713606D5200425F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20613606D5200425F16 /* main.m */; };
 		80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */; };
-		80CEB20D13606D5200425F16 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB20B13606D5200425F16 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		80079E7C136078C9001ABBFD /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		80079E7D136078C9001ABBFD /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		80079E7E136078C9001ABBFD /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		80079E8913607CA8001ABBFD /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		80CEB1F513606D5200425F16 /* Kitchen Samurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Samurai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CEB1F913606D5200425F16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80CEB1FB13606D5200425F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -27,7 +33,6 @@
 		80CEB20613606D5200425F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kitchen_SamuraiAppDelegate.h; sourceTree = "<group>"; };
 		80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kitchen_SamuraiAppDelegate.m; sourceTree = "<group>"; };
-		80CEB20C13606D5200425F16 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80079E7B136078AA001ABBFD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				80079E7C136078C9001ABBFD /* MainMenu.h */,
+				80079E7D136078C9001ABBFD /* MainMenu.m */,
+				80079E7E136078C9001ABBFD /* MainMenu.xib */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		80CEB1EA13606D5200425F16 = {
 			isa = PBXGroup;
 			children = (
@@ -74,9 +89,10 @@
 		80CEB1FF13606D5200425F16 /* Kitchen Samurai */ = {
 			isa = PBXGroup;
 			children = (
+				80079E7B136078AA001ABBFD /* Source */,
 				80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */,
 				80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */,
-				80CEB20B13606D5200425F16 /* MainWindow.xib */,
+				80079E8913607CA8001ABBFD /* MainWindow.xib */,
 				80CEB20013606D5200425F16 /* Supporting Files */,
 			);
 			path = "Kitchen Samurai";
@@ -141,7 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */,
-				80CEB20D13606D5200425F16 /* MainWindow.xib in Resources */,
+				80079E80136078C9001ABBFD /* MainMenu.xib in Resources */,
+				80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +171,7 @@
 			files = (
 				80CEB20713606D5200425F16 /* main.m in Sources */,
 				80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */,
+				80079E7F136078C9001ABBFD /* MainMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,14 +184,6 @@
 				80CEB20313606D5200425F16 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		80CEB20B13606D5200425F16 /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				80CEB20C13606D5200425F16 /* en */,
-			);
-			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -260,6 +270,7 @@
 				80CEB21213606D5200425F16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

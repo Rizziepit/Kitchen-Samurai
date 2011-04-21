@@ -7,15 +7,21 @@
 //
 
 #import "Kitchen_SamuraiAppDelegate.h"
+#import "MainMenu.h"
 
 @implementation Kitchen_SamuraiAppDelegate
 
 
 @synthesize window=_window;
+@synthesize mainMenu=_mainMenu;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    MainMenu *aMainMenu = [[MainMenu alloc] initWithNibName:@"MainMenu" bundle:[NSBundle mainBundle]];
+    [self setMainMenu:aMainMenu];
+    [aMainMenu release];
     // Override point for customization after application launch.
+    self.window.rootViewController = self.mainMenu;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -62,6 +68,7 @@
 - (void)dealloc
 {
     [_window release];
+    [_mainMenu release];
     [super dealloc];
 }
 

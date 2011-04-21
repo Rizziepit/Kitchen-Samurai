@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class MainMenu;
+
 @interface Kitchen_SamuraiAppDelegate : NSObject <UIApplicationDelegate> {
 
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
+@property (nonatomic, retain) MainMenu *mainMenu;
 @end
