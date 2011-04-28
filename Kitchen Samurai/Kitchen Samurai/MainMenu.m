@@ -7,8 +7,11 @@
 //
 
 #import "MainMenu.h"
+#import "RecipeSelection.h"
 
 @implementation MainMenu
+
+@synthesize recipeSelection;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,6 +24,7 @@
 
 - (void)dealloc
 {
+    [self.recipeSelection release];
     [super dealloc];
 }
 
@@ -60,6 +64,7 @@
 }
 
 - (IBAction)showRecipes:(id)sender {
+    [self.view addSubview:recipeSelection.view];
 }
 
 - (IBAction)showInstructions:(id)sender {

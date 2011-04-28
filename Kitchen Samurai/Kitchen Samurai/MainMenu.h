@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class RecipeSelection;
+
 @interface MainMenu : UIViewController {
     
 }
+
+@property (nonatomic, retain) IBOutlet RecipeSelection *recipeSelection;
 
 - (IBAction)startNewGame:(id)sender;
 - (IBAction)continueGame:(id)sender;

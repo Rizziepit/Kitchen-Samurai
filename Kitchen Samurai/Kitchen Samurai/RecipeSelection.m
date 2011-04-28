@@ -54,4 +54,7 @@
 	return YES;
 }
 
+- (IBAction)goBack:(id)sender {
+    [self.view removeFromSuperview];
+}
 @end

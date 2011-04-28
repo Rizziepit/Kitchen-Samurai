@@ -14,8 +14,7 @@
 		8093096213697954007C1E8B /* GameScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096013697954007C1E8B /* GameScreen.xib */; };
 		8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093096D1369A4A0007C1E8B /* RecipeSelection.m */; };
 		809309701369A4A0007C1E8B /* RecipeSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096E1369A4A0007C1E8B /* RecipeSelection.xib */; };
-		809309741369A4B8007C1E8B /* Instructions.m in Sources */ = {isa = PBXBuildFile; fileRef = 809309721369A4B7007C1E8B /* Instructions.m */; };
-		809309751369A4B8007C1E8B /* Instructions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 809309731369A4B8007C1E8B /* Instructions.xib */; };
+		809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809309761369A688007C1E8B /* MediaPlayer.framework */; };
 		80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1F913606D5200425F16 /* UIKit.framework */; };
 		80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FB13606D5200425F16 /* Foundation.framework */; };
 		80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FD13606D5200425F16 /* CoreGraphics.framework */; };
@@ -35,9 +34,7 @@
 		8093096C1369A4A0007C1E8B /* RecipeSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSelection.h; sourceTree = "<group>"; };
 		8093096D1369A4A0007C1E8B /* RecipeSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSelection.m; sourceTree = "<group>"; };
 		8093096E1369A4A0007C1E8B /* RecipeSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeSelection.xib; sourceTree = "<group>"; };
-		809309711369A4B7007C1E8B /* Instructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instructions.h; sourceTree = "<group>"; };
-		809309721369A4B7007C1E8B /* Instructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instructions.m; sourceTree = "<group>"; };
-		809309731369A4B8007C1E8B /* Instructions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Instructions.xib; sourceTree = "<group>"; };
+		809309761369A688007C1E8B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		80CEB1F513606D5200425F16 /* Kitchen Samurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Samurai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CEB1F913606D5200425F16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80CEB1FB13606D5200425F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */,
 				80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */,
 				80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */,
 				80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */,
@@ -76,9 +74,6 @@
 				8093096C1369A4A0007C1E8B /* RecipeSelection.h */,
 				8093096D1369A4A0007C1E8B /* RecipeSelection.m */,
 				8093096E1369A4A0007C1E8B /* RecipeSelection.xib */,
-				809309711369A4B7007C1E8B /* Instructions.h */,
-				809309721369A4B7007C1E8B /* Instructions.m */,
-				809309731369A4B8007C1E8B /* Instructions.xib */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -103,6 +98,7 @@
 		80CEB1F813606D5200425F16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				809309761369A688007C1E8B /* MediaPlayer.framework */,
 				80CEB1F913606D5200425F16 /* UIKit.framework */,
 				80CEB1FB13606D5200425F16 /* Foundation.framework */,
 				80CEB1FD13606D5200425F16 /* CoreGraphics.framework */,
@@ -185,7 +181,6 @@
 				80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */,
 				8093096213697954007C1E8B /* GameScreen.xib in Resources */,
 				809309701369A4A0007C1E8B /* RecipeSelection.xib in Resources */,
-				809309751369A4B8007C1E8B /* Instructions.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +196,6 @@
 				80079E7F136078C9001ABBFD /* MainMenu.m in Sources */,
 				8093096113697954007C1E8B /* GameScreen.m in Sources */,
 				8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */,
-				809309741369A4B8007C1E8B /* Instructions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

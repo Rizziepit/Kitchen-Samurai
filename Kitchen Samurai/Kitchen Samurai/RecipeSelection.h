@@ -12,5 +12,6 @@
 @interface RecipeSelection : UIViewController {
     
 }
+- (IBAction)goBack:(id)sender;
 
 @end

@@ -1,24 +1,14 @@
 //
-//  Instructions.m
-//  Kitchen Samurai
+//  testingViewController.m
+//  testing
 //
 //  Created by Rizmari Versfeld on 2011/04/28.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Instructions.h"
+#import "testingViewController.h"
 
-
-@implementation Instructions
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation testingViewController
 
 - (void)dealloc
 {
@@ -35,11 +25,13 @@
 
 #pragma mark - View lifecycle
 
+/*
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
+*/
 
 - (void)viewDidUnload
 {
@@ -51,7 +43,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+    return YES;
 }
 
 @end
