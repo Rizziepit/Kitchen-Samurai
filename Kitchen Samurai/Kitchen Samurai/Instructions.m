@@ -1,14 +1,15 @@
 //
-//  MainMenu.m
+//  Instructions.m
 //  Kitchen Samurai
 //
-//  Created by Rizmari Versfeld on 2011/04/21.
+//  Created by Rizmari Versfeld on 2011/04/28.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "MainMenu.h"
+#import "Instructions.h"
 
-@implementation MainMenu
+
+@implementation Instructions
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,15 +54,4 @@
 	return YES;
 }
 
-- (IBAction)startNewGame:(id)sender {
-}
-
-- (IBAction)continueGame:(id)sender {
-}
-
-- (IBAction)showRecipes:(id)sender {
-}
-
-- (IBAction)showInstructions:(id)sender {
-}
 @end

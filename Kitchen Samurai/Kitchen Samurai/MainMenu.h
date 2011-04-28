@@ -12,10 +12,6 @@
     
 }
 
-@property (nonatomic, retain) UIView *mainMenu;
-@property (nonatomic, retain) UIView *recipeSelection;
-@property (nonatomic, retain) UIView *instructions;
-
 - (IBAction)startNewGame:(id)sender;
 - (IBAction)continueGame:(id)sender;
 - (IBAction)showRecipes:(id)sender;
