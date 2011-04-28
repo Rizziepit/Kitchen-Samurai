@@ -10,11 +10,24 @@
 
 @implementation MainMenu
 
+@synthesize mainMenu;
+@synthesize recipeSelection;
+@synthesize instructions;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nil bundle:nil];
     if (self) {
         // Custom initialization
+        UIView *aMainMenu = [[[NSBundle mainBundle] loadNibNamed:@"MainMenu" owner:self options:nil] objectAtIndex:0];
+        UIView *aRecipeSelection = [[[NSBundle mainBundle] loadNibNamed:@"MainMenu" owner:self options:nil] objectAtIndex:0];
+        UIView *aInstructions = [[[NSBundle mainBundle] loadNibNamed:@"MainMenu" owner:self options:nil] objectAtIndex:0];
+        [self setMainMenu:aMainMenu];
+        [self setRecipeSelection:aRecipeSelection];
+        [self setInstructions:aInstructions];
+        [self setView:mainMenu];
+        [aMainMenu release];
+        [aRecipeSelection release];
+        [aInstructions release];
     }
     return self;
 }
