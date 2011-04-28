@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class MainMenu;
+@class GameScreen;
 
 @interface Kitchen_SamuraiAppDelegate : NSObject <UIApplicationDelegate> {
 
@@ -16,4 +17,5 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) MainMenu *mainMenu;
+@property (nonatomic, retain) GameScreen *gameScreen;
 @end

@@ -8,18 +8,23 @@
 
 #import "Kitchen_SamuraiAppDelegate.h"
 #import "MainMenu.h"
+#import "GameScreen.h"
 
 @implementation Kitchen_SamuraiAppDelegate
 
 
 @synthesize window=_window;
 @synthesize mainMenu=_mainMenu;
+@synthesize gameScreen=_gameScreen;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     MainMenu *aMainMenu = [[MainMenu alloc] initWithNibName:@"MainMenu" bundle:[NSBundle mainBundle]];
     [self setMainMenu:aMainMenu];
     [aMainMenu release];
+    GameScreen *aGameScreen = [[GameScreen alloc] initWithNibName:@"GameScreen" bundle:[NSBundle mainBundle]];
+    [self setGameScreen:aGameScreen];
+    [aGameScreen release];
     // Override point for customization after application launch.
     self.window.rootViewController = self.mainMenu;
     [self.window makeKeyAndVisible];
@@ -69,6 +74,7 @@
 {
     [_window release];
     [_mainMenu release];
+    [_gameScreen release];
     [super dealloc];
 }
 

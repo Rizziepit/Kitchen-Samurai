@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface MainMenu : UIViewController {
     
 }
+- (IBAction)startNewGame:(id)sender;
+- (IBAction)continueGame:(id)sender;
+- (IBAction)showRecipes:(id)sender;
+- (IBAction)showInstructions:(id)sender;
 
 @end
