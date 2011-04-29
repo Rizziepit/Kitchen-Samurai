@@ -28,7 +28,33 @@
     // Override point for customization after application launch.
     self.window.rootViewController = self.mainMenu;
     [self.window makeKeyAndVisible];
+    
+    [self loadPlist];
+    
     return YES;
+}
+
+- (void)loadPlist
+{
+    NSString* path = [[NSBundle mainBundle] bundlePath];
+    NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
+    
+    NSDictionary* tempDict = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
+    NSDictionary* recipe = [tempDict valueForKey:@"1"];
+    NSString* name = [recipe valueForKey:@"Name"];
+    int dif = [[recipe valueForKey:@"Difficulty"] intValue];
+    BOOL* unlocked = [recipe valueForKey:@"Unlocked"];
+    
+    
+    NSLog(@"%@ With Difficulty of %i has been unlocked %@",name,dif,unlocked);
+    
+    NSDictionary* recipe2 = [tempDict valueForKey:@"2"];
+    NSString* name2 = [recipe2 valueForKey:@"Name"];
+    int dif2 = [[recipe2 valueForKey:@"Difficulty"] intValue];
+    BOOL* unlocked2 = [recipe2 valueForKey:@"Unlocked"];
+    
+    
+    NSLog(@"%@ With Difficulty of %i has been unlocked %@",name2,dif2,unlocked2);   
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

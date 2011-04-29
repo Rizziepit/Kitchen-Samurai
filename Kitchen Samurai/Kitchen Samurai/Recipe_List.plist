@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<dict>
+		<key>Difficulty</key>
+		<integer>3</integer>
+		<key>Ingreditents</key>
+		<dict>
+			<key>Carrot</key>
+			<integer>1</integer>
+			<key>Celery</key>
+			<integer>1</integer>
+			<key>Onion</key>
+			<integer>1</integer>
+			<key>Tomato</key>
+			<integer>4</integer>
+		</dict>
+		<key>Name</key>
+		<string>Tomato Soup</string>
+		<key>Rating</key>
+		<integer>5</integer>
+		<key>Unlocked</key>
+		<true/>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>Difficulty</key>
+		<integer>2</integer>
+		<key>Ingredients</key>
+		<dict>
+			<key>Carrot</key>
+			<integer>1</integer>
+			<key>Celery</key>
+			<integer>1</integer>
+			<key>Onion</key>
+			<integer>1</integer>
+			<key>Tomato</key>
+			<integer>4</integer>
+		</dict>
+		<key>Name</key>
+		<string>Spiced Carot and Lentil Soup</string>
+		<key>Rating</key>
+		<integer>0</integer>
+		<key>Unlocked</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

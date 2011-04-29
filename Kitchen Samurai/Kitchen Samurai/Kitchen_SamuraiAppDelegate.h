@@ -15,6 +15,8 @@
 
 }
 
+-(void)loadPlist;
+
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) MainMenu *mainMenu;
 @property (nonatomic, retain) GameScreen *gameScreen;
