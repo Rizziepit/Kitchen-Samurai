@@ -10,8 +10,11 @@
 
 
 @interface RecipeSelection : UIViewController {
-    
+    UILabel *Recipe_Name;
 }
+- (void)loadRecipeList;
 - (IBAction)goBack:(id)sender;
+@property (nonatomic, retain) IBOutlet UILabel *Recipe_Name;
+
 
 @end

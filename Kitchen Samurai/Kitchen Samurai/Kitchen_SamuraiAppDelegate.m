@@ -29,7 +29,7 @@
     self.window.rootViewController = self.mainMenu;
     [self.window makeKeyAndVisible];
     
-    [self loadPlist];
+    //[self loadPlist];
     
     return YES;
 }
