@@ -20,15 +20,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"video_test" ofType:@"mp4"];
-        NSURL *url = [[NSURL fileURLWithPath:path] retain];
-        self.videoURL = url;
-        [url release];
-        MPMoviePlayerViewController *vd = [[MPMoviePlayerViewController alloc] initWithContentURL:self.videoURL];
-        vd.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
-        [vd shouldAutorotateToInterfaceOrientation:YES];
-        self.instructions = vd;
-        [vd release];
     }
     return self;
 }
@@ -90,7 +81,22 @@
 
 - (IBAction)showInstructions:(id)sender {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(instructionVideoDone:) name:MPMoviePlayerPlaybackDidFinishNotification object:[instructions moviePlayer]];
+    if (instructions == nil)
+    {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"video_test" ofType:@"mp4"];
+        NSURL *url = [[NSURL fileURLWithPath:path] retain];
+        self.videoURL = url;
+        [url release];
+        MPMoviePlayerViewController *vd = [[MPMoviePlayerViewController alloc] initWithContentURL:self.videoURL];
+        vd.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+        [vd shouldAutorotateToInterfaceOrientation:YES];
+        self.instructions = vd;
+        [vd release];
+    }
+    else
+    {
+        [instructions.moviePlayer play];
+    }
     [self.view addSubview:instructions.view];
-    [instructions.moviePlayer play];
 }
 @end
