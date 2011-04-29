@@ -5,7 +5,7 @@
 	<key>1</key>
 	<dict>
 		<key>Difficulty</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>Ingreditents</key>
 		<dict>
 			<key>Carrot</key>
@@ -27,6 +27,26 @@
 	<key>2</key>
 	<dict>
 		<key>Difficulty</key>
+		<integer>1</integer>
+		<key>Ingreditents</key>
+		<dict>
+			<key>Butternut</key>
+			<integer>2</integer>
+			<key>Garlic</key>
+			<integer>2</integer>
+			<key>Onion</key>
+			<integer>2</integer>
+		</dict>
+		<key>Name</key>
+		<string>Butternut Soup</string>
+		<key>Rating</key>
+		<integer>0</integer>
+		<key>Unlocked</key>
+		<true/>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>Difficulty</key>
 		<integer>2</integer>
 		<key>Ingredients</key>
 		<dict>
@@ -41,6 +61,36 @@
 		</dict>
 		<key>Name</key>
 		<string>Spiced Carot and Lentil Soup</string>
+		<key>Rating</key>
+		<integer>0</integer>
+		<key>Unlocked</key>
+		<false/>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>Difficulty</key>
+		<integer>3</integer>
+		<key>Ingredients</key>
+		<dict>
+			<key>Garlic</key>
+			<integer>1</integer>
+			<key>Carrot</key>
+			<integer>3</integer>
+			<key>Turnips</key>
+			<integer>2</integer>
+			<key>Celery</key>
+			<integer>2</integer>
+			<key>Baby Marrow</key>
+			<integer>4</integer>
+			<key>Butternut</key>
+			<integer>1</integer>
+			<key>Brinjal</key>
+			<integer>2</integer>
+			<key>Corn</key>
+			<string>2</string>
+		</dict>
+		<key>Name</key>
+		<string>Vegetable Soup</string>
 		<key>Rating</key>
 		<integer>0</integer>
 		<key>Unlocked</key>

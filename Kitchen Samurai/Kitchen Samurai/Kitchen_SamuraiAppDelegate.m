@@ -38,23 +38,20 @@
 {
     NSString* path = [[NSBundle mainBundle] bundlePath];
     NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
+    NSDictionary* recipeList = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
     
-    NSDictionary* tempDict = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
-    NSDictionary* recipe = [tempDict valueForKey:@"1"];
-    NSString* name = [recipe valueForKey:@"Name"];
-    int dif = [[recipe valueForKey:@"Difficulty"] intValue];
-    BOOL* unlocked = [recipe valueForKey:@"Unlocked"];
+    for (NSString *key in recipeList)
+    {
+        NSDictionary* recipe = [recipeList valueForKey:key];
+        NSString* name = [recipe valueForKey:@"Name"];
+        int dif = [[recipe valueForKey:@"Difficulty"] intValue];
+        BOOL unlocked = [[recipe objectForKey:@"Unlocked"] boolValue];
+        
+        
+        NSLog(@"Recipe No : %@ is %@ With Difficulty of %i has been unlocked %i",key,name,dif,unlocked);
+
+    }
     
-    
-    NSLog(@"%@ With Difficulty of %i has been unlocked %@",name,dif,unlocked);
-    
-    NSDictionary* recipe2 = [tempDict valueForKey:@"2"];
-    NSString* name2 = [recipe2 valueForKey:@"Name"];
-    int dif2 = [[recipe2 valueForKey:@"Difficulty"] intValue];
-    BOOL* unlocked2 = [recipe2 valueForKey:@"Unlocked"];
-    
-    
-    NSLog(@"%@ With Difficulty of %i has been unlocked %@",name2,dif2,unlocked2);   
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
