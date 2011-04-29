@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80079E7F136078C9001ABBFD /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 80079E7D136078C9001ABBFD /* MainMenu.m */; };
+		80079E80136078C9001ABBFD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E7E136078C9001ABBFD /* MainMenu.xib */; };
+		80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E8913607CA8001ABBFD /* MainWindow.xib */; };
+		8093096113697954007C1E8B /* GameScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093095F13697954007C1E8B /* GameScreen.m */; };
+		8093096213697954007C1E8B /* GameScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096013697954007C1E8B /* GameScreen.xib */; };
+		8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093096D1369A4A0007C1E8B /* RecipeSelection.m */; };
+		809309701369A4A0007C1E8B /* RecipeSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096E1369A4A0007C1E8B /* RecipeSelection.xib */; };
+		809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809309761369A688007C1E8B /* MediaPlayer.framework */; };
+		80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1F913606D5200425F16 /* UIKit.framework */; };
+		80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FB13606D5200425F16 /* Foundation.framework */; };
+		80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FD13606D5200425F16 /* CoreGraphics.framework */; };
+		80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB20213606D5200425F16 /* InfoPlist.strings */; };
+		80CEB20713606D5200425F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20613606D5200425F16 /* main.m */; };
+		80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */; };
+		E078BE87136A204000818E87 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E078BE80136A204000818E87 /* back_button.png */; };
+		E078BE88136A204000818E87 /* continue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E078BE81136A204000818E87 /* continue_button.png */; };
+		E078BE89136A204000818E87 /* cook_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E078BE82136A204000818E87 /* cook_button.png */; };
+		E078BE8A136A204000818E87 /* instructions_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E078BE83136A204000818E87 /* instructions_button.png */; };
+		E078BE8B136A204000818E87 /* new_game_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E078BE84136A204000818E87 /* new_game_button.png */; };
+		E078BE8C136A204000818E87 /* pick_recipe_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E078BE85136A204000818E87 /* pick_recipe_button.png */; };
+		E078BE8D136A204000818E87 /* rising_sun_yellow2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E078BE86136A204000818E87 /* rising_sun_yellow2.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		80079E7C136078C9001ABBFD /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		80079E7D136078C9001ABBFD /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		80079E7E136078C9001ABBFD /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		80079E8913607CA8001ABBFD /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		8093095E13697954007C1E8B /* GameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreen.h; sourceTree = "<group>"; };
+		8093095F13697954007C1E8B /* GameScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreen.m; sourceTree = "<group>"; };
+		8093096013697954007C1E8B /* GameScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameScreen.xib; sourceTree = "<group>"; };
+		8093096C1369A4A0007C1E8B /* RecipeSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSelection.h; sourceTree = "<group>"; };
+		8093096D1369A4A0007C1E8B /* RecipeSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSelection.m; sourceTree = "<group>"; };
+		8093096E1369A4A0007C1E8B /* RecipeSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeSelection.xib; sourceTree = "<group>"; };
+		809309761369A688007C1E8B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		80CEB1F513606D5200425F16 /* Kitchen Samurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Samurai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80CEB1F913606D5200425F16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		80CEB1FB13606D5200425F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		80CEB1FD13606D5200425F16 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		80CEB20113606D5200425F16 /* Kitchen Samurai-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Kitchen Samurai-Info.plist"; sourceTree = "<group>"; };
+		80CEB20313606D5200425F16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		80CEB20513606D5200425F16 /* Kitchen Samurai-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kitchen Samurai-Prefix.pch"; sourceTree = "<group>"; };
+		80CEB20613606D5200425F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kitchen_SamuraiAppDelegate.h; sourceTree = "<group>"; };
+		80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kitchen_SamuraiAppDelegate.m; sourceTree = "<group>"; };
+		E078BE80136A204000818E87 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_button.png; sourceTree = "<group>"; };
+		E078BE81136A204000818E87 /* continue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = continue_button.png; sourceTree = "<group>"; };
+		E078BE82136A204000818E87 /* cook_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cook_button.png; sourceTree = "<group>"; };
+		E078BE83136A204000818E87 /* instructions_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructions_button.png; sourceTree = "<group>"; };
+		E078BE84136A204000818E87 /* new_game_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_game_button.png; sourceTree = "<group>"; };
+		E078BE85136A204000818E87 /* pick_recipe_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pick_recipe_button.png; sourceTree = "<group>"; };
+		E078BE86136A204000818E87 /* rising_sun_yellow2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rising_sun_yellow2.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80CEB1F213606D5200425F16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */,
+				80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */,
+				80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */,
+				80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80079E7B136078AA001ABBFD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				80079E7C136078C9001ABBFD /* MainMenu.h */,
+				80079E7D136078C9001ABBFD /* MainMenu.m */,
+				80079E7E136078C9001ABBFD /* MainMenu.xib */,
+				8093095E13697954007C1E8B /* GameScreen.h */,
+				8093095F13697954007C1E8B /* GameScreen.m */,
+				8093096013697954007C1E8B /* GameScreen.xib */,
+				8093096C1369A4A0007C1E8B /* RecipeSelection.h */,
+				8093096D1369A4A0007C1E8B /* RecipeSelection.m */,
+				8093096E1369A4A0007C1E8B /* RecipeSelection.xib */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		80CEB1EA13606D5200425F16 = {
+			isa = PBXGroup;
+			children = (
+				80CEB1FF13606D5200425F16 /* Kitchen Samurai */,
+				80CEB1F813606D5200425F16 /* Frameworks */,
+				80CEB1F613606D5200425F16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80CEB1F613606D5200425F16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80CEB1F513606D5200425F16 /* Kitchen Samurai.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80CEB1F813606D5200425F16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				809309761369A688007C1E8B /* MediaPlayer.framework */,
+				80CEB1F913606D5200425F16 /* UIKit.framework */,
+				80CEB1FB13606D5200425F16 /* Foundation.framework */,
+				80CEB1FD13606D5200425F16 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80CEB1FF13606D5200425F16 /* Kitchen Samurai */ = {
+			isa = PBXGroup;
+			children = (
+				E0A5B6EE1369FB3400408241 /* Assets */,
+				80079E7B136078AA001ABBFD /* Source */,
+				80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */,
+				80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */,
+				80079E8913607CA8001ABBFD /* MainWindow.xib */,
+				80CEB20013606D5200425F16 /* Supporting Files */,
+			);
+			path = "Kitchen Samurai";
+			sourceTree = "<group>";
+		};
+		80CEB20013606D5200425F16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				80CEB20113606D5200425F16 /* Kitchen Samurai-Info.plist */,
+				80CEB20213606D5200425F16 /* InfoPlist.strings */,
+				80CEB20513606D5200425F16 /* Kitchen Samurai-Prefix.pch */,
+				80CEB20613606D5200425F16 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E0A5B6EE1369FB3400408241 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E078BE80136A204000818E87 /* back_button.png */,
+				E078BE81136A204000818E87 /* continue_button.png */,
+				E078BE82136A204000818E87 /* cook_button.png */,
+				E078BE83136A204000818E87 /* instructions_button.png */,
+				E078BE84136A204000818E87 /* new_game_button.png */,
+				E078BE85136A204000818E87 /* pick_recipe_button.png */,
+				E078BE86136A204000818E87 /* rising_sun_yellow2.jpg */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80CEB1F413606D5200425F16 /* Kitchen Samurai */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80CEB21013606D5200425F16 /* Build configuration list for PBXNativeTarget "Kitchen Samurai" */;
+			buildPhases = (
+				80CEB1F113606D5200425F16 /* Sources */,
+				80CEB1F213606D5200425F16 /* Frameworks */,
+				80CEB1F313606D5200425F16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kitchen Samurai";
+			productName = "Kitchen Samurai";
+			productReference = 80CEB1F513606D5200425F16 /* Kitchen Samurai.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80CEB1EC13606D5200425F16 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 80CEB1EF13606D5200425F16 /* Build configuration list for PBXProject "Kitchen Samurai" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 80CEB1EA13606D5200425F16;
+			productRefGroup = 80CEB1F613606D5200425F16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80CEB1F413606D5200425F16 /* Kitchen Samurai */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80CEB1F313606D5200425F16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */,
+				80079E80136078C9001ABBFD /* MainMenu.xib in Resources */,
+				80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */,
+				8093096213697954007C1E8B /* GameScreen.xib in Resources */,
+				809309701369A4A0007C1E8B /* RecipeSelection.xib in Resources */,
+				E078BE87136A204000818E87 /* back_button.png in Resources */,
+				E078BE88136A204000818E87 /* continue_button.png in Resources */,
+				E078BE89136A204000818E87 /* cook_button.png in Resources */,
+				E078BE8A136A204000818E87 /* instructions_button.png in Resources */,
+				E078BE8B136A204000818E87 /* new_game_button.png in Resources */,
+				E078BE8C136A204000818E87 /* pick_recipe_button.png in Resources */,
+				E078BE8D136A204000818E87 /* rising_sun_yellow2.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80CEB1F113606D5200425F16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80CEB20713606D5200425F16 /* main.m in Sources */,
+				80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */,
+				80079E7F136078C9001ABBFD /* MainMenu.m in Sources */,
+				8093096113697954007C1E8B /* GameScreen.m in Sources */,
+				8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		80CEB20213606D5200425F16 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80CEB20313606D5200425F16 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		80CEB20E13606D5200425F16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		80CEB20F13606D5200425F16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		80CEB21113606D5200425F16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kitchen Samurai/Kitchen Samurai-Prefix.pch";
+				INFOPLIST_FILE = "Kitchen Samurai/Kitchen Samurai-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		80CEB21213606D5200425F16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Kitchen Samurai/Kitchen Samurai-Prefix.pch";
+				INFOPLIST_FILE = "Kitchen Samurai/Kitchen Samurai-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80CEB1EF13606D5200425F16 /* Build configuration list for PBXProject "Kitchen Samurai" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80CEB20E13606D5200425F16 /* Debug */,
+				80CEB20F13606D5200425F16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80CEB21013606D5200425F16 /* Build configuration list for PBXNativeTarget "Kitchen Samurai" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80CEB21113606D5200425F16 /* Debug */,
+				80CEB21213606D5200425F16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80CEB1EC13606D5200425F16 /* Project object */;
+}
