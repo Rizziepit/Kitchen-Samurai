@@ -11,6 +11,7 @@
 		80079E7F136078C9001ABBFD /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 80079E7D136078C9001ABBFD /* MainMenu.m */; };
 		80079E80136078C9001ABBFD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E7E136078C9001ABBFD /* MainMenu.xib */; };
 		80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E8913607CA8001ABBFD /* MainWindow.xib */; };
+		808A4E8C136AD1CF0058C7DA /* video_test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 808A4E8B136AD1CF0058C7DA /* video_test.mp4 */; };
 		8093096113697954007C1E8B /* GameScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093095F13697954007C1E8B /* GameScreen.m */; };
 		8093096213697954007C1E8B /* GameScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096013697954007C1E8B /* GameScreen.xib */; };
 		8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093096D1369A4A0007C1E8B /* RecipeSelection.m */; };
@@ -37,6 +38,7 @@
 		80079E7D136078C9001ABBFD /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		80079E7E136078C9001ABBFD /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		80079E8913607CA8001ABBFD /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		808A4E8B136AD1CF0058C7DA /* video_test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_test.mp4; sourceTree = "<group>"; };
 		8093095E13697954007C1E8B /* GameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreen.h; sourceTree = "<group>"; };
 		8093095F13697954007C1E8B /* GameScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreen.m; sourceTree = "<group>"; };
 		8093096013697954007C1E8B /* GameScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameScreen.xib; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		E0A5B6EE1369FB3400408241 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				808A4E8B136AD1CF0058C7DA /* video_test.mp4 */,
 				E078BE80136A204000818E87 /* back_button.png */,
 				E078BE81136A204000818E87 /* continue_button.png */,
 				E078BE82136A204000818E87 /* cook_button.png */,
@@ -221,6 +224,7 @@
 				E078BE8C136A204000818E87 /* pick_recipe_button.png in Resources */,
 				E078BE8D136A204000818E87 /* rising_sun_yellow2.jpg in Resources */,
 				3AF89E7F136AB1C300AA5905 /* Recipe_List.plist in Resources */,
+				808A4E8C136AD1CF0058C7DA /* video_test.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

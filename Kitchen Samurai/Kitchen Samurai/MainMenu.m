@@ -12,12 +12,23 @@
 @implementation MainMenu
 
 @synthesize recipeSelection;
+@synthesize instructions;
+@synthesize videoURL;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"video_test" ofType:@"mp4"];
+        NSURL *url = [[NSURL fileURLWithPath:path] retain];
+        self.videoURL = url;
+        [url release];
+        MPMoviePlayerViewController *vd = [[MPMoviePlayerViewController alloc] initWithContentURL:self.videoURL];
+        vd.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+        [vd shouldAutorotateToInterfaceOrientation:YES];
+        self.instructions = vd;
+        [vd release];
     }
     return self;
 }
@@ -25,6 +36,8 @@
 - (void)dealloc
 {
     [self.recipeSelection release];
+    [self.instructions release];
+    [self.videoURL release];
     [super dealloc];
 }
 
@@ -57,6 +70,14 @@
 	return YES;
 }
 
+- (void)instructionVideoDone:(NSNotification*)aNotification
+{
+    MPMoviePlayerController *player = [aNotification object];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+    [player stop];
+    [instructions.view removeFromSuperview];
+}
+
 - (IBAction)startNewGame:(id)sender {
 }
 
@@ -68,5 +89,8 @@
 }
 
 - (IBAction)showInstructions:(id)sender {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(instructionVideoDone:) name:MPMoviePlayerPlaybackDidFinishNotification object:[instructions moviePlayer]];
+    [self.view addSubview:instructions.view];
+    [instructions.moviePlayer play];
 }
 @end

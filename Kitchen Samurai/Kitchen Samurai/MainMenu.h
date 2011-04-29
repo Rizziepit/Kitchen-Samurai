@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @class RecipeSelection;
 
@@ -15,6 +16,10 @@
 }
 
 @property (nonatomic, retain) IBOutlet RecipeSelection *recipeSelection;
+@property (readwrite, retain) MPMoviePlayerViewController *instructions;
+@property (nonatomic, retain) NSURL *videoURL;
+
+- (void)instructionVideoDone:(NSNotification*)aNotification;
 
 - (IBAction)startNewGame:(id)sender;
 - (IBAction)continueGame:(id)sender;
