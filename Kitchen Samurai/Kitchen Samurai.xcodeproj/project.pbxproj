@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A233B551371B471006A97FA /* 0stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B4E1371B471006A97FA /* 0stars_large.png */; };
+		3A233B561371B471006A97FA /* 1stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B4F1371B471006A97FA /* 1stars_large.png */; };
+		3A233B571371B471006A97FA /* 2stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B501371B471006A97FA /* 2stars_large.png */; };
+		3A233B581371B471006A97FA /* 3stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B511371B471006A97FA /* 3stars_large.png */; };
+		3A233B591371B471006A97FA /* 4stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B521371B471006A97FA /* 4stars_large.png */; };
+		3A233B5A1371B471006A97FA /* 5stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B531371B471006A97FA /* 5stars_large.png */; };
+		3A233B5B1371B471006A97FA /* recipe_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B541371B471006A97FA /* recipe_frame.png */; };
 		3A25C1F6137055E300689C28 /* recipe_button_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1F4137055E300689C28 /* recipe_button_locked.png */; };
 		3A25C1F7137055E300689C28 /* recipe_button_unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1F5137055E300689C28 /* recipe_button_unlocked.png */; };
 		3A25C1FF1370895F00689C28 /* 0_stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1F91370895F00689C28 /* 0_stars.png */; };
@@ -42,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A233B4E1371B471006A97FA /* 0stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0stars_large.png; sourceTree = "<group>"; };
+		3A233B4F1371B471006A97FA /* 1stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1stars_large.png; sourceTree = "<group>"; };
+		3A233B501371B471006A97FA /* 2stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2stars_large.png; sourceTree = "<group>"; };
+		3A233B511371B471006A97FA /* 3stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3stars_large.png; sourceTree = "<group>"; };
+		3A233B521371B471006A97FA /* 4stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4stars_large.png; sourceTree = "<group>"; };
+		3A233B531371B471006A97FA /* 5stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5stars_large.png; sourceTree = "<group>"; };
+		3A233B541371B471006A97FA /* recipe_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_frame.png; sourceTree = "<group>"; };
 		3A25C1F4137055E300689C28 /* recipe_button_locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_button_locked.png; sourceTree = "<group>"; };
 		3A25C1F5137055E300689C28 /* recipe_button_unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_button_unlocked.png; sourceTree = "<group>"; };
 		3A25C1F91370895F00689C28 /* 0_stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0_stars.png; sourceTree = "<group>"; };
@@ -98,6 +112,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A233B4C1371B448006A97FA /* Detailed Recipe View Items */ = {
+			isa = PBXGroup;
+			children = (
+				3A233B4E1371B471006A97FA /* 0stars_large.png */,
+				3A233B4F1371B471006A97FA /* 1stars_large.png */,
+				3A233B501371B471006A97FA /* 2stars_large.png */,
+				3A233B511371B471006A97FA /* 3stars_large.png */,
+				3A233B521371B471006A97FA /* 4stars_large.png */,
+				3A233B531371B471006A97FA /* 5stars_large.png */,
+				3A233B541371B471006A97FA /* recipe_frame.png */,
+			);
+			name = "Detailed Recipe View Items";
+			sourceTree = "<group>";
+		};
 		80079E7B136078AA001ABBFD /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +202,7 @@
 				808A4E8B136AD1CF0058C7DA /* video_test.mp4 */,
 				3A25C1F4137055E300689C28 /* recipe_button_locked.png */,
 				3A25C1F5137055E300689C28 /* recipe_button_unlocked.png */,
+				3A233B4C1371B448006A97FA /* Detailed Recipe View Items */,
 				E078BE80136A204000818E87 /* back_button.png */,
 				3A25C1F91370895F00689C28 /* 0_stars.png */,
 				3A25C1FA1370895F00689C28 /* 1_stars.png */,
@@ -261,6 +290,13 @@
 				3A25C2021370895F00689C28 /* 3_stars.png in Resources */,
 				3A25C2031370895F00689C28 /* 4_stars.png in Resources */,
 				3A25C2041370895F00689C28 /* 5_stars.png in Resources */,
+				3A233B551371B471006A97FA /* 0stars_large.png in Resources */,
+				3A233B561371B471006A97FA /* 1stars_large.png in Resources */,
+				3A233B571371B471006A97FA /* 2stars_large.png in Resources */,
+				3A233B581371B471006A97FA /* 3stars_large.png in Resources */,
+				3A233B591371B471006A97FA /* 4stars_large.png in Resources */,
+				3A233B5A1371B471006A97FA /* 5stars_large.png in Resources */,
+				3A233B5B1371B471006A97FA /* recipe_frame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

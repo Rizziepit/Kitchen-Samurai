@@ -21,6 +21,8 @@
 - (UIButton *)getButtonAtIndex:(NSInteger)index;
 - (UIImageView *)getImageAtIndex:(NSInteger)index;
 - (IBAction)goBack:(id)sender;
+- (IBAction)close:(id)sender;
+- (IBAction)getRecipe:(id)sender;
 @property (nonatomic, retain) IBOutlet UIImageView *Lock;
 @property (nonatomic, retain) IBOutlet UIImageView *rating;
 

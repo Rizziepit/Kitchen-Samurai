@@ -108,6 +108,7 @@
     return nil;
 }
 
+
 - (UIImageView *)getImageAtIndex:(NSInteger)index
 {
     for (UIView *v in self.view.subviews)
@@ -222,6 +223,23 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (IBAction)close:(id)sender
+{
+    UIView* tmpDetails = [self.view viewWithTag:222];
+    tmpDetails.hidden = YES;
+    
+    tmpDetails = nil;
+}
+
+- (IBAction)getRecipe:(id)sender
+{
+    //UIImageView* tmpDetails = [self getImageAtIndex:13];
+    UIView* tmpDetails = [self.view viewWithTag:222];
+    tmpDetails.hidden = NO;
+    
+    tmpDetails = nil;
 }
 
 - (IBAction)goBack:(id)sender {
