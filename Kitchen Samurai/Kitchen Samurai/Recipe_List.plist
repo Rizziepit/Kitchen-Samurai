@@ -40,7 +40,7 @@
 		<key>Name</key>
 		<string>Butternut Soup</string>
 		<key>Rating</key>
-		<integer>0</integer>
+		<integer>3</integer>
 		<key>Unlocked</key>
 		<true/>
 	</dict>
@@ -62,9 +62,9 @@
 		<key>Name</key>
 		<string>Spiced Carot and Lentil Soup</string>
 		<key>Rating</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>Unlocked</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>4</key>
 	<dict>
@@ -72,29 +72,29 @@
 		<integer>3</integer>
 		<key>Ingredients</key>
 		<dict>
-			<key>Garlic</key>
+			<key>Baby Marrow</key>
+			<integer>4</integer>
+			<key>Brinjal</key>
+			<integer>2</integer>
+			<key>Butternut</key>
 			<integer>1</integer>
 			<key>Carrot</key>
 			<integer>3</integer>
-			<key>Turnips</key>
-			<integer>2</integer>
 			<key>Celery</key>
-			<integer>2</integer>
-			<key>Baby Marrow</key>
-			<integer>4</integer>
-			<key>Butternut</key>
-			<integer>1</integer>
-			<key>Brinjal</key>
 			<integer>2</integer>
 			<key>Corn</key>
 			<string>2</string>
+			<key>Garlic</key>
+			<integer>1</integer>
+			<key>Turnips</key>
+			<integer>2</integer>
 		</dict>
 		<key>Name</key>
 		<string>Vegetable Soup</string>
 		<key>Rating</key>
 		<integer>0</integer>
 		<key>Unlocked</key>
-		<false/>
+		<true/>
 	</dict>
 </dict>
 </plist>

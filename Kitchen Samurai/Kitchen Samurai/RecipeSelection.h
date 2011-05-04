@@ -10,11 +10,19 @@
 
 
 @interface RecipeSelection : UIViewController {
-    UILabel *Recipe_Name;
+    UIImageView *Lock;
+    UIImageView *rating;
+    NSMutableArray* starsArray;
 }
 - (void)loadRecipeList;
+- (void) createLabels;
+- (void) createButtons;
+- (UILabel *)getLabelAtIndex:(NSInteger)index;
+- (UIButton *)getButtonAtIndex:(NSInteger)index;
+- (UIImageView *)getImageAtIndex:(NSInteger)index;
 - (IBAction)goBack:(id)sender;
-@property (nonatomic, retain) IBOutlet UILabel *Recipe_Name;
+@property (nonatomic, retain) IBOutlet UIImageView *Lock;
+@property (nonatomic, retain) IBOutlet UIImageView *rating;
 
 
 @end
