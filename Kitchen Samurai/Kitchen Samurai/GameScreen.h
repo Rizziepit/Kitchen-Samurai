@@ -18,4 +18,6 @@
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
 @property (nonatomic, retain) Game *game;
 
+- (IBAction)quitGameButtonClicked:(id)sender;
+
 @end

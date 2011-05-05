@@ -31,6 +31,11 @@
     [super dealloc];
 }
 
+-(void)quitGameButtonClicked:(id)sender{
+    [game endGame];
+    [self.appDelegate switchToMenu];
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -45,6 +50,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    
+    //Countdown before game starts running
+    
+    
+    //Start Game
+
+    [game startGame];
+    
 }
 
 - (void)viewDidUnload

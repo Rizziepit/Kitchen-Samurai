@@ -17,20 +17,23 @@
 
 - (id)init
 {
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(gameLoop)];
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(gameLoop:)];
     [self.displayLink setFrameInterval:1];
     return self;
 }
 
-// initialise game with saved data
+// initialise game with saved datas
 - (void)startGame
 {
-    //[self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    NSLog(@"Starting game...");
+
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    //Riz, caddisplaylink wasnt working coz u put gameLoop as the selector instead of gameLoop: haha
 }
 
 - (void)endGame
 {
-    //[self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 - (void)pauseGame
@@ -45,7 +48,23 @@
 
 - (void)gameLoop:(CADisplayLink *)sender
 {
-    NSLog(@"frame call");
+    [self generateIngredientIfNecessary];
+    [self moveAndCatchIngredients];
+   // [gameScreen.view setNeedsDisplay];
+    //NSLog(@"frame call");
+}
+
+- (void)generateIngredientIfNecessary{
+    //Simple unbalanced one for now, just generates with 0.1%chance
+    if (rand()%100<1){
+        NSLog(@"Starting game...");
+
+    }
+    
+}
+
+-(void) moveAndCatchIngredients{
+    
 }
 
 - (void)dealloc

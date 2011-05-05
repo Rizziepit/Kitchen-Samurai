@@ -120,7 +120,7 @@
 - (void)switchToGame
 {
     self.window.rootViewController = self.gameScreen;
-    [self.game startGame];
+    //[self.game startGame]; Riz, i moved this to viewdidload in gamescreen.m, delete this line and comment when read if ok
 }
 
 - (void)switchToMenu

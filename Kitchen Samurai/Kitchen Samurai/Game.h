@@ -19,6 +19,8 @@
 - (void) pauseGame;
 - (void) continueGame;
 - (void) gameLoop:(CADisplayLink *)sender;
+- (void) generateIngredientIfNecessary;
+- (void) moveAndCatchIngredients;
 
 @property (nonatomic, retain) GameScreen *gameScreen;
 @property (nonatomic) BOOL isPaused;
