@@ -49,14 +49,14 @@
 
 - (void)gameLoop:(CADisplayLink *)sender
 {
-    [self generateIngredientIfNecessary];
+    [self runIngredientGenerator];
     [self moveAndCatchIngredients: [sender timestamp]];
     //[gameScreen.view setNeedsDisplay];
     //NSLog(@"frame call");
 }
 
-- (void)generateIngredientIfNecessary{
-    //Simple unbalanced one for now, just generates with 0.1%chance
+- (void)runIngredientGenerator{
+    //Simple unbalanced one for now, just generates with 1%chance each frame
     if (rand()%100<1){
         
         //to do: decide on type, starting position, 

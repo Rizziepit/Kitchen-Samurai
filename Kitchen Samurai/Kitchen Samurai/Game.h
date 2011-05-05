@@ -20,7 +20,7 @@
 - (void) pauseGame;
 - (void) continueGame;
 - (void) gameLoop:(CADisplayLink *)sender;
-- (void) generateIngredientIfNecessary;
+- (void) runIngredientGenerator;
 - (void) moveAndCatchIngredients:(float) timepassed;
 
 @property (nonatomic, retain) GameScreen *gameScreen;
