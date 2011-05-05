@@ -7,9 +7,13 @@
 //
 
 #import "GameScreen.h"
-
+#import "Kitchen_SamuraiAppDelegate.h"
+#import "Game.h"
 
 @implementation GameScreen
+
+@synthesize appDelegate;
+@synthesize game;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +26,8 @@
 
 - (void)dealloc
 {
+    [appDelegate release];
+    [game release];
     [super dealloc];
 }
 

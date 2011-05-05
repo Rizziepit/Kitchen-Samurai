@@ -9,6 +9,7 @@
 #import "Kitchen_SamuraiAppDelegate.h"
 #import "MainMenu.h"
 #import "GameScreen.h"
+#import "Game.h"
 
 @implementation Kitchen_SamuraiAppDelegate
 
@@ -16,15 +17,29 @@
 @synthesize window=_window;
 @synthesize mainMenu=_mainMenu;
 @synthesize gameScreen=_gameScreen;
+@synthesize game=_game;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    Game *aGame = [[Game alloc] init];
     MainMenu *aMainMenu = [[MainMenu alloc] initWithNibName:@"MainMenu" bundle:[NSBundle mainBundle]];
-    [self setMainMenu:aMainMenu];
-    [aMainMenu release];
     GameScreen *aGameScreen = [[GameScreen alloc] initWithNibName:@"GameScreen" bundle:[NSBundle mainBundle]];
+    
+    [aGameScreen setAppDelegate:self];
+    [aMainMenu setAppDelegate:self];
+    
+    // game view controller and game model need to know about each other
+    [aGame setGameScreen:aGameScreen];
+    [aGameScreen setGame:aGame];
+    
+    [self setGame:aGame];
     [self setGameScreen:aGameScreen];
+    [self setMainMenu:aMainMenu];
+    
+    [aGame release];
+    [aMainMenu release];
     [aGameScreen release];
+    
     // Override point for customization after application launch.
     self.window.rootViewController = self.mainMenu;
     [self.window makeKeyAndVisible];
@@ -98,7 +113,19 @@
     [_window release];
     [_mainMenu release];
     [_gameScreen release];
+    [_game release];
     [super dealloc];
+}
+
+- (void)switchToGame
+{
+    self.window.rootViewController = self.gameScreen;
+    [self.game startGame];
+}
+
+- (void)switchToMenu
+{
+    self.window.rootViewController = self.mainMenu;
 }
 
 @end

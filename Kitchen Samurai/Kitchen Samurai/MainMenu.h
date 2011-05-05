@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @class RecipeSelection;
+@class Kitchen_SamuraiAppDelegate;
 
 @interface MainMenu : UIViewController {
     
@@ -18,6 +19,7 @@
 @property (nonatomic, retain) IBOutlet RecipeSelection *recipeSelection;
 @property (readwrite, retain) MPMoviePlayerViewController *instructions;
 @property (nonatomic, retain) NSURL *videoURL;
+@property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
 
 - (void)instructionVideoDone:(NSNotification*)aNotification;
 

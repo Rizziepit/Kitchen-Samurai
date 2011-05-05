@@ -8,12 +8,14 @@
 
 #import "MainMenu.h"
 #import "RecipeSelection.h"
+#import "Kitchen_SamuraiAppDelegate.h"
 
 @implementation MainMenu
 
 @synthesize recipeSelection;
 @synthesize instructions;
 @synthesize videoURL;
+@synthesize appDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +53,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    NSLog(@"main did unload");
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -70,9 +73,11 @@
 }
 
 - (IBAction)startNewGame:(id)sender {
+    [appDelegate switchToGame];
 }
 
 - (IBAction)continueGame:(id)sender {
+    [appDelegate switchToGame];
 }
 
 - (IBAction)showRecipes:(id)sender {

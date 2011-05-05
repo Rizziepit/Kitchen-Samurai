@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class Kitchen_SamuraiAppDelegate;
+@class Game;
 
 @interface GameScreen : UIViewController {
     
 }
+
+@property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
+@property (nonatomic, retain) Game *game;
 
 @end
