@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C0F126D1372D7ED00D059B2 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C0F126C1372D7ED00D059B2 /* test.jpg */; };
+		0C0F12701372D95D00D059B2 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F126F1372D95C00D059B2 /* Ingredient.m */; };
 		3A233B551371B471006A97FA /* 0stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B4E1371B471006A97FA /* 0stars_large.png */; };
 		3A233B561371B471006A97FA /* 1stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B4F1371B471006A97FA /* 1stars_large.png */; };
 		3A233B571371B471006A97FA /* 2stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B501371B471006A97FA /* 2stars_large.png */; };
@@ -53,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		0C0F126C1372D7ED00D059B2 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		0C0F126E1372D95C00D059B2 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		0C0F126F1372D95C00D059B2 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		3A233B4E1371B471006A97FA /* 0stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0stars_large.png; sourceTree = "<group>"; };
 		3A233B4F1371B471006A97FA /* 1stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1stars_large.png; sourceTree = "<group>"; };
 		3A233B501371B471006A97FA /* 2stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2stars_large.png; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				3AF718FA136C3A8F005D7971 /* RecipeSelection.xib */,
 				E00834F613720B370098FFBF /* Game.h */,
 				E00834F713720B370098FFBF /* Game.m */,
+				0C0F126E1372D95C00D059B2 /* Ingredient.h */,
+				0C0F126F1372D95C00D059B2 /* Ingredient.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				8093096113697954007C1E8B /* GameScreen.m in Sources */,
 				8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */,
 				E00834F813720B370098FFBF /* Game.m in Sources */,
+				0C0F12701372D95D00D059B2 /* Ingredient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
