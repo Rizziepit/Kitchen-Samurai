@@ -50,7 +50,7 @@
 {
     [self generateIngredientIfNecessary];
     [self moveAndCatchIngredients];
-   // [gameScreen.view setNeedsDisplay];
+    //[gameScreen.view setNeedsDisplay];
     //NSLog(@"frame call");
 }
 
