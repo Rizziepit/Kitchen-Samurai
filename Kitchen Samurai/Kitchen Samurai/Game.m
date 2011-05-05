@@ -28,7 +28,7 @@
     NSLog(@"Starting game...");
 
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    //Riz, caddisplaylink wasnt working coz u put gameLoop as the selector instead of gameLoop: haha
+    //Riz, caddisplaylink wasnt working coz u put gameLoop as the selector instead of gameLoop: haha - and touch still works while this is running dunno if its coz it is actually a seperate thread or if theres just tons of time to detect touches between gameLoop: method calls
 }
 
 - (void)endGame

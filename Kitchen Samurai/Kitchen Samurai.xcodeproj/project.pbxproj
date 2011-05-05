@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0F126D1372D7ED00D059B2 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0C0F126C1372D7ED00D059B2 /* test.jpg */; };
 		3A233B551371B471006A97FA /* 0stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B4E1371B471006A97FA /* 0stars_large.png */; };
 		3A233B561371B471006A97FA /* 1stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B4F1371B471006A97FA /* 1stars_large.png */; };
 		3A233B571371B471006A97FA /* 2stars_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A233B501371B471006A97FA /* 2stars_large.png */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C0F126C1372D7ED00D059B2 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		3A233B4E1371B471006A97FA /* 0stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0stars_large.png; sourceTree = "<group>"; };
 		3A233B4F1371B471006A97FA /* 1stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1stars_large.png; sourceTree = "<group>"; };
 		3A233B501371B471006A97FA /* 2stars_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2stars_large.png; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0F126A1372D7CD00D059B2 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				0C0F126C1372D7ED00D059B2 /* test.jpg */,
+			);
+			name = Ingredients;
+			sourceTree = "<group>";
+		};
 		3A233B4C1371B448006A97FA /* Detailed Recipe View Items */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +217,7 @@
 		E0A5B6EE1369FB3400408241 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				0C0F126A1372D7CD00D059B2 /* Ingredients */,
 				3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */,
 				808A4E8B136AD1CF0058C7DA /* video_test.mp4 */,
 				3A25C1F4137055E300689C28 /* recipe_button_locked.png */,
@@ -306,6 +317,7 @@
 				3A233B591371B471006A97FA /* 4stars_large.png in Resources */,
 				3A233B5A1371B471006A97FA /* 5stars_large.png in Resources */,
 				3A233B5B1371B471006A97FA /* recipe_frame.png in Resources */,
+				0C0F126D1372D7ED00D059B2 /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
