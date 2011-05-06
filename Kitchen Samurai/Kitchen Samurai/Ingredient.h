@@ -11,12 +11,14 @@
 
 @interface Ingredient : NSObject {
     NSString* type;
-    
+    UIImageView*view;
 }
 
 -(void)moveByTime:(int) time;
+-(void)setView:(UIImageView*)v;
 -(void) setX:(int)startX andY:(int)startY andType:(NSString*)type;
 
 @property(nonatomic,retain) NSString* type;
+@property(nonatomic,retain) UIImageView* view;
 
 @end

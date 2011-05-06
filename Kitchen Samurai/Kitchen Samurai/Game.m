@@ -27,14 +27,16 @@
 - (void)startGame
 {
     NSLog(@"Starting game...");
-
+    ingredients=[[NSMutableArray alloc] init];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
     //Riz, caddisplaylink wasnt working coz u put gameLoop as the selector instead of gameLoop: haha - and touch still works while this is running but its not actually a seperate thread theres just tons of time to detect touches between gameLoop: method calls...may be necessary to thread it if gameLoop takes longer/if control of the pot is imprecise, but not gonna bother now unless we have issues like that.
 }
 
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    //to do: kill all ingredients and array
 }
 
 - (void)pauseGame
@@ -60,20 +62,28 @@
     if (rand()%100<1){
         
         //to do: decide on type, starting position, 
-        NSString* type = @"test";
-        int x=0;
-        int y=0;
+        NSString* type = @"test.jpg";
+        int x=150;
+        int y=150;
         
         NSLog(@"Creating Ingredient...");
         Ingredient* i = [[Ingredient alloc] init];
         [i setX:x andY:y andType:type];
+
+        NSLog(@"before %i",[ingredients count]);
         [ingredients addObject:i];
+        NSLog(@"after %i",[ingredients count]);
+
+        UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:type]];
+        ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
+        [gameScreen.view addSubview:ingredientView];
+        i.view = ingredientView;
+        [ingredientView release];
         [i release];
     }    
 }
 
 -(void) moveAndCatchIngredients:(float) timepassed{
-    NSLog(@"%f",timepassed);
     for(Ingredient* ingredient in ingredients){
         [ingredient moveByTime:timepassed];
     }
