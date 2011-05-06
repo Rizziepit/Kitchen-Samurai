@@ -154,8 +154,6 @@
 			children = (
 				80079E7C136078C9001ABBFD /* MainMenu.h */,
 				80079E7D136078C9001ABBFD /* MainMenu.m */,
-				0C05BFFE13743D540026A4DE /* PhysicalObject.h */,
-				0C05BFFF13743D540026A4DE /* PhysicalObject.m */,
 				80079E7E136078C9001ABBFD /* MainMenu.xib */,
 				8093095E13697954007C1E8B /* GameScreen.h */,
 				8093095F13697954007C1E8B /* GameScreen.m */,
@@ -166,6 +164,8 @@
 				3AF718FA136C3A8F005D7971 /* RecipeSelection.xib */,
 				E00834F613720B370098FFBF /* Game.h */,
 				E00834F713720B370098FFBF /* Game.m */,
+				0C05BFFE13743D540026A4DE /* PhysicalObject.h */,
+				0C05BFFF13743D540026A4DE /* PhysicalObject.m */,
 				0C0F126E1372D95C00D059B2 /* Ingredient.h */,
 				0C0F126F1372D95C00D059B2 /* Ingredient.m */,
 			);

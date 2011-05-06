@@ -16,7 +16,7 @@ float lastTimeStamp = -1;
 @synthesize gameScreen;
 @synthesize isPaused;
 @synthesize displayLink;
-
+float prevTime;
 - (id)init
 {
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(gameLoop:)];
@@ -30,15 +30,13 @@ float lastTimeStamp = -1;
     NSLog(@"Starting game...");
     ingredients=[[NSMutableArray alloc] init];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
-    //Riz, caddisplaylink wasnt working coz u put gameLoop as the selector instead of gameLoop: haha - and touch still works while this is running but its not actually a seperate thread theres just tons of time to detect touches between gameLoop: method calls...may be necessary to thread it if gameLoop takes longer/if control of the pot is imprecise, but not gonna bother now unless we have issues like that.
+    prevTime=0;
 }
 
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [ingredients dealloc];
-    //to do: kill all ingredients and array
+    [ingredients dealloc];   //kill all ingredients and array
 }
 
 - (void)pauseGame
@@ -53,8 +51,11 @@ float lastTimeStamp = -1;
 
 - (void)gameLoop:(CADisplayLink *)sender
 {
+    
     [self runIngredientGenerator];
-    [self moveAndCatchIngredients: [sender timestamp]];
+    float time = [sender timestamp]-prevTime;
+    prevTime = [sender timestamp];
+    [self moveAndCatchIngredients: time];
     //[gameScreen.view setNeedsDisplay];
     //NSLog(@"frame call");
 }
@@ -66,7 +67,9 @@ float lastTimeStamp = -1;
         //to do: decide on type, starting position, 
         
         int x=550;
-        int y=150;
+        int y=0;
+        int vx=5;
+        int vy=150;
         if(rand()%100<50){
             type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
             x=150;
@@ -76,18 +79,14 @@ float lastTimeStamp = -1;
             type =[[NSBundle mainBundle] pathForResource:@"recipe_button_locked" ofType:@"png"];
             
         }
-        NSLog(@"Creating Ingredient...%@",type);
-        Ingredient* i = [[Ingredient alloc] init];
-        [i setX:x andY:y andType:type];
-
-        [ingredients addObject:i];
-
+ 
         UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
         ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
         [gameScreen.view addSubview:ingredientView];
-        i.view = ingredientView;
-        NSUInteger test = [i hash];
-        NSLog(@"%i",test);
+
+        Ingredient* i = [[Ingredient alloc] init:x :y :vx :vy :ingredientView];
+        i.type=type;
+       [ingredients addObject:i];
         [ingredientView release];
         [i release];
     }    
@@ -95,7 +94,8 @@ float lastTimeStamp = -1;
 
 -(void) moveAndCatchIngredients:(float) timepassed{
     for(Ingredient* ingredient in ingredients){
-        [ingredient moveByTime:timepassed];
+        NSLog(@"%f",timepassed);
+        [ingredient updatePosition:timepassed]; //check that this is timesincelastframe
     }
 }
 
