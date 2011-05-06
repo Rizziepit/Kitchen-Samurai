@@ -36,6 +36,7 @@
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [ingredients dealloc];
     //to do: kill all ingredients and array
 }
 
@@ -60,23 +61,31 @@
 - (void)runIngredientGenerator{
     //Simple unbalanced one for now, just generates with 1%chance each frame
     if (rand()%100<1){
-        
+        NSString* type;
         //to do: decide on type, starting position, 
-        NSString* type = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"type.jpg"];
-        int x=150;
-        int y=150;
         
-        NSLog(@"Creating Ingredient...");
+        int x=550;
+        int y=150;
+        if(rand()%100<50){
+            type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
+            x=150;
+        }
+        else
+        {
+            type =[[NSBundle mainBundle] pathForResource:@"recipe_button_locked" ofType:@"png"];
+            
+        }
+        NSLog(@"Creating Ingredient...%@",type);
         Ingredient* i = [[Ingredient alloc] init];
         [i setX:x andY:y andType:type];
 
         [ingredients addObject:i];
 
-        UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]];
+        UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
         ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
         [gameScreen.view addSubview:ingredientView];
         i.view = ingredientView;
-        NSUInteger test = [i.view.image hash];
+        NSUInteger test = [i hash];
         NSLog(@"%i",test);
         [ingredientView release];
         [i release];
