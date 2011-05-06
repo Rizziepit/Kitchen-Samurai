@@ -12,6 +12,7 @@
 @class GameScreen;
 
 @interface Game : NSObject {
+    NSMutableArray* ingredients;
 }
 
 - (void) startGame; // initialise game with saved data
@@ -19,8 +20,8 @@
 - (void) pauseGame;
 - (void) continueGame;
 - (void) gameLoop:(CADisplayLink *)sender;
-- (void) generateIngredientIfNecessary;
-- (void) moveAndCatchIngredients;
+- (void) runIngredientGenerator;
+- (void) moveAndCatchIngredients:(float) timepassed;
 
 @property (nonatomic, retain) GameScreen *gameScreen;
 @property (nonatomic) BOOL isPaused;
