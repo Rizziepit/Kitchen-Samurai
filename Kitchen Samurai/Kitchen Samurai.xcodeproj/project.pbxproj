@@ -23,6 +23,7 @@
 		3A25C2021370895F00689C28 /* 3_stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1FC1370895F00689C28 /* 3_stars.png */; };
 		3A25C2031370895F00689C28 /* 4_stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1FD1370895F00689C28 /* 4_stars.png */; };
 		3A25C2041370895F00689C28 /* 5_stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1FE1370895F00689C28 /* 5_stars.png */; };
+		3A65D5B81372EABB005A8EEE /* 1-Tomato Soup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3A65D5B71372EABB005A8EEE /* 1-Tomato Soup.txt */; };
 		3AF718FB136C3A8F005D7971 /* RecipeSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF718FA136C3A8F005D7971 /* RecipeSelection.xib */; };
 		3AF89E7F136AB1C300AA5905 /* Recipe_List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF89E7E136AB1C300AA5905 /* Recipe_List.plist */; };
 		3AF89E8E136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */; };
@@ -68,6 +69,7 @@
 		3A25C1FC1370895F00689C28 /* 3_stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_stars.png; sourceTree = "<group>"; };
 		3A25C1FD1370895F00689C28 /* 4_stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4_stars.png; sourceTree = "<group>"; };
 		3A25C1FE1370895F00689C28 /* 5_stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_stars.png; sourceTree = "<group>"; };
+		3A65D5B71372EABB005A8EEE /* 1-Tomato Soup.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "1-Tomato Soup.txt"; path = "../../../../../../../Users/Adrian/Documents/iDev/Kitchen-Samurai/Kitchen Samurai/Kitchen Samurai/1-Tomato Soup.txt"; sourceTree = "<group>"; };
 		3AF718FA136C3A8F005D7971 /* RecipeSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeSelection.xib; sourceTree = "<group>"; };
 		3AF89E7E136AB1C300AA5905 /* Recipe_List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Recipe_List.plist; sourceTree = "<group>"; };
 		3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120px-Crystal_Clear_action_lock.png"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		E0A5B6EE1369FB3400408241 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3A65D5B71372EABB005A8EEE /* 1-Tomato Soup.txt */,
 				0C0F126A1372D7CD00D059B2 /* Ingredients */,
 				3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */,
 				808A4E8B136AD1CF0058C7DA /* video_test.mp4 */,
@@ -318,6 +321,7 @@
 				3A233B5A1371B471006A97FA /* 5stars_large.png in Resources */,
 				3A233B5B1371B471006A97FA /* recipe_frame.png in Resources */,
 				0C0F126D1372D7ED00D059B2 /* test.jpg in Resources */,
+				3A65D5B81372EABB005A8EEE /* 1-Tomato Soup.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

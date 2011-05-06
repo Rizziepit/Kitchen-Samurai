@@ -12,6 +12,11 @@
 @interface RecipeSelection : UIViewController {
     UIImageView *Lock;
     UIImageView *rating;
+    UITextView *DetailedTextView;
+    UILabel *DetailedDifficulty;
+    UIImageView *DetailedStars;
+    UILabel *DetailedTitle;
+    NSDictionary* recipeList;
     NSMutableArray* starsArray;
 }
 - (void)loadRecipeList;
@@ -20,11 +25,16 @@
 - (UILabel *)getLabelAtIndex:(NSInteger)index;
 - (UIButton *)getButtonAtIndex:(NSInteger)index;
 - (UIImageView *)getImageAtIndex:(NSInteger)index;
+- (UITextView *)getTextViewAtIndex:(NSInteger)index;
 - (IBAction)goBack:(id)sender;
 - (IBAction)close:(id)sender;
 - (IBAction)getRecipe:(id)sender;
 @property (nonatomic, retain) IBOutlet UIImageView *Lock;
 @property (nonatomic, retain) IBOutlet UIImageView *rating;
+@property (nonatomic, retain) IBOutlet UITextView *DetailedTextView;
+@property (nonatomic, retain) IBOutlet UILabel *DetailedDifficulty;
+@property (nonatomic, retain) IBOutlet UIImageView *DetailedStars;
+@property (nonatomic, retain) IBOutlet UILabel *DetailedTitle;
 
 
 @end
