@@ -11,6 +11,7 @@
 #import "Ingredient.h"
 
 @implementation Game
+float lastTimeStamp = -1;
 
 @synthesize gameScreen;
 @synthesize isPaused;
