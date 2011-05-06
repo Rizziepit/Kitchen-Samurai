@@ -7,10 +7,14 @@
 //
 
 #import "RecipeSelection.h"
+#import "Kitchen_SamuraiAppDelegate.h"
+
 
 
 @implementation RecipeSelection
+@synthesize DetailedView;
 @synthesize Lock;
+@synthesize appDelegate;
 @synthesize rating;
 @synthesize DetailedTextView;
 @synthesize DetailedDifficulty;
@@ -162,6 +166,7 @@
     [DetailedTitle release];
     [DetailedStars release];
     [DetailedDifficulty release];
+    [DetailedView release];
     [super dealloc];
 }
 
@@ -242,6 +247,7 @@
     [self setDetailedTitle:nil];
     [self setDetailedStars:nil];
     [self setDetailedDifficulty:nil];
+    [self setDetailedView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -261,9 +267,15 @@
     tmpDetails = nil;
 }
 
+- (IBAction)Cook:(id)sender
+{
+    [appDelegate switchToGame];
+
+}
+
 - (IBAction)getRecipe:(id)sender
 {
-    //UIImageView* tmpDetails = [self getImageAtIndex:13];
+    DetailedViewOpen = YES;//check out how to set bool correctly.
     
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
     NSDictionary* recipe = [recipeList valueForKey:buttonTag];
@@ -277,7 +289,7 @@
     
     NSLog(@"%@",buttonTag);
     
-    NSString* homeDir = [[NSBundle mainBundle] pathForResource:@"1-Tomato Soup" ofType:@"txt"];
+    NSString* homeDir = [[NSBundle mainBundle] pathForResource:[recipe valueForKey:@"DetailsName"]  ofType:@"txt"];
     //NSLog(@"%@",homeDir);
     
     NSString* contents = [NSString stringWithContentsOfFile:homeDir encoding:NSUTF8StringEncoding error:nil];
@@ -286,15 +298,19 @@
     
     DetailedTextView.text = contents;
     
-    
-    UIView* tmpDetails = [self.view viewWithTag:222];
-    tmpDetails.hidden = NO;
-    
-    tmpDetails = nil;
-    
+    DetailedView.hidden = NO;
+        
 }
 
 - (IBAction)goBack:(id)sender {
-    [self.view removeFromSuperview];
+    if (DetailedViewOpen)
+    {
+        DetailedView.hidden = YES;
+        DetailedViewOpen = NO;
+    }
+    else
+    {
+        [self.view removeFromSuperview];
+    }
 }
 @end

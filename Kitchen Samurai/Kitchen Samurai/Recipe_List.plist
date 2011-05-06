@@ -28,6 +28,8 @@
 	</dict>
 	<key>2</key>
 	<dict>
+		<key>DetailsName</key>
+		<string>1-Butternut Soup</string>
 		<key>Difficulty</key>
 		<integer>1</integer>
 		<key>Ingreditents</key>
@@ -48,6 +50,8 @@
 	</dict>
 	<key>3</key>
 	<dict>
+		<key>DetailsName</key>
+		<string>2-Bean Soup</string>
 		<key>Difficulty</key>
 		<integer>2</integer>
 		<key>Ingredients</key>
@@ -55,14 +59,14 @@
 			<key>Carrot</key>
 			<integer>1</integer>
 			<key>Celery</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Onion</key>
 			<integer>1</integer>
-			<key>Tomato</key>
+			<key>Beans</key>
 			<integer>4</integer>
 		</dict>
 		<key>Name</key>
-		<string>Spiced Carot and Lentil Soup</string>
+		<string>Bean Soup</string>
 		<key>Rating</key>
 		<integer>1</integer>
 		<key>Unlocked</key>
@@ -70,6 +74,8 @@
 	</dict>
 	<key>4</key>
 	<dict>
+		<key>DetailsName</key>
+		<string>3-Vegetable Soup</string>
 		<key>Difficulty</key>
 		<integer>3</integer>
 		<key>Ingredients</key>

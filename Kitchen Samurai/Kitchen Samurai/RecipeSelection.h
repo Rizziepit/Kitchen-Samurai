@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class Kitchen_SamuraiAppDelegate;
+
 
 @interface RecipeSelection : UIViewController {
     UIImageView *Lock;
@@ -18,6 +20,8 @@
     UILabel *DetailedTitle;
     NSDictionary* recipeList;
     NSMutableArray* starsArray;
+    BOOL* DetailedViewOpen;
+    UIView *DetailedView;
 }
 - (void)loadRecipeList;
 - (void) createLabels;
@@ -29,6 +33,8 @@
 - (IBAction)goBack:(id)sender;
 - (IBAction)close:(id)sender;
 - (IBAction)getRecipe:(id)sender;
+@property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
+@property (nonatomic, retain) IBOutlet UIView *DetailedView;
 @property (nonatomic, retain) IBOutlet UIImageView *Lock;
 @property (nonatomic, retain) IBOutlet UIImageView *rating;
 @property (nonatomic, retain) IBOutlet UITextView *DetailedTextView;
