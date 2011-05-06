@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "PhysicalObject.h"
 
+typedef enum {
+    carrot,
+    potato,
+    tomato
+} IngredientType;
 
 @interface Ingredient : PhysicalObject {
     NSString* type;

@@ -69,7 +69,7 @@ float prevTime;
         int x=550;
         int y=0;
         int vx=5;
-        int vy=150;
+        int vy=768;
         if(rand()%100<50){
             type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
             x=150;
@@ -89,12 +89,12 @@ float prevTime;
        [ingredients addObject:i];
         [ingredientView release];
         [i release];
-    }    
+    }
 }
 
 -(void) moveAndCatchIngredients:(float) timepassed{
     for(Ingredient* ingredient in ingredients){
-        NSLog(@"%f",timepassed);
+        //NSLog(@"%f",timepassed);
         [ingredient updatePosition:timepassed]; //check that this is timesincelastframe
     }
 }

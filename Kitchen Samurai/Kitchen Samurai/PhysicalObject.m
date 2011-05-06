@@ -9,7 +9,7 @@
 #import "PhysicalObject.h"
 
 @implementation PhysicalObject
-float gravity = 40.0f;
+float gravity = -320.0f;
 
 @synthesize xPos;
 @synthesize yPos;
