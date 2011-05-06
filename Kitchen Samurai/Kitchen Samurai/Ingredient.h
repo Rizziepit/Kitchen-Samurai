@@ -7,23 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PhysicalObject.h"
 
 
-@interface Ingredient : NSObject {
+@interface Ingredient : PhysicalObject {
     NSString* type;
-    UIImageView*view;
-    float x;
-    float y;
 
 }
 
--(void)moveByTime:(int) time;
--(void)setView:(UIImageView*)v;
--(void) setX:(int)startX andY:(int)startY andType:(NSString*)type;
 
 @property(nonatomic,retain) NSString* type;
-@property(nonatomic,retain) UIImageView* view;
-@property(nonatomic) float x;
-@property(nonatomic) float y;
-
 @end
