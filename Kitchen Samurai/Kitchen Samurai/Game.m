@@ -62,7 +62,7 @@
     if (rand()%100<1){
         
         //to do: decide on type, starting position, 
-        NSString* type = @"test.jpg";
+        NSString* type = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"type.jpg"];
         int x=150;
         int y=150;
         
@@ -70,14 +70,14 @@
         Ingredient* i = [[Ingredient alloc] init];
         [i setX:x andY:y andType:type];
 
-        NSLog(@"before %i",[ingredients count]);
         [ingredients addObject:i];
-        NSLog(@"after %i",[ingredients count]);
 
-        UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:type]];
+        UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]];
         ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
         [gameScreen.view addSubview:ingredientView];
         i.view = ingredientView;
+        NSUInteger test = [i.view.image hash];
+        NSLog(@"%i",test);
         [ingredientView release];
         [i release];
     }    

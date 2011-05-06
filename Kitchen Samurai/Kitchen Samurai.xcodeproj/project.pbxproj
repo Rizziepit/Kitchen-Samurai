@@ -126,7 +126,6 @@
 		0C0F126A1372D7CD00D059B2 /* Ingredients */ = {
 			isa = PBXGroup;
 			children = (
-				0C0F126C1372D7ED00D059B2 /* test.jpg */,
 			);
 			name = Ingredients;
 			sourceTree = "<group>";
@@ -225,6 +224,7 @@
 				0C0F126A1372D7CD00D059B2 /* Ingredients */,
 				3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */,
 				808A4E8B136AD1CF0058C7DA /* video_test.mp4 */,
+				0C0F126C1372D7ED00D059B2 /* test.jpg */,
 				3A25C1F4137055E300689C28 /* recipe_button_locked.png */,
 				3A25C1F5137055E300689C28 /* recipe_button_unlocked.png */,
 				3A233B4C1371B448006A97FA /* Detailed Recipe View Items */,
