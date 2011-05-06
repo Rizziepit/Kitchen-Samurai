@@ -12,6 +12,10 @@
 @implementation RecipeSelection
 @synthesize Lock;
 @synthesize rating;
+@synthesize DetailedTextView;
+@synthesize DetailedDifficulty;
+@synthesize DetailedStars;
+@synthesize DetailedTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -108,6 +112,22 @@
     return nil;
 }
 
+- (UITextView *)getTextViewAtIndex:(NSInteger)index
+{
+    for (UIView *v in self.view.subviews)
+    {
+        if([v isKindOfClass:[UITextView class]])
+        {
+            if (v.tag == index)
+            {
+                NSLog(@" Image found at index %i",index);
+                return (UITextView *)v;
+            }
+        }
+    }
+    NSLog(@"Text not found at index %i",index);
+    return nil;
+}
 
 - (UIImageView *)getImageAtIndex:(NSInteger)index
 {
@@ -138,6 +158,10 @@
 {
     [Lock release];
     [rating release];
+    [DetailedTextView release];
+    [DetailedTitle release];
+    [DetailedStars release];
+    [DetailedDifficulty release];
     [super dealloc];
 }
 
@@ -153,7 +177,7 @@
 {
     NSString* path = [[NSBundle mainBundle] bundlePath];
     NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
-    NSDictionary* recipeList = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
+    recipeList = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
     
     for (int number = 1; number < [recipeList count]+1; number++)
     {
@@ -214,6 +238,10 @@
 {
     [self setLock:nil];
     [self setRating:nil];
+    [self setDetailedTextView:nil];
+    [self setDetailedTitle:nil];
+    [self setDetailedStars:nil];
+    [self setDetailedDifficulty:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -236,10 +264,34 @@
 - (IBAction)getRecipe:(id)sender
 {
     //UIImageView* tmpDetails = [self getImageAtIndex:13];
+    
+    NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
+    NSDictionary* recipe = [recipeList valueForKey:buttonTag];
+
+    DetailedTitle.text = [recipe valueForKey:@"Name"];
+    
+    [DetailedStars setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%istars_large",[[recipe valueForKey:@"Rating"] intValue]]]];
+    
+    DetailedDifficulty.text = [NSString stringWithFormat:@"%i",[[recipe valueForKey:@"Difficulty"] intValue]];
+
+    
+    NSLog(@"%@",buttonTag);
+    
+    NSString* homeDir = [[NSBundle mainBundle] pathForResource:@"1-Tomato Soup" ofType:@"txt"];
+    //NSLog(@"%@",homeDir);
+    
+    NSString* contents = [NSString stringWithContentsOfFile:homeDir encoding:NSUTF8StringEncoding error:nil];
+    
+    //NSLog(@"%@",contents);
+    
+    DetailedTextView.text = contents;
+    
+    
     UIView* tmpDetails = [self.view viewWithTag:222];
     tmpDetails.hidden = NO;
     
     tmpDetails = nil;
+    
 }
 
 - (IBAction)goBack:(id)sender {
