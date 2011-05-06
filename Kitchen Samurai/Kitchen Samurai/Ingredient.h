@@ -12,6 +12,9 @@
 @interface Ingredient : NSObject {
     NSString* type;
     UIImageView*view;
+    float x;
+    float y;
+
 }
 
 -(void)moveByTime:(int) time;
@@ -20,5 +23,7 @@
 
 @property(nonatomic,retain) NSString* type;
 @property(nonatomic,retain) UIImageView* view;
+@property(nonatomic) float x;
+@property(nonatomic) float y;
 
 @end

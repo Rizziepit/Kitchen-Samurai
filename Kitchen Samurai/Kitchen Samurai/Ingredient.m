@@ -12,18 +12,18 @@
 @implementation Ingredient
 @synthesize type;
 @synthesize view;
-int x;
-int y;
+@synthesize x;
+@synthesize y;
 -(void) setX:(int)startX andY:(int)startY andType:(NSString*)startType{
-    x=startX;
-    y=startY;
+    self.x=startX;
+    self.y=startY;
     self.type=startType;
 }
 
 -(void)moveByTime:(int)time{
-    x+=1;
-    y+=1;
-    view.center=CGPointMake(x,y);
+    self.x+=1;
+    self.y+=1;
+    view.center=CGPointMake(self.x,self.y);
     //check collision detection, kill if collide or if goes offscreen...
 }
 
