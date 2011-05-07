@@ -9,6 +9,7 @@
 #import "GameScreen.h"
 #import "Kitchen_SamuraiAppDelegate.h"
 #import "Game.h"
+#import "GameView.h"
 
 @implementation GameScreen
 
@@ -20,6 +21,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        // set up all the ingredient images here
+        UIImage* im = [UIImage imageNamed:@"test.jpg"];
+        ingredientImages[0] = [im CGImage];
+        [im release];
     }
     return self;
 }
@@ -50,16 +56,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    
-    
-    //Countdown before game starts running
-    
-    
-    //Start Game
-
-    [game startGame];
-    
+    [((GameView*)self.view) setGameModel:game];
 }
 
 - (void)viewDidUnload
@@ -73,6 +70,11 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (CGImageRef*)getIngredientImage:(int)index
+{
+    return &(ingredientImages[index]);
 }
 
 @end

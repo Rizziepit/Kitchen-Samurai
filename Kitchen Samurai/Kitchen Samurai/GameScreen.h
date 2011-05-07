@@ -12,12 +12,13 @@
 @class Game;
 
 @interface GameScreen : UIViewController {
-    
+    CGImageRef ingredientImages[20];
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
 @property (nonatomic, retain) Game *game;
 
 - (IBAction)quitGameButtonClicked:(id)sender;
+- (CGImageRef*)getIngredientImage:(int)index;
 
 @end

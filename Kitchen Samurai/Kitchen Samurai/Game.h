@@ -12,7 +12,6 @@
 @class GameScreen;
 
 @interface Game : NSObject {
-    NSMutableArray* ingredients;
 }
 
 - (void) startGame; // initialise game with saved data
@@ -23,9 +22,10 @@
 - (void) runIngredientGenerator;
 - (void) moveAndCatchIngredients:(float) timepassed;
 
-@property (nonatomic, retain) GameScreen *gameScreen;
 @property (nonatomic) BOOL isPaused;
+@property (nonatomic, retain) GameScreen* viewController;
 @property (nonatomic, retain) CADisplayLink *displayLink;
+@property (nonatomic, retain) NSMutableArray* ingredients;
 
 @end
 

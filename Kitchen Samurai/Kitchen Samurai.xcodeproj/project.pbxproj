@@ -32,6 +32,7 @@
 		80079E7F136078C9001ABBFD /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 80079E7D136078C9001ABBFD /* MainMenu.m */; };
 		80079E80136078C9001ABBFD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E7E136078C9001ABBFD /* MainMenu.xib */; };
 		80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E8913607CA8001ABBFD /* MainWindow.xib */; };
+		8079176113759E1A000F68D9 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8079176013759E1A000F68D9 /* GameView.m */; };
 		808A4E8C136AD1CF0058C7DA /* video_test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 808A4E8B136AD1CF0058C7DA /* video_test.mp4 */; };
 		8093096113697954007C1E8B /* GameScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093095F13697954007C1E8B /* GameScreen.m */; };
 		8093096213697954007C1E8B /* GameScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096013697954007C1E8B /* GameScreen.xib */; };
@@ -83,6 +84,8 @@
 		80079E7D136078C9001ABBFD /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		80079E7E136078C9001ABBFD /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		80079E8913607CA8001ABBFD /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		8079175F13759E1A000F68D9 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		8079176013759E1A000F68D9 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 		808A4E8B136AD1CF0058C7DA /* video_test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_test.mp4; sourceTree = "<group>"; };
 		8093095E13697954007C1E8B /* GameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreen.h; sourceTree = "<group>"; };
 		8093095F13697954007C1E8B /* GameScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreen.m; sourceTree = "<group>"; };
@@ -166,8 +169,10 @@
 				E00834F713720B370098FFBF /* Game.m */,
 				0C05BFFE13743D540026A4DE /* PhysicalObject.h */,
 				0C05BFFF13743D540026A4DE /* PhysicalObject.m */,
-				0C0F126E1372D95C00D059B2 /* Ingredient.h */,
 				0C0F126F1372D95C00D059B2 /* Ingredient.m */,
+				0C0F126E1372D95C00D059B2 /* Ingredient.h */,
+				8079175F13759E1A000F68D9 /* GameView.h */,
+				8079176013759E1A000F68D9 /* GameView.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				E00834F813720B370098FFBF /* Game.m in Sources */,
 				0C0F12701372D95D00D059B2 /* Ingredient.m in Sources */,
 				0C05C00013743D540026A4DE /* PhysicalObject.m in Sources */,
+				8079176113759E1A000F68D9 /* GameView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

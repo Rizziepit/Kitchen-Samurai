@@ -11,12 +11,15 @@
 #import "Ingredient.h"
 
 @implementation Game
-float lastTimeStamp = -1;
 
-@synthesize gameScreen;
-@synthesize isPaused;
-@synthesize displayLink;
+float lastTimeStamp = -1;
 float prevTime;
+
+@synthesize isPaused;
+@synthesize viewController;
+@synthesize displayLink;
+@synthesize ingredients;
+
 - (id)init
 {
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(gameLoop:)];
@@ -51,13 +54,14 @@ float prevTime;
 
 - (void)gameLoop:(CADisplayLink *)sender
 {
-    
-    [self runIngredientGenerator];
+    // calculate time step
     float time = [sender timestamp]-prevTime;
     prevTime = [sender timestamp];
+    
+    [self runIngredientGenerator];
     [self moveAndCatchIngredients: time];
-    //[gameScreen.view setNeedsDisplay];
-    //NSLog(@"frame call");
+    
+    [viewController.view setNeedsDisplay];
 }
 
 - (void)runIngredientGenerator{
@@ -66,7 +70,7 @@ float prevTime;
         NSString* type;
         //to do: decide on type, starting position, 
         
-        int x=550;
+        int x=512;
         int y=0;
         int vx=5;
         int vy=768;
@@ -80,28 +84,40 @@ float prevTime;
             
         }
  
-        UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
-        ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
-        [gameScreen.view addSubview:ingredientView];
+        //UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
+        //ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
+        //[gameScreen.view addSubview:ingredientView];
 
-        Ingredient* i = [[Ingredient alloc] init:x :y :vx :vy :ingredientView];
+        Ingredient* i = [[Ingredient alloc] init:x :y :vx :vy:[viewController getIngredientImage:0]  :32.0f];
         i.type=type;
        [ingredients addObject:i];
-        [ingredientView release];
+        //[ingredientView release];
         [i release];
     }
 }
 
 -(void) moveAndCatchIngredients:(float) timepassed{
+    // objects are added to this array when they need to be released (can't alter array when using a foreach-type loop)
+    NSMutableArray* toBeRemoved = [[NSMutableArray alloc] init];
+    
     for(Ingredient* ingredient in ingredients){
-        //NSLog(@"%f",timepassed);
-        [ingredient updatePosition:timepassed]; //check that this is timesincelastframe
+        if ([ingredient isOffscreen])
+            [toBeRemoved addObject:ingredient];
+        else
+            [ingredient updatePosition:timepassed]; //check that this is timesincelastframe
     }
+    
+    // remove objects that aren't visible
+    /*for(Ingredient* offscreen in toBeRemoved)
+    {
+        [ingredients removeObject:offscreen];
+        [offscreen release];
+    }
+    [toBeRemoved release];*/
 }
 
 - (void)dealloc
 {
-    [self.gameScreen release];
     [self.displayLink release];
     [super dealloc];
 }

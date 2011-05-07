@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface PhysicalObject : NSObject {
 }
@@ -15,9 +16,13 @@
 @property (nonatomic) float yPos;
 @property (nonatomic) float xVel;
 @property (nonatomic) float yVel;
-@property (nonatomic, retain) IBOutlet UIImageView *sprite;
+@property (nonatomic) float radius; // for collision detection
+@property (nonatomic) CGImageRef *spriteLayer;
 
-- (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity : (UIImageView*) spriteImage;
+- (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity : (CGImageRef*) spriteImage: (float) collisionRadius;
 - (void)updatePosition:(float)timeSinceLastFrame;
+- (BOOL)checkCollisionWithLine:(float)startX: (float)startY: (float)endX: (float)endY;
+- (BOOL)checkCollisionWithPoint:(float)x: (float) y;
+- (BOOL)isOffscreen;
 
 @end

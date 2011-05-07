@@ -12,13 +12,15 @@
 @class GameScreen;
 @class Game;
 
-@interface Kitchen_SamuraiAppDelegate : NSObject <UIApplicationDelegate> {
+static BOOL isInGame;
 
+@interface Kitchen_SamuraiAppDelegate : NSObject <UIApplicationDelegate> {
 }
 
 -(void)loadPlist;
 -(void)switchToGame;
 -(void)switchToMenu;
++(BOOL)isGameRunning;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) MainMenu *mainMenu;

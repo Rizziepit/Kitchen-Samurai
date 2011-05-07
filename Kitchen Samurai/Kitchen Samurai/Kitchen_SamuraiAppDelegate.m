@@ -13,7 +13,6 @@
 
 @implementation Kitchen_SamuraiAppDelegate
 
-
 @synthesize window=_window;
 @synthesize mainMenu=_mainMenu;
 @synthesize gameScreen=_gameScreen;
@@ -21,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    isInGame = NO;
+    
     Game *aGame = [[Game alloc] init];
     MainMenu *aMainMenu = [[MainMenu alloc] initWithNibName:@"MainMenu" bundle:[NSBundle mainBundle]];
     GameScreen *aGameScreen = [[GameScreen alloc] initWithNibName:@"GameScreen" bundle:[NSBundle mainBundle]];
@@ -29,8 +30,8 @@
     [aMainMenu setAppDelegate:self];
     
     // game view controller and game model need to know about each other
-    [aGame setGameScreen:aGameScreen];
     [aGameScreen setGame:aGame];
+    [aGame setViewController:aGameScreen];
     
     [self setGame:aGame];
     [self setGameScreen:aGameScreen];
@@ -119,13 +120,21 @@
 
 - (void)switchToGame
 {
+    isInGame = YES;
     self.window.rootViewController = self.gameScreen;
-    //[self.game startGame]; Riz, i moved this to viewdidload in gamescreen.m, delete this line and comment when read if ok
+    // start the game
+    [self.game startGame];
 }
 
 - (void)switchToMenu
 {
+    isInGame = NO;
     self.window.rootViewController = self.mainMenu;
+}
+
++ (BOOL)isGameRunning
+{
+    return isInGame;
 }
 
 @end
