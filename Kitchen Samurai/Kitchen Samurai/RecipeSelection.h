@@ -18,10 +18,11 @@
     UILabel *DetailedDifficulty;
     UIImageView *DetailedStars;
     UILabel *DetailedTitle;
-    NSDictionary* recipeList;
+    NSMutableDictionary* recipeList;
     NSMutableArray* starsArray;
     BOOL* DetailedViewOpen;
     UIView *DetailedView;
+    NSString* DataPath;
 }
 - (void)loadRecipeList;
 - (void) createLabels;

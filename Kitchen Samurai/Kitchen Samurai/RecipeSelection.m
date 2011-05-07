@@ -181,18 +181,22 @@
 - (void)loadRecipeList
 {
     NSString* path = [[NSBundle mainBundle] bundlePath];
-    NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
-    recipeList = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
+    DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
+    NSLog(@"%@",DataPath);
+    recipeList = [[NSMutableDictionary alloc] initWithContentsOfFile:DataPath];
     
     for (int number = 1; number < [recipeList count]+1; number++)
     {
         UILabel *tmp = [self getLabelAtIndex:number];
         NSString *key = [NSString stringWithFormat:@"%i",number];
-        NSDictionary* recipe = [recipeList valueForKey:key];
+        NSMutableDictionary* recipe = [recipeList valueForKey:key];
         NSString* name = [recipe valueForKey:@"Name"];
         int dif = [[recipe valueForKey:@"Difficulty"] intValue];
         int starRating = [[recipe valueForKey:@"Rating"] intValue];
         BOOL unlocked = [[recipe objectForKey:@"Unlocked"] boolValue];
+        
+        
+        
         
         if (unlocked)
         {
@@ -233,7 +237,6 @@
     // Do any additional setup after loading the view from its nib.
     //[self createButtons];
     //[self createLabels];
-    [self loadStars];
     [self loadRecipeList];
    
 
@@ -248,6 +251,7 @@
     [self setDetailedStars:nil];
     [self setDetailedDifficulty:nil];
     [self setDetailedView:nil];
+    [recipeList release];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -275,11 +279,21 @@
 
 - (IBAction)getRecipe:(id)sender
 {
-    DetailedViewOpen = YES;//check out how to set bool correctly.
+    //DetailedViewOpen = YES;//check out how to set bool correctly.
+    
     
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
-    NSDictionary* recipe = [recipeList valueForKey:buttonTag];
+    NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
+    
+    NSLog(@"%@",[recipe valueForKey:@"Rating"]);
 
+    NSNumber* NewRating = [[NSNumber alloc] initWithInt:4];
+    
+
+    [recipe setValue:NewRating forKey:@"Rating"];
+
+    
+    
     DetailedTitle.text = [recipe valueForKey:@"Name"];
     
     [DetailedStars setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%istars_large",[[recipe valueForKey:@"Rating"] intValue]]]];
@@ -287,7 +301,7 @@
     DetailedDifficulty.text = [NSString stringWithFormat:@"%i",[[recipe valueForKey:@"Difficulty"] intValue]];
 
     
-    NSLog(@"%@",buttonTag);
+    NSLog(@"%@",[recipe valueForKey:@"Rating"]);
     
     NSString* homeDir = [[NSBundle mainBundle] pathForResource:[recipe valueForKey:@"DetailsName"]  ofType:@"txt"];
     //NSLog(@"%@",homeDir);
@@ -297,16 +311,25 @@
     //NSLog(@"%@",contents);
     
     DetailedTextView.text = contents;
+
+    NSString* path2 = [[NSBundle mainBundle] bundlePath];
+    NSString* DataPath2 = [path2 stringByAppendingPathComponent:@"Recipe_List.plist"];
+
     
+    NSLog(@"%@",DataPath2);
+
+    
+    [recipeList writeToFile:DataPath2 atomically:YES];
     DetailedView.hidden = NO;
         
 }
 
 - (IBAction)goBack:(id)sender {
-    if (DetailedViewOpen)
+    if (DetailedView.hidden == NO)
     {
         DetailedView.hidden = YES;
-        DetailedViewOpen = NO;
+        [self loadRecipeList];
+        //DetailedViewOpen = NO;
     }
     else
     {
