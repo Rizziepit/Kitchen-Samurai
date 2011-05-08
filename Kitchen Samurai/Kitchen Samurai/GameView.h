@@ -11,9 +11,11 @@
 @class Game;
 
 @interface GameView : UIView {
-    
 }
 
+- (void) initIngredientImages;
+
 @property (nonatomic, retain) Game *gameModel;
+@property (nonatomic, retain) NSMutableArray *ingredientImages;
 
 @end

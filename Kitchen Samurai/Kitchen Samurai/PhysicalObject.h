@@ -17,9 +17,8 @@
 @property (nonatomic) float xVel;
 @property (nonatomic) float yVel;
 @property (nonatomic) float radius; // for collision detection
-@property (nonatomic) CGImageRef *spriteLayer;
 
-- (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity : (CGImageRef*) spriteImage: (float) collisionRadius;
+- (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity : (float) collisionRadius;
 - (void)updatePosition:(float)timeSinceLastFrame;
 - (BOOL)checkCollisionWithLine:(float)startX: (float)startY: (float)endX: (float)endY;
 - (BOOL)checkCollisionWithPoint:(float)x: (float) y;

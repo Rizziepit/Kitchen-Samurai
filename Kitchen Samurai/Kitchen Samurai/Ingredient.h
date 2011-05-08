@@ -10,16 +10,35 @@
 #import "PhysicalObject.h"
 
 typedef enum {
+    asparagus,
+    baby_marrow,
+    bean,
+    beetroot,
+    bell_pepper,
+    brinjal,
+    broccoli,
+    butternut,
     carrot,
+    cauliflower,
+    celery,
+    chilli,
+    corn,
+    garlic,
+    lemon,
+    onion,
+    parsnip,
+    peas,
     potato,
-    tomato
+    pumpkin,
+    tomato,
+    turnip
 } IngredientType;
 
 @interface Ingredient : PhysicalObject {
-    NSString* type;
 
 }
 
+- (id) init:(float)xPosition :(float)yPosition :(float)xVelocity :(float)yVelocity :(float)collisionRadius:(IngredientType)type;
 
-@property(nonatomic,retain) NSString* type;
+@property(nonatomic) IngredientType ingredientType;
 @end

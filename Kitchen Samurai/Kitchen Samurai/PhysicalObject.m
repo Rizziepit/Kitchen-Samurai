@@ -15,17 +15,15 @@ float gravity = -320.0f;
 @synthesize yPos;
 @synthesize xVel;
 @synthesize yVel;
-@synthesize spriteLayer;
 @synthesize radius;
 
-- (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity : (CGImageRef*) spriteImage: (float) collisionRadius
+- (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity :(float) collisionRadius
 {
     [super init];
     self.xPos = xPosition;
     self.yPos = yPosition;
     self.xVel = xVelocity;
     self.yVel = yVelocity;
-    self.spriteLayer = spriteImage;
     self.radius = collisionRadius;
     return self;
 }

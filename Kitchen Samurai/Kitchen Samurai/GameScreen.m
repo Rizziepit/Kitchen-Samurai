@@ -21,11 +21,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        // set up all the ingredient images here
-        UIImage* im = [UIImage imageNamed:@"test.jpg"];
-        ingredientImages[0] = [im CGImage];
-        [im release];
     }
     return self;
 }
@@ -57,6 +52,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [((GameView*)self.view) setGameModel:game];
+    [((GameView*)self.view) initIngredientImages];
 }
 
 - (void)viewDidUnload
@@ -70,11 +66,6 @@
 {
     // Return YES for supported orientations
 	return YES;
-}
-
-- (CGImageRef*)getIngredientImage:(int)index
-{
-    return &(ingredientImages[index]);
 }
 
 @end

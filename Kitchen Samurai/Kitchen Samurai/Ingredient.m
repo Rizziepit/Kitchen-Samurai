@@ -8,8 +8,14 @@
 
 #import "Ingredient.h"
 
-
 @implementation Ingredient
-@synthesize type;
+
+@synthesize ingredientType;
+
+- (id) init:(float)xPosition :(float)yPosition :(float)xVelocity :(float)yVelocity :(float)collisionRadius:(IngredientType)type
+{
+    ingredientType = type;
+    return [super init:xPosition :yPosition :xVelocity :yVelocity :collisionRadius];
+}
 
 @end

@@ -67,14 +67,14 @@ float prevTime;
 - (void)runIngredientGenerator{
     //Simple unbalanced one for now, just generates with 1%chance each frame
     if (rand()%100<1){
-        NSString* type;
+        //NSString* type;
         //to do: decide on type, starting position, 
         
         int x=512;
         int y=0;
         int vx=5;
         int vy=768;
-        if(rand()%100<50){
+        /*if(rand()%100<50){
             type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
             x=150;
         }
@@ -82,14 +82,13 @@ float prevTime;
         {
             type =[[NSBundle mainBundle] pathForResource:@"recipe_button_locked" ofType:@"png"];
             
-        }
+        }*/
  
         //UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
         //ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
         //[gameScreen.view addSubview:ingredientView];
-
-        Ingredient* i = [[Ingredient alloc] init:x :y :vx :vy:[viewController getIngredientImage:0]  :32.0f];
-        i.type=type;
+        IngredientType type = (IngredientType)(rand()%22);
+        Ingredient* i = [[Ingredient alloc] init:x :y :vx :vy:32.0f:type];
        [ingredients addObject:i];
         //[ingredientView release];
         [i release];
@@ -108,12 +107,11 @@ float prevTime;
     }
     
     // remove objects that aren't visible
-    /*for(Ingredient* offscreen in toBeRemoved)
+    for(Ingredient* offscreen in toBeRemoved)
     {
         [ingredients removeObject:offscreen];
         [offscreen release];
     }
-    [toBeRemoved release];*/
 }
 
 - (void)dealloc

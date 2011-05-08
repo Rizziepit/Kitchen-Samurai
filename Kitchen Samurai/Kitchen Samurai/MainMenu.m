@@ -31,6 +31,7 @@
     [self.recipeSelection release];
     [self.instructions release];
     [self.videoURL release];
+    [self.appDelegate release];
     [super dealloc];
 }
 
