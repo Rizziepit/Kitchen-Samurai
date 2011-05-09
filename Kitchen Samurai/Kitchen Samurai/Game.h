@@ -14,7 +14,7 @@
 @interface Game : NSObject {
 }
 
-- (void) startGame; // initialise game with saved data
+- (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
 - (void) endGame;
 - (void) pauseGame;
 - (void) continueGame;

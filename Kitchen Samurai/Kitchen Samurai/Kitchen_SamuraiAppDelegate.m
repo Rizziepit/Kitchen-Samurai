@@ -118,12 +118,12 @@
     [super dealloc];
 }
 
-- (void)switchToGame
+- (void)switchToGame:(NSMutableDictionary*) recipe
 {
     isInGame = YES;
     self.window.rootViewController = self.gameScreen;
     // start the game
-    [self.game startGame];
+    [self.game startGame:recipe];
 }
 
 - (void)switchToMenu

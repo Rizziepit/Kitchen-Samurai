@@ -28,7 +28,7 @@ float prevTime;
 }
 
 // initialise game with saved datas
-- (void)startGame
+- (void)startGame: (NSDictionary*) recipe
 {
     NSLog(@"Starting game...");
     ingredients=[[NSMutableArray alloc] init];
@@ -65,6 +65,8 @@ float prevTime;
 }
 
 - (void)runIngredientGenerator{
+    //ingredients = [recipe valueForKey:@"Ingredients"];
+
     //Simple unbalanced one for now, just generates with 1%chance each frame
     if (rand()%100<1){
         //NSString* type;
@@ -100,6 +102,7 @@ float prevTime;
     NSMutableArray* toBeRemoved = [[NSMutableArray alloc] init];
     
     for(Ingredient* ingredient in ingredients){
+        //NSLog(@"%i",[ingredients count]);
         if ([ingredient isOffscreen])
             [toBeRemoved addObject:ingredient];
         else
@@ -110,8 +113,8 @@ float prevTime;
     for(Ingredient* offscreen in toBeRemoved)
     {
         [ingredients removeObject:offscreen];
-        [offscreen release];
     }
+    [toBeRemoved release]; //this calls release on all objects in the array too
 }
 
 - (void)dealloc

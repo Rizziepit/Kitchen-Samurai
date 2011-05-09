@@ -23,6 +23,8 @@
     BOOL* DetailedViewOpen;
     UIView *DetailedView;
     NSString* DataPath;
+    NSMutableDictionary* chosenRecipe;
+
 }
 - (void)loadRecipeList;
 - (void) createLabels;
@@ -42,6 +44,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *DetailedDifficulty;
 @property (nonatomic, retain) IBOutlet UIImageView *DetailedStars;
 @property (nonatomic, retain) IBOutlet UILabel *DetailedTitle;
+
 
 
 @end

@@ -12,6 +12,7 @@
 
 
 @implementation RecipeSelection
+
 @synthesize DetailedView;
 @synthesize Lock;
 @synthesize appDelegate;
@@ -273,7 +274,8 @@
 
 - (IBAction)Cook:(id)sender
 {
-    [appDelegate switchToGame];
+    NSLog(@"ASD");
+    [appDelegate switchToGame:chosenRecipe];
 
 }
 
@@ -321,6 +323,7 @@
     
     [recipeList writeToFile:DataPath2 atomically:YES];
     DetailedView.hidden = NO;
+    chosenRecipe = recipe; //just put this here as global for now so that Cook: can see what it is to send to the game, not the best way to do it though
         
 }
 

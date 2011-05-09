@@ -8,7 +8,7 @@
 		<string>1-Tomato Soup</string>
 		<key>Difficulty</key>
 		<integer>1</integer>
-		<key>Ingreditents</key>
+		<key>Ingredients</key>
 		<dict>
 			<key>Carrot</key>
 			<integer>1</integer>
@@ -32,7 +32,7 @@
 		<string>1-Butternut Soup</string>
 		<key>Difficulty</key>
 		<integer>1</integer>
-		<key>Ingreditents</key>
+		<key>Ingredients</key>
 		<dict>
 			<key>Butternut</key>
 			<integer>2</integer>
@@ -56,14 +56,14 @@
 		<integer>2</integer>
 		<key>Ingredients</key>
 		<dict>
+			<key>Beans</key>
+			<integer>4</integer>
 			<key>Carrot</key>
 			<integer>1</integer>
 			<key>Celery</key>
 			<integer>2</integer>
 			<key>Onion</key>
 			<integer>1</integer>
-			<key>Beans</key>
-			<integer>4</integer>
 		</dict>
 		<key>Name</key>
 		<string>Bean Soup</string>
