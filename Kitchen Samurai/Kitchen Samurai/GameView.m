@@ -66,7 +66,7 @@ NSString * const ingredientTypeToFileName[] = {
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    for(Ingredient* i in gameModel.ingredients)
+    for(Ingredient* i in gameModel.ingredientsOnScreen)
     {
         UIImage* image = [ingredientImages objectAtIndex:(int)i.ingredientType];
         [image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2)];

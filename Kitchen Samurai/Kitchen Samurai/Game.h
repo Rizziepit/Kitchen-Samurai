@@ -20,13 +20,12 @@
 - (void) pauseGame;
 - (void) continueGame;
 - (void) gameLoop:(CADisplayLink *)sender;
-- (void) runIngredientGenerator;
 - (void) moveAndCatchIngredients:(float) timepassed;
 
 @property (nonatomic) BOOL isPaused;
 @property (nonatomic, retain) GameScreen* viewController;
 @property (nonatomic, retain) CADisplayLink *displayLink;
-@property (nonatomic, retain) NSMutableArray* ingredients;
+@property (nonatomic, retain) NSMutableArray* ingredientsOnScreen;
 @property (nonatomic, retain) IngredientGenerator* generator;
 @end
 

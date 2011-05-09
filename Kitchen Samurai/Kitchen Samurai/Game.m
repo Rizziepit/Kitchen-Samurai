@@ -19,7 +19,7 @@ float prevTime;
 @synthesize isPaused;
 @synthesize viewController;
 @synthesize displayLink;
-@synthesize ingredients;
+@synthesize ingredientsOnScreen;
 @synthesize generator;
 
 - (id)init
@@ -33,7 +33,7 @@ float prevTime;
 - (void)startGame: (NSDictionary*) recipe
 {
     NSLog(@"Starting game...");
-    ingredients=[[NSMutableArray alloc] init];
+    ingredientsOnScreen=[[NSMutableArray alloc] init];
     self.generator = [[IngredientGenerator alloc] initWithRecipe:[recipe valueForKey:@"Ingredients"]];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     prevTime=0;
@@ -42,7 +42,7 @@ float prevTime;
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [ingredients dealloc];   //kill all ingredients and array
+    [ingredientsOnScreen dealloc];   //kill all ingredients and array
 }
 
 - (void)pauseGame
@@ -60,26 +60,25 @@ float prevTime;
     // calculate time step
     float time = [sender timestamp]-prevTime;
     prevTime = [sender timestamp];
+    //make sure no bugs in physics/generator on first loop cal when prevTime has not been set.
     
-    [self runIngredientGenerator];
+    //generate ingredient
+    Ingredient*i=[generator giveIngredient];
+    if(i!=nil){
+        [ingredientsOnScreen addObject:i];
+    }
+
     [self moveAndCatchIngredients: time];
     
     [viewController.view setNeedsDisplay];
 }
 
-- (void)runIngredientGenerator{
-    Ingredient*i=[generator giveIngredient];
-    if(i!=nil){
-       [ingredients addObject:i];
-    }
-    
-}
 
 -(void) moveAndCatchIngredients:(float) timepassed{
     // objects are added to this array when they need to be released (can't alter array when using a foreach-type loop)
     NSMutableArray* toBeRemoved = [[NSMutableArray alloc] init];
     
-    for(Ingredient* ingredient in ingredients){
+    for(Ingredient* ingredient in ingredientsOnScreen){
         //NSLog(@"%i",[ingredients count]);
         if ([ingredient isOffscreen])
             [toBeRemoved addObject:ingredient];
@@ -90,7 +89,7 @@ float prevTime;
     // remove objects that aren't visible
     for(Ingredient* offscreen in toBeRemoved)
     {
-        [ingredients removeObject:offscreen];
+        [ingredientsOnScreen removeObject:offscreen];
     }
     [toBeRemoved release]; //this calls release on all objects in the array too
 }

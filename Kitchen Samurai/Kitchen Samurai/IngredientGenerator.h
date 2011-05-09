@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Ingredient.h"
 
 @class Ingredient;
 
@@ -16,5 +17,6 @@
 
 -(id)initWithRecipe:(NSDictionary*)recipe;
 -(Ingredient*)giveIngredient;
+-(IngredientType) pickType;
 
 @end

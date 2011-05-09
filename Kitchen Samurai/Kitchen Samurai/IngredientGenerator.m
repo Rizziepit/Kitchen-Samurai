@@ -22,8 +22,6 @@
     //Simple unbalanced one for now, just generates with 1%chance each frame
     Ingredient* i = nil;
     if (rand()%100<1){
-        //NSString* type;
-        //to do: decide on type, starting position, 
         
         int x=512;
         int y=0;
@@ -42,10 +40,15 @@
         //UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
         //ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
         //[gameScreen.view addSubview:ingredientView];
-        IngredientType type = (IngredientType)(rand()%22);
+        IngredientType type = [self pickType];
+        
         i=[[Ingredient alloc] init:x :y :vx :vy:32.0f:type];
     }
     [i autorelease];
     return i;
+}
+
+-(IngredientType) pickType{
+    return (IngredientType)(rand()%22);
 }
 @end
