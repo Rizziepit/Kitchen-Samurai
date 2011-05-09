@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @class GameScreen;
+@class IngredientGenerator;
 
 @interface Game : NSObject {
 }
@@ -26,6 +27,6 @@
 @property (nonatomic, retain) GameScreen* viewController;
 @property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) NSMutableArray* ingredients;
-
+@property (nonatomic, retain) IngredientGenerator* generator;
 @end
 

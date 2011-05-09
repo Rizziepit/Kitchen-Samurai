@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Ingredient;
 
 @interface IngredientGenerator : NSObject {
     
 }
 
--(id)initWithRecipe:(NSObject*)recipe;
+-(id)initWithRecipe:(NSDictionary*)recipe;
+-(Ingredient*)giveIngredient;
 
 @end

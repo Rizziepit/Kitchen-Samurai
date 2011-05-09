@@ -9,6 +9,7 @@
 #import "Game.h"
 #import "GameScreen.h"
 #import "Ingredient.h"
+#import "IngredientGenerator.h"
 
 @implementation Game
 
@@ -19,6 +20,7 @@ float prevTime;
 @synthesize viewController;
 @synthesize displayLink;
 @synthesize ingredients;
+@synthesize generator;
 
 - (id)init
 {
@@ -32,6 +34,7 @@ float prevTime;
 {
     NSLog(@"Starting game...");
     ingredients=[[NSMutableArray alloc] init];
+    self.generator = [[IngredientGenerator alloc] initWithRecipe:[recipe valueForKey:@"Ingredients"]];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     prevTime=0;
 }
@@ -65,36 +68,11 @@ float prevTime;
 }
 
 - (void)runIngredientGenerator{
-    //ingredients = [recipe valueForKey:@"Ingredients"];
-
-    //Simple unbalanced one for now, just generates with 1%chance each frame
-    if (rand()%100<1){
-        //NSString* type;
-        //to do: decide on type, starting position, 
-        
-        int x=512;
-        int y=0;
-        int vx=5;
-        int vy=768;
-        /*if(rand()%100<50){
-            type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
-            x=150;
-        }
-        else
-        {
-            type =[[NSBundle mainBundle] pathForResource:@"recipe_button_locked" ofType:@"png"];
-            
-        }*/
- 
-        //UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
-        //ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
-        //[gameScreen.view addSubview:ingredientView];
-        IngredientType type = (IngredientType)(rand()%22);
-        Ingredient* i = [[Ingredient alloc] init:x :y :vx :vy:32.0f:type];
+    Ingredient*i=[generator giveIngredient];
+    if(i!=nil){
        [ingredients addObject:i];
-        //[ingredientView release];
-        [i release];
     }
+    
 }
 
 -(void) moveAndCatchIngredients:(float) timepassed{
