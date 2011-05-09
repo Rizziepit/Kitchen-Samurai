@@ -11,12 +11,13 @@
 @class Kitchen_SamuraiAppDelegate;
 @class Game;
 
-@interface GameScreen : UIViewController {
+@interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
 @property (nonatomic, retain) Game *game;
 
 - (IBAction)quitGameButtonClicked:(id)sender;
+- (void)performSwipe:(id)sender;
 
 @end

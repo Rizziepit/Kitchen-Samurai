@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
 
 @class GameScreen;
 @class IngredientGenerator;
+@class PhysicalObject;
 
 @interface Game : NSObject {
 }
@@ -27,5 +28,6 @@
 @property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) NSMutableArray* ingredientsOnScreen;
 @property (nonatomic, retain) IngredientGenerator* generator;
+@property (nonatomic, retain) PhysicalObject* pot;
 @end
 

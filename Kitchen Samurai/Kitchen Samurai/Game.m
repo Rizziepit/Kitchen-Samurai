@@ -21,6 +21,7 @@ float prevTime;
 @synthesize displayLink;
 @synthesize ingredientsOnScreen;
 @synthesize generator;
+@synthesize pot;
 
 - (id)init
 {
@@ -36,6 +37,10 @@ float prevTime;
     ingredientsOnScreen=[[NSMutableArray alloc] init];
     self.generator = [[IngredientGenerator alloc] initWithRecipe:[recipe valueForKey:@"Ingredients"]];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    // add the pot
+    self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
+    
     prevTime=0;
 }
 
@@ -43,6 +48,7 @@ float prevTime;
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [ingredientsOnScreen dealloc];   //kill all ingredients and array
+    [pot dealloc];
 }
 
 - (void)pauseGame

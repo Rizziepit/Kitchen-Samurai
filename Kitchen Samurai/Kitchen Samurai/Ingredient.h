@@ -41,4 +41,6 @@ typedef enum {
 - (id) init:(float)xPosition :(float)yPosition :(float)xVelocity :(float)yVelocity :(float)collisionRadius:(IngredientType)type;
 
 @property(nonatomic) IngredientType ingredientType;
+@property(nonatomic) BOOL isCut;
+
 @end

@@ -39,6 +39,8 @@
 		8093096213697954007C1E8B /* GameScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096013697954007C1E8B /* GameScreen.xib */; };
 		8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093096D1369A4A0007C1E8B /* RecipeSelection.m */; };
 		809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809309761369A688007C1E8B /* MediaPlayer.framework */; };
+		80CE91151378769D00C68779 /* pot.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CE91141378769D00C68779 /* pot.png */; };
+		80CE9117137876A300C68779 /* pot_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CE9116137876A300C68779 /* pot_top.png */; };
 		80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1F913606D5200425F16 /* UIKit.framework */; };
 		80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FB13606D5200425F16 /* Foundation.framework */; };
 		80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FD13606D5200425F16 /* CoreGraphics.framework */; };
@@ -118,6 +120,8 @@
 		8093096C1369A4A0007C1E8B /* RecipeSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSelection.h; sourceTree = "<group>"; };
 		8093096D1369A4A0007C1E8B /* RecipeSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSelection.m; sourceTree = "<group>"; };
 		809309761369A688007C1E8B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		80CE91141378769D00C68779 /* pot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pot.png; sourceTree = "<group>"; };
+		80CE9116137876A300C68779 /* pot_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pot_top.png; sourceTree = "<group>"; };
 		80CEB1F513606D5200425F16 /* Kitchen Samurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Samurai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CEB1F913606D5200425F16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80CEB1FB13606D5200425F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -275,6 +279,8 @@
 		E0A5B6EE1369FB3400408241 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				80CE9116137876A300C68779 /* pot_top.png */,
+				80CE91141378769D00C68779 /* pot.png */,
 				E0C8C156137614AD00EF567E /* Ingredients */,
 				0C05BFFC13742EA30026A4DE /* 1-Tomato Soup.txt */,
 				3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */,
@@ -430,6 +436,8 @@
 				E0C8C153137614A700EF567E /* pumpkin.png in Resources */,
 				E0C8C154137614A700EF567E /* tomato.png in Resources */,
 				E0C8C155137614A700EF567E /* turnip.png in Resources */,
+				80CE91151378769D00C68779 /* pot.png in Resources */,
+				80CE9117137876A300C68779 /* pot_top.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
