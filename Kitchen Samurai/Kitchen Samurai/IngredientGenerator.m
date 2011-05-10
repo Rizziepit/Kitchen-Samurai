@@ -62,9 +62,8 @@ float GRAVITY=-320.0f;
 
 -(Ingredient*)giveIngredient{
     //Simple unbalanced one for now, just generates with 1%chance each frame
-    Ingredient* i = nil;
     if (rand()%100<6){
-        
+        Ingredient* i = nil;
         float rad= 30.0f;
         /*if(rand()%100<50){
          type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
@@ -81,9 +80,10 @@ float GRAVITY=-320.0f;
         IngredientType type = [self pickType];
         NSArray* start = [self pickStartCoords];
         i=[[Ingredient alloc] init:[[start objectAtIndex:0] floatValue]	 :[[start objectAtIndex:1] floatValue] :[[start objectAtIndex:2] floatValue] :[[start objectAtIndex:3] floatValue] :rad :type];
+        [i autorelease];
+
     }
-    [i autorelease];
-    return i;
+    return nil;
 }
 
 -(IngredientType) pickType{
