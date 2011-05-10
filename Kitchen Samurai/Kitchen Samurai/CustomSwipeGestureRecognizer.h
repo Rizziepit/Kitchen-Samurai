@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
+@class PhysicalObject;
 
 @interface CustomSwipeGestureRecognizer : UIGestureRecognizer {
     
 }
 
+@property (nonatomic, retain) PhysicalObject *pot;
 @end

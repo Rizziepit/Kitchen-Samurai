@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomSwipeGestureRecognizer.h"
 
 @class Kitchen_SamuraiAppDelegate;
 @class Game;
 
 @interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
-    UILongPressGestureRecognizer *drag;
+    CustomSwipeGestureRecognizer *drag;
+    //UILongPressGestureRecognizer *drag;
     UISwipeGestureRecognizer *swipe1;
+
+    
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
