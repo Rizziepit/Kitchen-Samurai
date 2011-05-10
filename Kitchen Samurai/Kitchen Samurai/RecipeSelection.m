@@ -182,7 +182,7 @@
 {
     NSString* path = [[NSBundle mainBundle] bundlePath];
     DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
-    NSLog(@"%@",DataPath);
+    //NSLog(@"%@",DataPath);
     recipeList = [[NSMutableDictionary alloc] initWithContentsOfFile:DataPath];
     
     for (int number = 1; number < [recipeList count]+1; number++)
@@ -191,7 +191,7 @@
         NSString *key = [NSString stringWithFormat:@"%i",number];
         NSMutableDictionary* recipe = [recipeList valueForKey:key];
         NSString* name = [recipe valueForKey:@"Name"];
-        int dif = [[recipe valueForKey:@"Difficulty"] intValue];
+        //int dif = [[recipe valueForKey:@"Difficulty"] intValue];
         int starRating = [[recipe valueForKey:@"Rating"] intValue];
         BOOL unlocked = [[recipe objectForKey:@"Unlocked"] boolValue];
         
@@ -211,18 +211,18 @@
             [tmp setText:[NSString stringWithFormat:@"%@",name]];
             [tmp sizeToFit];
             
-            NSLog(@"UNLOCKED : ");
+            //NSLog(@"UNLOCKED : ");
         }
         else 
         {
-            NSLog(@"LOCKED");
+            //NSLog(@"LOCKED");
             //UIButton *tmp_btn = [self getButtonAtIndex:number];
             //[tmp_btn setImage:[UIImage imageNamed:@"recipe_button_locked"] forState:UIControlStateNormal];
             [Lock setHidden:NO];
         }
         
 
-        NSLog(@"Recipe No : %@ is %@ With Difficulty of %i has been unlocked %i. Star Rating is %d",key,name,dif,unlocked,starRating);
+        //NSLog(@"Recipe No : %@ is %@ With Difficulty of %i has been unlocked %i. Star Rating is %d",key,name,dif,unlocked,starRating);
         
     }
     
@@ -285,7 +285,7 @@
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
     NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
     
-    NSLog(@"%@",[recipe valueForKey:@"Rating"]);
+    //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
 
     NSNumber* NewRating = [[NSNumber alloc] initWithInt:4];
     
@@ -301,7 +301,7 @@
     DetailedDifficulty.text = [NSString stringWithFormat:@"%i",[[recipe valueForKey:@"Difficulty"] intValue]];
 
     
-    NSLog(@"%@",[recipe valueForKey:@"Rating"]);
+    //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
     
     NSString* homeDir = [[NSBundle mainBundle] pathForResource:[recipe valueForKey:@"DetailsName"]  ofType:@"txt"];
     //NSLog(@"%@",homeDir);
@@ -316,7 +316,7 @@
     NSString* DataPath2 = [path2 stringByAppendingPathComponent:@"Recipe_List.plist"];
 
     
-    NSLog(@"%@",DataPath2);
+    //NSLog(@"%@",DataPath2);
 
     
     [recipeList writeToFile:DataPath2 atomically:YES];
