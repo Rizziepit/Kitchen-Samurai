@@ -79,7 +79,6 @@ float prevTime;
     [viewController.view setNeedsDisplay];
 }
 
-
 -(void) moveAndCatchIngredients:(float) timepassed{
     // objects are added to this array when they need to be released (can't alter array when using a foreach-type loop)
     NSMutableArray* toBeRemoved = [[NSMutableArray alloc] init];

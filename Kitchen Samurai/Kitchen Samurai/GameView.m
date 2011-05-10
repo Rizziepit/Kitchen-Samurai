@@ -92,7 +92,6 @@ NSString * const ingredientTypeToFileName[] = {
     [pot_bottom drawAtPoint:top_left];
 }
 
-
 - (void)dealloc
 {
     [ingredientImages release];
