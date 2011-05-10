@@ -72,6 +72,7 @@
 						</object>
 						<int key="IBUITag">5</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<object class="NSFont" key="IBUIFont" id="871286173">
@@ -106,6 +107,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">9</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -152,6 +154,7 @@
 						<int key="IBUIContentMode">4</int>
 						<int key="IBUITag">1</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -173,6 +176,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">6</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -194,6 +198,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">10</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -215,6 +220,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">2</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -262,6 +268,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">7</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -283,6 +290,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">11</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -304,6 +312,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">3</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -348,6 +357,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">8</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -466,6 +476,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">12</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -580,6 +591,7 @@
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">4</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="871286173"/>
@@ -780,7 +792,6 @@
 						<string key="NSFrame">{{743, 660}, {141, 35}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="249114630"/>
 						<int key="IBUITag">12</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -794,7 +805,7 @@
 							<object class="IBUIImageView" id="654069065">
 								<reference key="NSNextResponder" ref="92513297"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrameSize">{932, 671}</string>
+								<string key="NSFrame">{{0, 20}, {932, 671}}</string>
 								<reference key="NSSuperview" ref="92513297"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="487555730"/>
@@ -832,7 +843,7 @@
 							<object class="IBUILabel" id="487555730">
 								<reference key="NSNextResponder" ref="92513297"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{208, 29}, {516, 40}}</string>
+								<string key="NSFrame">{{208, 53}, {516, 40}}</string>
 								<reference key="NSSuperview" ref="92513297"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="671650059"/>
@@ -933,7 +944,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="301764704"/>
 							</object>
 						</object>
-						<string key="NSFrame">{{46, 58}, {932, 671}}</string>
+						<string key="NSFrame">{{46, 49}, {932, 671}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="654069065"/>
@@ -1177,7 +1188,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="589719701"/>
 							<reference ref="465997913"/>
-							<reference ref="420191912"/>
 							<reference ref="372731751"/>
 							<reference ref="68054562"/>
 							<reference ref="820332778"/>
@@ -1211,8 +1221,9 @@
 							<reference ref="590918052"/>
 							<reference ref="1069417095"/>
 							<reference ref="336811976"/>
-							<reference ref="129003240"/>
 							<reference ref="796938667"/>
+							<reference ref="129003240"/>
+							<reference ref="420191912"/>
 							<reference ref="92513297"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -1408,12 +1419,12 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="1012550506"/>
-							<reference ref="487555730"/>
-							<reference ref="654069065"/>
 							<reference ref="671650059"/>
 							<reference ref="616518335"/>
 							<reference ref="495660171"/>
 							<reference ref="263751187"/>
+							<reference ref="654069065"/>
+							<reference ref="487555730"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -1482,6 +1493,7 @@
 					<string>28.IBPluginDependency</string>
 					<string>29.IBPluginDependency</string>
 					<string>30.IBPluginDependency</string>
+					<string>30.IBUIButtonInspectorSelectedEdgeInsetMetadataKey</string>
 					<string>31.IBPluginDependency</string>
 					<string>32.IBPluginDependency</string>
 					<string>33.IBPluginDependency</string>
@@ -1536,6 +1548,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
