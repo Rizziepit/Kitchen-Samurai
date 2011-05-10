@@ -73,7 +73,6 @@ NSString * const ingredientTypeToFileName[] = {
     }
 }
 
-
 - (void)dealloc
 {
     [ingredientImages release];
