@@ -18,5 +18,7 @@
 -(id)initWithRecipe:(NSDictionary*)recipe;
 -(Ingredient*)giveIngredient;
 -(IngredientType) pickType;
+-(NSArray*)pickStartCoords;
+
 
 @end

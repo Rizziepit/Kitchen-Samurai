@@ -78,13 +78,14 @@
     [swipe1 release];
     
     // Set up drag gesture recognizer
-    drag = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(dragPot:)];
+    drag = [[CustomSwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dragPot:)];
     [drag setDelegate:self];
-    [drag setAllowableMovement:INFINITY];
-    [drag setMinimumPressDuration:0];
-    [drag setNumberOfTouchesRequired:1];
-    [drag setNumberOfTapsRequired:0];
-    [drag setCancelsTouchesInView:YES];
+    //[drag setAllowableMovement:INFINITY];
+    //[drag setMinimumPressDuration:0];
+    //[drag setNumberOfTouchesRequired:1];
+    //[drag setNumberOfTapsRequired:0];
+    //[drag setCancelsTouchesInView:YES];
+    [drag setPot:game.pot];
     [gameView addGestureRecognizer:drag];
     [gameView release];
 }
