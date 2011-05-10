@@ -91,12 +91,12 @@
         {
             if (v.tag == index)
             {
-                NSLog(@" Label found at index %i",index);
+                //NSLog(@" Label found at index %i",index);
                 return (UILabel *)v;
             }
         }
     }
-    NSLog(@" Label not found at index %i",index);
+    //NSLog(@" Label not found at index %i",index);
     return nil;
 }
 
@@ -108,12 +108,12 @@
             {
                 if (v.tag == index)
                 {
-                    NSLog(@" Button found at index %i",index);
+                    //NSLog(@" Button found at index %i",index);
                     return (UIButton *)v;
                 }
             }
     }
-    NSLog(@"Button not found at index %i",index);
+    //NSLog(@"Button not found at index %i",index);
     return nil;
 }
 
@@ -125,12 +125,12 @@
         {
             if (v.tag == index)
             {
-                NSLog(@" Image found at index %i",index);
+                //NSLog(@" Image found at index %i",index);
                 return (UITextView *)v;
             }
         }
     }
-    NSLog(@"Text not found at index %i",index);
+    //NSLog(@"Text not found at index %i",index);
     return nil;
 }
 
@@ -142,12 +142,12 @@
         {
             if (v.tag == index)
             {
-                NSLog(@" Image found at index %i",index);
+                //NSLog(@" Image found at index %i",index);
                 return (UIImageView *)v;
             }
         }
     }
-    NSLog(@"Image not found at index %i",index);
+    //NSLog(@"Image not found at index %i",index);
     return nil;
 }
 
@@ -195,9 +195,6 @@
         //int dif = [[recipe valueForKey:@"Difficulty"] intValue];
         int starRating = [[recipe valueForKey:@"Rating"] intValue];
         BOOL unlocked = [[recipe objectForKey:@"Unlocked"] boolValue];
-        
-        
-        
         
         if (unlocked)
         {
@@ -284,46 +281,55 @@
     //DetailedViewOpen = YES;//check out how to set bool correctly.
     
     
+    
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
-    NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
+    int level;
+    level = [buttonTag intValue];
     
-    //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
-
-    NSNumber* NewRating = [[NSNumber alloc] initWithInt:4];
+    if (level < [recipeList count]+1) 
+    {
+        
     
-
-    [recipe setValue:NewRating forKey:@"Rating"];
-
-    
-    
-    DetailedTitle.text = [recipe valueForKey:@"Name"];
-    
-    [DetailedStars setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%istars_large",[[recipe valueForKey:@"Rating"] intValue]]]];
-    
-    DetailedDifficulty.text = [NSString stringWithFormat:@"%i",[[recipe valueForKey:@"Difficulty"] intValue]];
-
-    
-    //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
-    
-    NSString* homeDir = [[NSBundle mainBundle] pathForResource:[recipe valueForKey:@"DetailsName"]  ofType:@"txt"];
-    //NSLog(@"%@",homeDir);
-    
-    NSString* contents = [NSString stringWithContentsOfFile:homeDir encoding:NSUTF8StringEncoding error:nil];
-    
-    //NSLog(@"%@",contents);
-    
-    DetailedTextView.text = contents;
-
-    NSString* path2 = [[NSBundle mainBundle] bundlePath];
-    NSString* DataPath2 = [path2 stringByAppendingPathComponent:@"Recipe_List.plist"];
-
-    
-    //NSLog(@"%@",DataPath2);
-
-    
-    [recipeList writeToFile:DataPath2 atomically:YES];
-    DetailedView.hidden = NO;
-    chosenRecipe = recipe; //just put this here as global for now so that Cook: can see what it is to send to the game, not the best way to do it though
+        NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
+        
+        //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
+        
+        NSNumber* NewRating = [[NSNumber alloc] initWithInt:4];
+        
+        
+        [recipe setValue:NewRating forKey:@"Rating"];
+        
+        
+        DetailedTitle.text = [recipe valueForKey:@"Name"];
+        
+        [DetailedStars setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%istars_large",[[recipe valueForKey:@"Rating"] intValue]]]];
+        
+        DetailedDifficulty.text = [NSString stringWithFormat:@"%i",[[recipe valueForKey:@"Difficulty"] intValue]];
+        
+        
+        //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
+        
+        NSString* homeDir = [[NSBundle mainBundle] pathForResource:[recipe valueForKey:@"DetailsName"]  ofType:@"txt"];
+        //NSLog(@"%@",homeDir);
+        
+        NSString* contents = [NSString stringWithContentsOfFile:homeDir encoding:NSUTF8StringEncoding error:nil];
+        
+        //NSLog(@"%@",contents);
+        
+        DetailedTextView.text = contents;
+        
+        NSString* path2 = [[NSBundle mainBundle] bundlePath];
+        NSString* DataPath2 = [path2 stringByAppendingPathComponent:@"Recipe_List.plist"];
+        
+        
+        //NSLog(@"%@",DataPath2);
+        
+        
+        [recipeList writeToFile:DataPath2 atomically:YES];
+        DetailedView.hidden = NO;
+        chosenRecipe = recipe; //just put this here as global for now so that Cook: can see what it is to send to the game, not the best way to do it though
+        
+    }
         
 }
 
