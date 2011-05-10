@@ -20,6 +20,7 @@ float prevTime;
 @synthesize viewController;
 @synthesize displayLink;
 @synthesize ingredientsOnScreen;
+@synthesize ingredientsLeft;
 @synthesize generator;
 @synthesize pot;
 
@@ -35,7 +36,8 @@ float prevTime;
 {
     NSLog(@"Starting game...");
     ingredientsOnScreen=[[NSMutableArray alloc] init];
-    self.generator = [[IngredientGenerator alloc] initWithRecipe:[recipe valueForKey:@"Ingredients"]];
+    ingredientsLeft = [recipe valueForKey:@"Ingredients"];
+    self.generator = [[IngredientGenerator alloc] initWithRecipe:ingredientsLeft];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     // add the pot

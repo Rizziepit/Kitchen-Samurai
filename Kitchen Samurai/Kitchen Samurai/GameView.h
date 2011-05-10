@@ -19,5 +19,6 @@
 
 @property (nonatomic, retain) Game *gameModel;
 @property (nonatomic, retain) NSMutableArray *ingredientImages;
+@property (nonatomic, retain) NSMutableArray *numberImages;
 
 @end

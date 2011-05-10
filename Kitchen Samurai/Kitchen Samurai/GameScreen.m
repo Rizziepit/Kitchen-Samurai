@@ -86,7 +86,7 @@
     [drag setNumberOfTapsRequired:0];
     [drag setCancelsTouchesInView:YES];
     [gameView addGestureRecognizer:drag];
-    [gameView release];
+   // [gameView release]; shouln't be here? there was no extra retain, self.view doesn't do a retain? doing this makes exit game/start again not work anymore
 }
 
 - (void)viewDidUnload

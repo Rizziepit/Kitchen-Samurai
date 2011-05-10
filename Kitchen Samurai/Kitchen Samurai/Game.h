@@ -27,6 +27,7 @@
 @property (nonatomic, retain) GameScreen* viewController;
 @property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) NSMutableArray* ingredientsOnScreen;
+@property (nonatomic, retain) NSDictionary* ingredientsLeft;
 @property (nonatomic, retain) IngredientGenerator* generator;
 @property (nonatomic, retain) PhysicalObject* pot;
 @end

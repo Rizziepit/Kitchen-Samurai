@@ -37,8 +37,22 @@ NSString * const ingredientTypeToFileName[] = {
     @"turnip.png"
 };
 
+NSString * const numberToFileName[] = {
+    @"x.jpg",
+    @"1.png",
+    @"2.png",
+    @"3.png",
+    @"4.png",
+    @"5.png",
+    @"6.png",
+    @"7.png",
+    @"8.png",
+    @"9.png",
+};
+
 @synthesize gameModel;
 @synthesize ingredientImages;
+@synthesize numberImages;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -52,12 +66,19 @@ NSString * const ingredientTypeToFileName[] = {
 - (void)initIngredientImages
 {
     // set up all the ingredient images here
-    NSLog(@"initializing ingredient images...");
+    NSLog(@"initializing ingredient images and numbers...");
     ingredientImages = [[NSMutableArray alloc] initWithCapacity:22];
     for (int i = 0; i < 22; i++)
     {
         UIImage* image = [UIImage imageNamed:ingredientTypeToFileName[i]];
         [ingredientImages addObject:image];
+        [image release];
+    }
+    numberImages = [[NSMutableArray alloc] initWithCapacity:10];
+    for (int i = 0; i < 10; i++)
+    {
+        UIImage* image = [UIImage imageNamed:numberToFileName[i]];
+        [numberImages addObject:image];
         [image release];
     }
     
@@ -71,6 +92,20 @@ NSString * const ingredientTypeToFileName[] = {
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    //Draw topleft window
+    float x=20;
+    float y=20;
+    for(id type in gameModel.ingredientsLeft)
+    {
+        id number = [gameModel.ingredientsLeft valueForKey:type];
+        UIImage* image = [ingredientImages objectAtIndex:[type intValue]];
+        [image drawAtPoint:CGPointMake(x,y)];
+        UIImage* numberimage = [numberImages objectAtIndex:[number intValue]];
+        [numberimage drawAtPoint:CGPointMake(x+100,y)];
+        y+=100;
+    }
+    
+    //Draw ingredients on screen
     for(Ingredient* i in gameModel.ingredientsOnScreen)
     {
         UIImage* image = [ingredientImages objectAtIndex:(int)i.ingredientType];
