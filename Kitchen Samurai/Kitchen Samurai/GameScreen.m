@@ -33,7 +33,7 @@
 
 - (void)dragPot:(id)sender
 {
-    CGPoint touchPoint = [drag locationInView:self.view];
+    CGPoint touchPoint =  [drag locationOfTouch:0 inView:drag.view];
     CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
     if (CGRectContainsPoint(pot, touchPoint))
         game.pot.xPos = touchPoint.x;
@@ -121,7 +121,7 @@
 
 /*- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if ([gestureRecognizer isKindOfClass:[drag class]])
+    if (gestureRecognizer==drag)
     {
         CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
         CGPoint touch = [gestureRecognizer locationInView:self.view];
@@ -131,7 +131,7 @@
             return NO;
     }
     else
-        return NO;
+        return YES;
 }*/
 
 @end

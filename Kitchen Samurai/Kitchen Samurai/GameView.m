@@ -79,8 +79,8 @@ NSString * const ingredientTypeToFileName[] = {
             [image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2)];
         }
     }
-    CGPoint center = CGPointMake(gameModel.pot.xPos - pot_top.size.width/2,768 - gameModel.pot.yPos - pot_top.size.height/2);
-    [pot_top drawAtPoint:center];
+    CGPoint top_left = CGPointMake(gameModel.pot.xPos - pot_top.size.width/2,768 - gameModel.pot.yPos - pot_top.size.height/2);
+    [pot_top drawAtPoint:top_left];
     for(Ingredient* i in gameModel.ingredientsOnScreen)
     {
         if (i.isCut)
@@ -89,7 +89,7 @@ NSString * const ingredientTypeToFileName[] = {
             [image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2)];
         }
     }
-    [pot_bottom drawAtPoint:center];
+    [pot_bottom drawAtPoint:top_left];
 }
 
 
