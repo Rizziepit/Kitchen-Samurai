@@ -12,21 +12,60 @@
 
 @implementation IngredientGenerator
 
+float SCREENWIDTH=1024;
+float SCREENHEIGHT=768;
+float GRAVITY=-320.0f;
 -(id)initWithRecipe:(NSDictionary*)recipe{
     [super init];
     //NSLog(@"%i",[recipe count]);
     return self;
 }
 
+-(NSArray*)pickStartCoords{
+    /*STARTING MOTION GENERATOR
+     
+     alg:
+     ypos=offscreen
+     pick random vy within range that works fine for current gravity (either experiment and hardcode, or calculate from gravity value to allow for changing gravity)
+     work out y distance travelled
+     work out time travelled
+     pick x pos in first or last quarter of screen, or one of external quarters
+     check maxdistance ingredient can travel from that point
+     choose distance random between min and max (can be weighted to allow for more long distance movements)
+     calculate xvelocity that will cause this distance to be travelled using time calculated earlier.
+     */
+    float y = 0;
+    float vy =(SCREENHEIGHT/3)*2 +rand()%(int)(SCREENHEIGHT/3);
+    float timetravelled = (0-vy/GRAVITY)*2;
+    float x;
+    float vx;
+    if (rand()%100<50){
+        x= -(SCREENWIDTH/4) + rand()%(int)(SCREENWIDTH/2);
+        float maxdistance = SCREENWIDTH-x-50;
+        float mindistance=SCREENWIDTH/2;
+        float distance = mindistance+rand()%(int)(maxdistance-mindistance);
+      //  float yDistanceTravelled = 4;
+       // float timetravelled = (-2*vy+sqrt(4*((int)vy^2) - 4*GRAVITY*-2*yDistanceTravelled))/2*GRAVITY;
+        vx = distance/timetravelled;
+
+    }
+    else{
+        x= (SCREENWIDTH/4)*3 + rand()%(int)(SCREENWIDTH/2);
+        float maxdistance = -(x-50);    
+        float mindistance=-SCREENWIDTH/2;
+        float distance = mindistance+rand()%(int)(maxdistance-mindistance);
+        vx = distance/timetravelled;
+    }
+    NSArray* start = [NSArray arrayWithObjects:[NSNumber numberWithFloat:x],[NSNumber numberWithFloat:y],[NSNumber numberWithFloat:vx],[NSNumber numberWithFloat:vy], nil];
+    return start;
+}
+
 -(Ingredient*)giveIngredient{
     //Simple unbalanced one for now, just generates with 1%chance each frame
     Ingredient* i = nil;
-    if (rand()%100<1){
+    if (rand()%100<6){
         
-        int x=512;
-        int y=0;
-        int vx=5;
-        int vy=768;
+        float rad= 30.0f;
         /*if(rand()%100<50){
          type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
          x=150;
@@ -36,13 +75,12 @@
          type =[[NSBundle mainBundle] pathForResource:@"recipe_button_locked" ofType:@"png"];
          
          }*/
-        
         //UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
         //ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
         //[gameScreen.view addSubview:ingredientView];
         IngredientType type = [self pickType];
-        
-        i=[[Ingredient alloc] init:x :y :vx :vy:32.0f:type];
+        NSArray* start = [self pickStartCoords];
+        i=[[Ingredient alloc] init:[[start objectAtIndex:0] floatValue]	 :[[start objectAtIndex:1] floatValue] :[[start objectAtIndex:2] floatValue] :[[start objectAtIndex:3] floatValue] :rad :type];
     }
     [i autorelease];
     return i;
@@ -51,4 +89,6 @@
 -(IngredientType) pickType{
     return (IngredientType)(rand()%22);
 }
+
+
 @end
