@@ -18,7 +18,7 @@ static BOOL isInGame;
 }
 
 -(void)loadPlist;
--(void)switchToGame;
+-(void)switchToGame:(NSMutableDictionary*) recipe;
 -(void)switchToMenu;
 +(BOOL)isGameRunning;
 

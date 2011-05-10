@@ -7,25 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
 
 @class GameScreen;
+@class IngredientGenerator;
+@class PhysicalObject;
 
 @interface Game : NSObject {
 }
 
-- (void) startGame; // initialise game with saved data
+- (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
 - (void) endGame;
 - (void) pauseGame;
 - (void) continueGame;
 - (void) gameLoop:(CADisplayLink *)sender;
-- (void) runIngredientGenerator;
 - (void) moveAndCatchIngredients:(float) timepassed;
 
 @property (nonatomic) BOOL isPaused;
 @property (nonatomic, retain) GameScreen* viewController;
 @property (nonatomic, retain) CADisplayLink *displayLink;
-@property (nonatomic, retain) NSMutableArray* ingredients;
-
+@property (nonatomic, retain) NSMutableArray* ingredientsOnScreen;
+@property (nonatomic, retain) IngredientGenerator* generator;
+@property (nonatomic, retain) PhysicalObject* pot;
 @end
 

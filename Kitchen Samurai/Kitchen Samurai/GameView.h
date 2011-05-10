@@ -11,6 +11,8 @@
 @class Game;
 
 @interface GameView : UIView {
+    UIImage* pot_bottom;
+    UIImage* pot_top;
 }
 
 - (void) initIngredientImages;

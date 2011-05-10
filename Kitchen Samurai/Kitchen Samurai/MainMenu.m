@@ -74,14 +74,20 @@
 }
 
 - (IBAction)startNewGame:(id)sender {
-    [appDelegate switchToGame];
+    //find which recipe
+    NSMutableDictionary* recipe;
+
+    [appDelegate switchToGame:recipe];
 }
 
 - (IBAction)continueGame:(id)sender {
-    [appDelegate switchToGame];
+    //find which recipe
+    NSMutableDictionary* recipe;
+    [appDelegate switchToGame:recipe];
 }
 
 - (IBAction)showRecipes:(id)sender {
+    [recipeSelection setAppDelegate:self.appDelegate];
     [self.view addSubview:recipeSelection.view];
 }
 

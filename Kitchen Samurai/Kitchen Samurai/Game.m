@@ -9,6 +9,7 @@
 #import "Game.h"
 #import "GameScreen.h"
 #import "Ingredient.h"
+#import "IngredientGenerator.h"
 
 @implementation Game
 
@@ -18,7 +19,9 @@ float prevTime;
 @synthesize isPaused;
 @synthesize viewController;
 @synthesize displayLink;
-@synthesize ingredients;
+@synthesize ingredientsOnScreen;
+@synthesize generator;
+@synthesize pot;
 
 - (id)init
 {
@@ -28,18 +31,24 @@ float prevTime;
 }
 
 // initialise game with saved datas
-- (void)startGame
+- (void)startGame: (NSDictionary*) recipe
 {
     NSLog(@"Starting game...");
-    ingredients=[[NSMutableArray alloc] init];
+    ingredientsOnScreen=[[NSMutableArray alloc] init];
+    self.generator = [[IngredientGenerator alloc] initWithRecipe:[recipe valueForKey:@"Ingredients"]];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    // add the pot
+    self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
+    
     prevTime=0;
 }
 
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [ingredients dealloc];   //kill all ingredients and array
+    [ingredientsOnScreen dealloc];   //kill all ingredients and array
+    [pot dealloc];
 }
 
 - (void)pauseGame
@@ -57,49 +66,26 @@ float prevTime;
     // calculate time step
     float time = [sender timestamp]-prevTime;
     prevTime = [sender timestamp];
+    //make sure no bugs in physics/generator on first loop cal when prevTime has not been set.
     
-    [self runIngredientGenerator];
+    //generate ingredient
+    Ingredient*i=[generator giveIngredient];
+    if(i!=nil){
+        [ingredientsOnScreen addObject:i];
+    }
+
     [self moveAndCatchIngredients: time];
     
     [viewController.view setNeedsDisplay];
 }
 
-- (void)runIngredientGenerator{
-    //Simple unbalanced one for now, just generates with 1%chance each frame
-    if (rand()%100<1){
-        //NSString* type;
-        //to do: decide on type, starting position, 
-        
-        int x=512;
-        int y=0;
-        int vx=5;
-        int vy=768;
-        /*if(rand()%100<50){
-            type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
-            x=150;
-        }
-        else
-        {
-            type =[[NSBundle mainBundle] pathForResource:@"recipe_button_locked" ofType:@"png"];
-            
-        }*/
- 
-        //UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
-        //ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
-        //[gameScreen.view addSubview:ingredientView];
-        IngredientType type = (IngredientType)(rand()%22);
-        Ingredient* i = [[Ingredient alloc] init:x :y :vx :vy:32.0f:type];
-       [ingredients addObject:i];
-        //[ingredientView release];
-        [i release];
-    }
-}
 
 -(void) moveAndCatchIngredients:(float) timepassed{
     // objects are added to this array when they need to be released (can't alter array when using a foreach-type loop)
     NSMutableArray* toBeRemoved = [[NSMutableArray alloc] init];
     
-    for(Ingredient* ingredient in ingredients){
+    for(Ingredient* ingredient in ingredientsOnScreen){
+        //NSLog(@"%i",[ingredients count]);
         if ([ingredient isOffscreen])
             [toBeRemoved addObject:ingredient];
         else
@@ -109,9 +95,9 @@ float prevTime;
     // remove objects that aren't visible
     for(Ingredient* offscreen in toBeRemoved)
     {
-        [ingredients removeObject:offscreen];
-        [offscreen release];
+        [ingredientsOnScreen removeObject:offscreen];
     }
+    [toBeRemoved release]; //this calls release on all objects in the array too
 }
 
 - (void)dealloc

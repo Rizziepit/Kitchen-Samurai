@@ -58,7 +58,12 @@ NSString * const ingredientTypeToFileName[] = {
     {
         UIImage* image = [UIImage imageNamed:ingredientTypeToFileName[i]];
         [ingredientImages addObject:image];
+        [image release];
     }
+    
+    // set up the pot images
+    pot_bottom = [UIImage imageNamed:@"pot.png"];
+    pot_top = [UIImage imageNamed:@"pot_top.png"];
 }
 
 
@@ -66,11 +71,25 @@ NSString * const ingredientTypeToFileName[] = {
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    for(Ingredient* i in gameModel.ingredients)
+    for(Ingredient* i in gameModel.ingredientsOnScreen)
     {
-        UIImage* image = [ingredientImages objectAtIndex:(int)i.ingredientType];
-        [image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2)];
+        if (!i.isCut)
+        {
+            UIImage* image = [ingredientImages objectAtIndex:(int)i.ingredientType];
+            [image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2)];
+        }
     }
+    CGPoint center = CGPointMake(gameModel.pot.xPos - pot_top.size.width/2,768 - gameModel.pot.yPos - pot_top.size.height/2);
+    [pot_top drawAtPoint:center];
+    for(Ingredient* i in gameModel.ingredientsOnScreen)
+    {
+        if (i.isCut)
+        {
+            UIImage* image = [ingredientImages objectAtIndex:(int)i.ingredientType];
+            [image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2)];
+        }
+    }
+    [pot_bottom drawAtPoint:center];
 }
 
 
