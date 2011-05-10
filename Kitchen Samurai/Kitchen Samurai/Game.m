@@ -47,8 +47,8 @@ float prevTime;
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [ingredientsOnScreen dealloc];   //kill all ingredients and array
-    [pot dealloc];
+    [ingredientsOnScreen release];   //kill all ingredients and array
+    [pot release];
 }
 
 - (void)pauseGame

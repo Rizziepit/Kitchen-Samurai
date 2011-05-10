@@ -12,6 +12,8 @@
 @class Game;
 
 @interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
+    UILongPressGestureRecognizer *drag;
+    UISwipeGestureRecognizer *swipe1;
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
@@ -19,5 +21,6 @@
 
 - (IBAction)quitGameButtonClicked:(id)sender;
 - (void)performSwipe:(id)sender;
+- (void)dragPot:(id)sender;
 
 @end
