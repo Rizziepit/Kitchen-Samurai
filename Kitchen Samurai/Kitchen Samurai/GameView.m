@@ -101,7 +101,12 @@ NSString * const numberToFileName[] = {
         UIImage* image = [ingredientImages objectAtIndex:[type intValue]];
         [image drawAtPoint:CGPointMake(x,y)];
         UIImage* numberimage = [numberImages objectAtIndex:[number intValue]];
-        [numberimage drawAtPoint:CGPointMake(x+100,y)];
+        if([number intValue]==0){
+            [numberimage drawAtPoint:CGPointMake(x,y)];
+        }
+        else{
+            [numberimage drawAtPoint:CGPointMake(x+100,y)];
+        }
         y+=100;
     }
     
