@@ -13,8 +13,7 @@
 @class Game;
 
 @interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
-    CustomSwipeGestureRecognizer *drag;
-    //UILongPressGestureRecognizer *drag;
+    UILongPressGestureRecognizer *drag;
     UISwipeGestureRecognizer *swipe1;
 
     

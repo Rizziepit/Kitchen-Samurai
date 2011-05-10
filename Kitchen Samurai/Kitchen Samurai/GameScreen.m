@@ -34,8 +34,8 @@
 - (void)dragPot:(id)sender
 {
     CGPoint touchPoint =  [drag locationOfTouch:0 inView:drag.view];
-    CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
-    if (CGRectContainsPoint(pot, touchPoint))
+    //CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
+    if (touchPoint.y > 636)
         game.pot.xPos = touchPoint.x;
 }
 
@@ -78,14 +78,13 @@
     [swipe1 release];
     
     // Set up drag gesture recognizer
-    drag = [[CustomSwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dragPot:)];
+    drag = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(dragPot:)];
     [drag setDelegate:self];
-    //[drag setAllowableMovement:INFINITY];
-    //[drag setMinimumPressDuration:0];
-    //[drag setNumberOfTouchesRequired:1];
-    //[drag setNumberOfTapsRequired:0];
-    //[drag setCancelsTouchesInView:YES];
-    [drag setPot:game.pot];
+    [drag setAllowableMovement:INFINITY];
+    [drag setMinimumPressDuration:0];
+    [drag setNumberOfTouchesRequired:1];
+    [drag setNumberOfTapsRequired:0];
+    [drag setCancelsTouchesInView:YES];
     [gameView addGestureRecognizer:drag];
     [gameView release];
 }

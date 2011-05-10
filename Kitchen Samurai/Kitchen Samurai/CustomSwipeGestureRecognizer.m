@@ -31,6 +31,7 @@
     {
         self.state = UIGestureRecognizerStateBegan;
     }
+    NSLog(@"touch start");
 }
 
 // Track the move of the current gesture
