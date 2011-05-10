@@ -35,12 +35,13 @@ typedef enum {
 } IngredientType;
 
 @interface Ingredient : PhysicalObject {
-
+    float counter;
 }
 
 - (id) init:(float)xPosition :(float)yPosition :(float)xVelocity :(float)yVelocity :(float)collisionRadius:(IngredientType)type;
 
 @property(nonatomic) IngredientType ingredientType;
 @property(nonatomic) BOOL isCut;
+@property (nonatomic) float alpha;
 
 @end
