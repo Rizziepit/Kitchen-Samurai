@@ -81,7 +81,7 @@ float GRAVITY=-320.0f;
         NSArray* start = [self pickStartCoords];
         i=[[Ingredient alloc] init:[[start objectAtIndex:0] floatValue]	 :[[start objectAtIndex:1] floatValue] :[[start objectAtIndex:2] floatValue] :[[start objectAtIndex:3] floatValue] :rad :type];
         [i autorelease];
-
+        return i;
     }
     return nil;
 }
