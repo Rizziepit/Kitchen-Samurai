@@ -10,6 +10,7 @@
 #import "Kitchen_SamuraiAppDelegate.h"
 #import "Game.h"
 #import "GameView.h"
+#import "PhysicalObject.h"
 
 @implementation GameScreen
 
@@ -21,35 +22,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        /*
-         UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-         
-         UIView *holderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
-         UIImageView *imageview = [[UIImageView alloc] initWithFrame:[holderView frame]];
-         [imageview setImage:image];
-         [holderView addSubview:imageview];
-         
-         UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
-         [pinchRecognizer setDelegate:self];
-         [holderView addGestureRecognizer:pinchRecognizer];
-         
-         UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
-         [rotationRecognizer setDelegate:self];
-         [holderView addGestureRecognizer:rotationRecognizer];
-         
-         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-         [panRecognizer setMinimumNumberOfTouches:1];
-         [panRecognizer setMaximumNumberOfTouches:1];
-         [panRecognizer setDelegate:self];
-         [holderView addGestureRecognizer:panRecognizer];
-         
-         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-         [tapRecognizer setNumberOfTapsRequired:1];
-         [tapRecognizer setDelegate:self];
-         [holderView addGestureRecognizer:tapRecognizer];
-         
-         [self.view addSubview:holderView];
-         */
     }
     return self;
 }
@@ -57,6 +29,14 @@
 - (void)performSwipe:(id)sender
 {
     NSLog(@"swipe performed");
+}
+
+- (void)dragPot:(id)sender
+{
+    CGPoint touchPoint = [drag locationInView:self.view];
+    CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
+    if (CGRectContainsPoint(pot, touchPoint))
+        game.pot.xPos = touchPoint.x;
 }
 
 - (void)dealloc
@@ -90,7 +70,7 @@
     [gameView initIngredientImages];
     
     // Set up swipe gesture recognizers
-    UISwipeGestureRecognizer *swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
+    swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
     [swipe1 setDelegate:self];
     [swipe1 setNumberOfTouchesRequired:1];
     [swipe1 setDirection:(UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionUp)];
@@ -98,6 +78,14 @@
     [swipe1 release];
     
     // Set up drag gesture recognizer
+    drag = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(dragPot:)];
+    [drag setDelegate:self];
+    [drag setAllowableMovement:INFINITY];
+    [drag setMinimumPressDuration:0];
+    [drag setNumberOfTouchesRequired:1];
+    [drag setNumberOfTapsRequired:0];
+    [drag setCancelsTouchesInView:YES];
+    [gameView addGestureRecognizer:drag];
     [gameView release];
 }
 
@@ -113,5 +101,37 @@
     // Return YES for supported orientations
 	return YES;
 }
+
+// UIGestureRecognizerDelegate methods
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer==drag)
+    {
+        CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
+        CGPoint touch = [gestureRecognizer locationInView:self.view];
+        if (CGRectContainsPoint(pot, touch))
+            return YES;
+        else
+            return NO;
+    }
+    else
+        return YES;
+}
+
+/*- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([gestureRecognizer isKindOfClass:[drag class]])
+    {
+        CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
+        CGPoint touch = [gestureRecognizer locationInView:self.view];
+        if (CGRectContainsPoint(pot, touch))
+            return YES;
+        else
+            return NO;
+    }
+    else
+        return NO;
+}*/
 
 @end
