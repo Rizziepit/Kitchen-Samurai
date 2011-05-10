@@ -33,6 +33,8 @@
 - (UIButton *)getButtonAtIndex:(NSInteger)index;
 - (UIImageView *)getImageAtIndex:(NSInteger)index;
 - (UITextView *)getTextViewAtIndex:(NSInteger)index;
+- (void)saveGameState:(int)r forLevel:(int)l;
+- (int)getRating:(int)l;
 - (IBAction)goBack:(id)sender;
 - (IBAction)close:(id)sender;
 - (IBAction)getRecipe:(id)sender;

@@ -185,18 +185,25 @@
     DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
     //NSLog(@"%@",DataPath);
     recipeList = [[NSMutableDictionary alloc] initWithContentsOfFile:DataPath];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSArray* levelData;
     
     for (int number = 1; number < [recipeList count]+1; number++)
     {
+        NSString* level = [NSString stringWithFormat: @"level-%i",number];
+        levelData = [prefs arrayForKey:level];
+        
         UILabel *tmp = [self getLabelAtIndex:number];
         NSString *key = [NSString stringWithFormat:@"%i",number];
         NSMutableDictionary* recipe = [recipeList valueForKey:key];
         NSString* name = [recipe valueForKey:@"Name"];
         //int dif = [[recipe valueForKey:@"Difficulty"] intValue];
-        int starRating = [[recipe valueForKey:@"Rating"] intValue];
-        BOOL unlocked = [[recipe objectForKey:@"Unlocked"] boolValue];
+        //int starRating = [[recipe valueForKey:@"Rating"] intValue];
+        int starRating = [[levelData objectAtIndex:1] intValue];
+        //BOOL unlocked = [[recipe objectForKey:@"Unlocked"] boolValue];
+        int unlocked = [[levelData objectAtIndex:0] intValue];
         
-        if (unlocked)
+        if (unlocked == 1)
         {
             UIButton *tmp_btn = [self getButtonAtIndex:number];
             tmp_btn.enabled = YES;
@@ -277,29 +284,48 @@
 
 }
 
+- (void)saveGameState:(int)r forLevel:(int)l
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSString* ratingValue = [NSString stringWithFormat:@"%i",r];
+    NSArray* levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
+    
+    NSString* level = [NSString stringWithFormat:@"level-%i",l];
+    
+    [prefs setObject:levelData forKey:level];
+    [prefs synchronize];
+}
+
+- (int)getRating:(int)l
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSString* level = [NSString stringWithFormat:@"level-%i",l];
+    
+    NSArray* tmpArray = [prefs arrayForKey:level];
+    
+    return [[tmpArray objectAtIndex:1] intValue];
+}
+
 - (IBAction)getRecipe:(id)sender
 {
     //DetailedViewOpen = YES;//check out how to set bool correctly.
-    
-    
-    
+   
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
-    int level;
-    level = [buttonTag intValue];
             
     NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
     
     //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
     
-    NSNumber* NewRating = [[NSNumber alloc] initWithInt:4];
+    //NSNumber* NewRating = [[NSNumber alloc] initWithInt:4];
     
     
-    [recipe setValue:NewRating forKey:@"Rating"];
+    //[recipe setValue:NewRating forKey:@"Rating"];
     
     
     DetailedTitle.text = [recipe valueForKey:@"Name"];
+    int r = [self getRating:[sender tag]];
     
-    [DetailedStars setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%istars_large",[[recipe valueForKey:@"Rating"] intValue]]]];
+    [DetailedStars setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%istars_large",r]]];
     
     DetailedDifficulty.text = [NSString stringWithFormat:@"%i",[[recipe valueForKey:@"Difficulty"] intValue]];
     
