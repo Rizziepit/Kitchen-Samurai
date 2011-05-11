@@ -80,7 +80,7 @@ float prevTime;
 
     [self moveAndCatchIngredients: time];
     
-    [viewController.view setNeedsDisplay];
+    //[viewController.view setNeedsDisplay];
 }
 
 -(void) moveAndCatchIngredients:(float) timepassed{
