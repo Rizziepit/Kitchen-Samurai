@@ -64,6 +64,7 @@ NSString * const numberToFileName[] = {
     return self;
 }
 
+
 - (void)initIngredientImages
 {
     // set up all the ingredient images here

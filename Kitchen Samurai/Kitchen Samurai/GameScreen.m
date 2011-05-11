@@ -36,7 +36,7 @@
 {
     CGPoint touchPoint =  [drag locationOfTouch:0 inView:drag.view];
     game.pot.xPos = touchPoint.x;
-    [game.pot.image setCenter:CGPointMake(game.pot.xPos, 768 - game.pot.yPos)];
+    [game.pot.imageView setCenter:CGPointMake(game.pot.xPos, 768 - game.pot.yPos)];
 }
 
 - (void)dealloc
@@ -60,6 +60,32 @@
 }
 
 #pragma mark - View lifecycle
+- (void)addProgressFrame 
+{
+    //Draw topleft window
+    NSLog(@"asddd");
+    float x=20;
+    float y=20;
+    for(id type in game.ingredientsLeft)
+    {
+        id number = [game.ingredientsLeft valueForKey:type];
+        UIImageView* image = [[UIImageView alloc] initWithImage: [((GameView*)self.view).ingredientImages objectAtIndex:[type intValue]]];
+        [image setCenter:CGPointMake(x,y)];
+        UIImageView* numberimage = [[UIImageView alloc] initWithImage:[((GameView*)self.view).numberImages objectAtIndex:[number intValue]]];
+        if([number intValue]==0){
+            [numberimage setCenter:CGPointMake(x,y)];
+        }
+        else{
+            [numberimage setCenter:CGPointMake(x+100,y)];
+        }
+        [self.view addSubview:image];
+        [self.view addSubview:numberimage];
+        [image release];
+        [numberimage release];
+        
+        y+=100;
+    }
+}
 
 - (void)viewDidLoad
 {
