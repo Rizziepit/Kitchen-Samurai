@@ -42,6 +42,7 @@ float prevTime;
     
     // add the pot
     self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
+    pot.image = [viewController addPotToView:pot];
     
     prevTime=0;
 }
@@ -50,7 +51,7 @@ float prevTime;
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [ingredientsOnScreen release];   //kill all ingredients and array
-    //[pot release];
+    [pot release];
 }
 
 - (void)pauseGame
@@ -74,6 +75,7 @@ float prevTime;
     Ingredient*i=[generator giveIngredient];
     if(i!=nil){
         [ingredientsOnScreen addObject:i];
+        i.image = [viewController addIngredientToView:i];
     }
 
     [self moveAndCatchIngredients: time];

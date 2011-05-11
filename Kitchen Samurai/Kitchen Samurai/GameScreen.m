@@ -11,6 +11,7 @@
 #import "Game.h"
 #import "GameView.h"
 #import "PhysicalObject.h"
+#import "Ingredient.h"
 
 @implementation GameScreen
 
@@ -34,9 +35,8 @@
 - (void)dragPot:(id)sender
 {
     CGPoint touchPoint =  [drag locationOfTouch:0 inView:drag.view];
-    //CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
-    if (touchPoint.y > 636)
-        game.pot.xPos = touchPoint.x;
+    game.pot.xPos = touchPoint.x;
+    [game.pot.image setCenter:CGPointMake(game.pot.xPos, 768 - game.pot.yPos)];
 }
 
 - (void)dealloc
@@ -133,5 +133,29 @@
     else
         return YES;
 }*/
+
+-(UIImageView*)addIngredientToView:(Ingredient *)i
+{
+    GameView* gameView = (GameView*)self.view;
+    UIImage* image = [gameView.ingredientImages objectAtIndex:(int)i.ingredientType];
+    UIImageView *imageView = [ [ UIImageView alloc ] initWithFrame:CGRectMake(i.xPos-image.size.width/2, 768 - i.yPos-image.size.height/2, image.size.width, image.size.height)];
+    imageView.image = image;
+    [gameView addSubview:imageView];
+    [image release];
+    [imageView autorelease];
+    return imageView;
+}
+
+-(UIImageView*)addPotToView:(PhysicalObject *)p
+{
+    GameView* gameView = (GameView*)self.view;
+    UIImage* image = gameView.pot;
+    UIImageView *imageView = [ [ UIImageView alloc ] initWithFrame:CGRectMake(p.xPos-image.size.width/2, 768 - p.yPos-image.size.height/2, image.size.width, image.size.height)];
+    imageView.image = image;
+    [gameView addSubview:imageView];
+    [image release];
+    [imageView autorelease];
+    return imageView;
+}
 
 @end

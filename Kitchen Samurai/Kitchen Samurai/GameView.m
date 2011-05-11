@@ -53,6 +53,7 @@ NSString * const numberToFileName[] = {
 @synthesize gameModel;
 @synthesize ingredientImages;
 @synthesize numberImages;
+@synthesize pot;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -83,49 +84,15 @@ NSString * const numberToFileName[] = {
     }
     
     // set up the pot images
-    pot_bottom = [UIImage imageNamed:@"pot.png"];
-    pot_top = [UIImage imageNamed:@"pot_top.png"];
+    pot = [UIImage imageNamed:@"pot.png"];
 }
 
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    //Draw topleft window
-    float x=20;
-    float y=20;
-    for(id type in gameModel.ingredientsLeft)
-    {
-        id number = [gameModel.ingredientsLeft valueForKey:type];
-        UIImage* image = [ingredientImages objectAtIndex:[type intValue]];
-        [image drawAtPoint:CGPointMake(x,y)];
-        UIImage* numberimage = [numberImages objectAtIndex:[number intValue]];
-        if([number intValue]==0){
-            [numberimage drawAtPoint:CGPointMake(x,y)];
-        }
-        else{
-            [numberimage drawAtPoint:CGPointMake(x+100,y)];
-        }
-        y+=100;
-    }
-    
-    //Draw ingredients on screen
-    for(Ingredient* i in gameModel.ingredientsOnScreen)
-    {
-        UIImage* image = [ingredientImages objectAtIndex:(int)i.ingredientType];
-        //[image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2) blendMode:kCGBlendModeNormal alpha:i.alpha];
-        [image drawAtPoint:CGPointMake(i.xPos - image.size.width/2, 768 - i.yPos - image.size.height/2)];
-    }
-    CGPoint top_left = CGPointMake(gameModel.pot.xPos - pot_top.size.width/2,768 - gameModel.pot.yPos - pot_top.size.height/2);
-    [pot_top drawAtPoint:top_left];
-    [pot_bottom drawAtPoint:top_left];
-}
 
 - (void)dealloc
 {
     [ingredientImages release];
     [gameModel release];
+    [pot release];
     [super dealloc];
 }
 

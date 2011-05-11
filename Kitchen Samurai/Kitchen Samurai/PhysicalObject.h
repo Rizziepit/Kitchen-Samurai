@@ -17,6 +17,7 @@
 @property (nonatomic) float xVel;
 @property (nonatomic) float yVel;
 @property (nonatomic) float radius; // for collision detection
+@property (nonatomic, retain) UIImageView* image;
 
 - (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity : (float) collisionRadius;
 - (void)updatePosition:(float)timeSinceLastFrame;
