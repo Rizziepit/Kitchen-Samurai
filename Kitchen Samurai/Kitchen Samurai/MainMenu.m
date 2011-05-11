@@ -15,6 +15,7 @@
 @synthesize recipeSelection;
 @synthesize instructions;
 @synthesize videoURL;
+@synthesize slider;
 @synthesize appDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,7 +33,9 @@
     [self.instructions release];
     [self.videoURL release];
     [self.appDelegate release];
+    [slider release];
     [super dealloc];
+    [soundEffect release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,10 +51,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    prefs = [NSUserDefaults standardUserDefaults];
+
+    float vol = [prefs floatForKey:@"Volume"];
+    if (vol == 0)
+    {
+        vol = [slider value];
+        [prefs setFloat:vol forKey:@"Volume"];
+    }
+    else
+    {
+        [slider setValue:vol];
+    }
+    
+    soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil];  
+    soundEffect.volume = vol;
 }
 
 - (void)viewDidUnload
 {
+    [self setSlider:nil];
     [super viewDidUnload];
     NSLog(@"main did unload");
     // Release any retained subviews of the main view.
@@ -72,9 +91,21 @@
     [instructions.view removeFromSuperview];
 }
 
+- (IBAction)adjustVolume:(id)sender
+{
+    float vol = [slider value];
+    soundEffect.volume = vol;
+    [prefs setFloat:vol forKey:@"Volume"];
+}
+
 - (IBAction)startNewGame:(id)sender {
     //find which recipe
-    NSMutableDictionary* recipe;
+    NSString* path = [[NSBundle mainBundle] bundlePath];
+    NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
+    NSDictionary* recipeList = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
+    NSString* tmp = [NSString stringWithFormat:@"%i",1];
+    
+    NSMutableDictionary* recipe = [recipeList valueForKey:tmp];
 
     [appDelegate switchToGame:recipe];
 }
@@ -87,6 +118,7 @@
 
 - (IBAction)showRecipes:(id)sender {
     [recipeSelection setAppDelegate:self.appDelegate];
+    [soundEffect play];
     [self.view addSubview:recipeSelection.view];
 }
 

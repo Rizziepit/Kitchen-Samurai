@@ -27,6 +27,9 @@
 		3A25C2021370895F00689C28 /* 3_stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1FC1370895F00689C28 /* 3_stars.png */; };
 		3A25C2031370895F00689C28 /* 4_stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1FD1370895F00689C28 /* 4_stars.png */; };
 		3A25C2041370895F00689C28 /* 5_stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C1FE1370895F00689C28 /* 5_stars.png */; };
+		3A3B9BB8137AFA6700256CEA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3B9BB7137AFA6700256CEA /* AudioToolbox.framework */; };
+		3A3B9BBB137AFA9600256CEA /* swoosh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3A3B9BBA137AFA9600256CEA /* swoosh.caf */; };
+		3A3B9BC5137AFD8300256CEA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3B9BC4137AFD8300256CEA /* AVFoundation.framework */; };
 		3AF718FB136C3A8F005D7971 /* RecipeSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF718FA136C3A8F005D7971 /* RecipeSelection.xib */; };
 		3AF89E7F136AB1C300AA5905 /* Recipe_List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF89E7E136AB1C300AA5905 /* Recipe_List.plist */; };
 		3AF89E8E136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */; };
@@ -117,6 +120,9 @@
 		3A25C1FC1370895F00689C28 /* 3_stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_stars.png; sourceTree = "<group>"; };
 		3A25C1FD1370895F00689C28 /* 4_stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4_stars.png; sourceTree = "<group>"; };
 		3A25C1FE1370895F00689C28 /* 5_stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_stars.png; sourceTree = "<group>"; };
+		3A3B9BB7137AFA6700256CEA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3A3B9BBA137AFA9600256CEA /* swoosh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = swoosh.caf; path = "../../../../Archive/Kitchen Samurai/Kitchen Samurai/swoosh.caf"; sourceTree = "<group>"; };
+		3A3B9BC4137AFD8300256CEA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3AF718FA136C3A8F005D7971 /* RecipeSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeSelection.xib; sourceTree = "<group>"; };
 		3AF89E7E136AB1C300AA5905 /* Recipe_List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Recipe_List.plist; sourceTree = "<group>"; };
 		3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120px-Crystal_Clear_action_lock.png"; sourceTree = "<group>"; };
@@ -198,6 +204,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3B9BC5137AFD8300256CEA /* AVFoundation.framework in Frameworks */,
+				3A3B9BB8137AFA6700256CEA /* AudioToolbox.framework in Frameworks */,
 				E00834FB1372199B0098FFBF /* QuartzCore.framework in Frameworks */,
 				809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */,
 				80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */,
@@ -272,6 +280,8 @@
 		80CEB1F813606D5200425F16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A3B9BC4137AFD8300256CEA /* AVFoundation.framework */,
+				3A3B9BB7137AFA6700256CEA /* AudioToolbox.framework */,
 				E00834FA1372199B0098FFBF /* QuartzCore.framework */,
 				809309761369A688007C1E8B /* MediaPlayer.framework */,
 				80CEB1F913606D5200425F16 /* UIKit.framework */,
@@ -323,6 +333,7 @@
 				3AFFB471137A6ECF00E1C037 /* 7.png */,
 				3AFFB472137A6ECF00E1C037 /* 8.png */,
 				3AFFB473137A6ECF00E1C037 /* 9.png */,
+				3A3B9BBA137AFA9600256CEA /* swoosh.caf */,
 				3AFFB474137A6ECF00E1C037 /* x.jpg */,
 				3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */,
 				808A4E8B136AD1CF0058C7DA /* video_test.mp4 */,
@@ -491,6 +502,7 @@
 				3AFFB47D137A6ECF00E1C037 /* 9.png in Resources */,
 				3AFFB47E137A6ECF00E1C037 /* x.jpg in Resources */,
 				E024C57E137AE205003A11F5 /* pot.png in Resources */,
+				3A3B9BBB137AFA9600256CEA /* swoosh.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

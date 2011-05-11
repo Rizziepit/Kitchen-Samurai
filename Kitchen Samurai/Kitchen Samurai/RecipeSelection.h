@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class Kitchen_SamuraiAppDelegate;
 
@@ -24,6 +25,10 @@
     UIView *DetailedView;
     NSString* DataPath;
     NSMutableDictionary* chosenRecipe;
+    AVAudioPlayer* soundEffect;
+
+    NSUserDefaults *prefs;
+
 
 }
 - (void)loadRecipeList;
