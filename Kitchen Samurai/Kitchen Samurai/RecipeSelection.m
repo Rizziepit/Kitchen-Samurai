@@ -91,12 +91,10 @@
         {
             if (v.tag == index)
             {
-                //NSLog(@" Label found at index %i",index);
                 return (UILabel *)v;
             }
         }
     }
-    //NSLog(@" Label not found at index %i",index);
     return nil;
 }
 
@@ -108,12 +106,10 @@
             {
                 if (v.tag == index)
                 {
-                    //NSLog(@" Button found at index %i",index);
                     return (UIButton *)v;
                 }
             }
     }
-    //NSLog(@"Button not found at index %i",index);
     return nil;
 }
 
