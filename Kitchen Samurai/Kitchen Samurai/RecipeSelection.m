@@ -188,6 +188,16 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSArray* levelData;
     
+    //cheching to see if game is being run for the first time or not.
+    int CurrentLevel = [prefs integerForKey:@"CurrentLevel"];
+    if (CurrentLevel == 0)
+    {
+        NSLog(@"New Game");
+        [self saveGameState:0 forLevel:1];
+        CurrentLevel = 1;
+        [prefs setInteger:CurrentLevel forKey:@"CurrentLevel"];
+    }
+    
     for (int number = 1; number < [recipeList count]+1; number++)
     {
         NSString* level = [NSString stringWithFormat: @"level-%i",number];
