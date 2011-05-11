@@ -31,6 +31,25 @@ float prevTime;
     return self;
 }
 
+-(void)catchIngredient:(Ingredient*)i{
+    NSString* keyString = [NSString stringWithFormat:@"%i",i.ingredientType];
+    int currentAmount = [[ingredientsLeft valueForKey:keyString] intValue];
+    if(currentAmount==0){
+        //do nothing for now, could punish them
+    }
+    else{
+        currentAmount--;
+        NSNumber* newAmount=[NSNumber numberWithInt:currentAmount];
+       // NSLog(@"%i",[[ingredientsLeft valueForKey:keyString] intValue]);
+        [ingredientsLeft setValue:newAmount forKey:keyString];
+        NSLog(@"2");
+        [viewController updateProgressFrame:i.ingredientType];
+        NSLog(@"3");
+    }
+
+}
+
+
 // initialise game with saved datas
 - (void)startGame: (NSDictionary*) recipe
 {
@@ -101,6 +120,7 @@ float prevTime;
                 if (ingredient.xPos > pot.xPos-64 && ingredient.xPos < pot.xPos+64)
                 {
                     [toBeRemoved addObject:ingredient];
+                 //   [self catchIngredient:ingredient];
                 }
             }
         }

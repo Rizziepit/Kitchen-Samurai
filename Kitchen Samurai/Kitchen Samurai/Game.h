@@ -12,6 +12,7 @@
 @class GameScreen;
 @class IngredientGenerator;
 @class PhysicalObject;
+@class Ingredient;
 
 @interface Game : NSObject {
 }
@@ -22,6 +23,7 @@
 - (void) continueGame;
 - (void) gameLoop:(CADisplayLink *)sender;
 - (void) moveAndCatchIngredients:(float) timepassed;
+- (void)catchIngredient:(Ingredient*)i;
 
 @property (nonatomic) BOOL isPaused;
 @property (nonatomic, retain) GameScreen* viewController;

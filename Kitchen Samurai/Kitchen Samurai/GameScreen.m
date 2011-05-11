@@ -19,6 +19,9 @@
 @synthesize appDelegate;
 @synthesize game;
 
+@synthesize numberImageDictionary;
+@synthesize progressImageDictionary;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,8 +36,25 @@
     CGPoint touchPoint = [((UILongPressGestureRecognizer*)sender) locationInView:tempSwipe.view];
     for (Ingredient* i in game.ingredientsOnScreen)
     {
-        if (CGRectContainsPoint(i.imageView.frame, touchPoint))
+        if (CGRectContainsPoint(i.imageView.frame, touchPoint)){
             i.isCut = true;
+        }
+    }
+}
+
+- (void) updateProgressFrame:(int) type{
+    int numLeft = [[game.ingredientsLeft valueForKey:[NSString stringWithFormat:@"%@",type]] intValue];
+    UIImageView* numberimage = [numberImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
+    if (numLeft==0){
+        [numberimage removeFromSuperview];
+        UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
+        UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:numLeft]];
+        [crossOutImage setCenter:image.center];
+        [self.view addSubview:crossOutImage];
+        [crossOutImage release];
+    }
+    else{
+        [numberimage setImage:[((GameView*)self.view).numberImages objectAtIndex:numLeft]];
     }
 }
 
@@ -70,12 +90,14 @@
 - (void)addProgressFrame 
 {
     //Draw topleft window
-    NSLog(@"asddd");
     float x=20;
     float y=20;
+    progressImageDictionary = [[NSMutableDictionary alloc] init];
+    numberImageDictionary = [[NSMutableDictionary alloc] init];
+
     for(id type in game.ingredientsLeft)
     {
-        id number = [game.ingredientsLeft valueForKey:type];
+        NSNumber* number = [game.ingredientsLeft valueForKey:type];
         UIImageView* image = [[UIImageView alloc] initWithImage: [((GameView*)self.view).ingredientImages objectAtIndex:[type intValue]]];
         [image setCenter:CGPointMake(x,y)];
         UIImageView* numberimage = [[UIImageView alloc] initWithImage:[((GameView*)self.view).numberImages objectAtIndex:[number intValue]]];
@@ -87,9 +109,10 @@
         }
         [self.view addSubview:image];
         [self.view addSubview:numberimage];
+        [progressImageDictionary setValue:image forKey:[number stringValue]];
+        [numberImageDictionary setValue:numberimage forKey:[number stringValue]];
         [image release];
         [numberimage release];
-        
         y+=100;
     }
 }
