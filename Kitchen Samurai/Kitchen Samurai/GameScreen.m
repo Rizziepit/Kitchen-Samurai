@@ -14,6 +14,7 @@
 #import "Ingredient.h"
 
 @implementation GameScreen
+@synthesize quitButton;
 
 @synthesize appDelegate;
 @synthesize game;
@@ -29,7 +30,12 @@
 
 - (void)performSwipe:(id)sender
 {
-    NSLog(@"swipe performed");
+    CGPoint touchPoint = [((UILongPressGestureRecognizer*)sender) locationInView:tempSwipe.view];
+    for (Ingredient* i in game.ingredientsOnScreen)
+    {
+        if (CGRectContainsPoint(i.imageView.frame, touchPoint))
+            i.isCut = true;
+    }
 }
 
 - (void)dragPot:(id)sender
@@ -43,6 +49,7 @@
 {
     [appDelegate release];
     [game release];
+    [quitButton release];
     [super dealloc];
 }
 
@@ -95,13 +102,20 @@
     [gameView setGameModel:game];
     [gameView initIngredientImages];
     
-    // Set up swipe gesture recognizers
+    /*// Set up swipe gesture recognizers
     swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
     [swipe1 setDelegate:self];
     [swipe1 setNumberOfTouchesRequired:1];
     [swipe1 setDirection:(UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionUp)];
     [gameView addGestureRecognizer:swipe1];
-    [swipe1 release];
+    [swipe1 release];*/
+    tempSwipe = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
+    [tempSwipe setDelegate:self];
+    [tempSwipe setNumberOfTouchesRequired:1];
+    [tempSwipe setAllowableMovement:INFINITY];
+    [tempSwipe setMinimumPressDuration:0];
+    [tempSwipe setNumberOfTapsRequired:0];
+    [gameView addGestureRecognizer:tempSwipe];
     
     // Set up drag gesture recognizer
     drag = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(dragPot:)];
@@ -117,6 +131,7 @@
 
 - (void)viewDidUnload
 {
+    [self setQuitButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -132,7 +147,7 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    if (gestureRecognizer==drag)
+    /*if (gestureRecognizer==drag)
     {
         CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
         CGPoint touch = [gestureRecognizer locationInView:self.view];
@@ -141,24 +156,34 @@
         else
             return NO;
     }
+    else
+        return YES;*/
+    CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
+    CGPoint touch = [gestureRecognizer locationInView:self.view];
+    if (CGRectContainsPoint(pot, touch))
+        if (gestureRecognizer==drag)
+            return YES;
+        else
+            return NO;
+    else
+        if (gestureRecognizer==tempSwipe)
+            return YES;
+        else
+            return NO;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if (CGRectContainsPoint(quitButton.frame, [touch locationInView:self.view]))
+        return NO;
     else
         return YES;
 }
-
-/*- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    if (gestureRecognizer==drag)
-    {
-        CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
-        CGPoint touch = [gestureRecognizer locationInView:self.view];
-        if (CGRectContainsPoint(pot, touch))
-            return YES;
-        else
-            return NO;
-    }
-    else
-        return YES;
-}*/
 
 -(UIImageView*)addIngredientToView:(Ingredient *)i
 {

@@ -16,8 +16,9 @@
 @interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
     UILongPressGestureRecognizer *drag;
     UISwipeGestureRecognizer *swipe1;
-
+    UILongPressGestureRecognizer *tempSwipe;
     
+    UIButton *quitButton;
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
@@ -29,6 +30,7 @@
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
 -(UIImageView*)addPotToView:(PhysicalObject *)p;
 - (void)addProgressFrame;
+@property (nonatomic, retain) IBOutlet UIButton *quitButton;
 
 
 @end
