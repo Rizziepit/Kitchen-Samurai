@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreGraphics/CGLayer.h>
 
 @class Game;
+@class Ingredient;
 
 @interface GameView : UIView {
-    UIImage* pot_bottom;
-    UIImage* pot_top;
 }
 
 - (void) initIngredientImages;
@@ -20,5 +20,6 @@
 @property (nonatomic, retain) Game *gameModel;
 @property (nonatomic, retain) NSMutableArray *ingredientImages;
 @property (nonatomic, retain) NSMutableArray *numberImages;
+@property (nonatomic, retain) UIImage *pot;
 
 @end

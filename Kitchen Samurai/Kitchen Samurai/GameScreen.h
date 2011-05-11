@@ -11,6 +11,7 @@
 
 @class Kitchen_SamuraiAppDelegate;
 @class Game;
+@class Ingredient;
 
 @interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
     UILongPressGestureRecognizer *drag;
@@ -25,5 +26,7 @@
 - (IBAction)quitGameButtonClicked:(id)sender;
 - (void)performSwipe:(id)sender;
 - (void)dragPot:(id)sender;
+-(UIImageView*)addIngredientToView:(Ingredient *)i;
+-(UIImageView*)addPotToView:(PhysicalObject *)p;
 
 @end
