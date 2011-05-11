@@ -317,18 +317,12 @@
 
 - (IBAction)getRecipe:(id)sender
 {    
+    soundEffect.volume = [prefs floatForKey:@"Volume"];
     [soundEffect play];
+    
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
             
     NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
-    
-    //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
-    
-    //NSNumber* NewRating = [[NSNumber alloc] initWithInt:4];
-    
-    
-    //[recipe setValue:NewRating forKey:@"Rating"];
-    
     
     DetailedTitle.text = [recipe valueForKey:@"Name"];
     int r = [self getRating:[sender tag]];
@@ -337,24 +331,15 @@
     
     DetailedDifficulty.text = [NSString stringWithFormat:@"%i",[[recipe valueForKey:@"Difficulty"] intValue]];
     
-    
-    //NSLog(@"%@",[recipe valueForKey:@"Rating"]);
-    
     NSString* homeDir = [[NSBundle mainBundle] pathForResource:[recipe valueForKey:@"DetailsName"]  ofType:@"txt"];
-    //NSLog(@"%@",homeDir);
     
     NSString* contents = [NSString stringWithContentsOfFile:homeDir encoding:NSUTF8StringEncoding error:nil];
     
-    //NSLog(@"%@",contents);
     
     DetailedTextView.text = contents;
     
     NSString* path2 = [[NSBundle mainBundle] bundlePath];
     NSString* DataPath2 = [path2 stringByAppendingPathComponent:@"Recipe_List.plist"];
-    
-    
-    //NSLog(@"%@",DataPath2);
-    
     
     [recipeList writeToFile:DataPath2 atomically:YES];
     DetailedView.hidden = NO;
