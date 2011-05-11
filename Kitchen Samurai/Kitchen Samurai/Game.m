@@ -92,7 +92,18 @@ float prevTime;
         if ([ingredient isOffscreen])
             [toBeRemoved addObject:ingredient];
         else
+        {
             [ingredient updatePosition:timepassed]; //check that this is timesincelastframe
+            
+            // check for collision with pot
+            if (ingredient.isCut && ingredient.yVel < 0 && ingredient.yPos < 144 && ingredient.yPos > 128)
+            {
+                if (ingredient.xPos > pot.xPos-64 && ingredient.xPos < pot.xPos+64)
+                {
+                    [toBeRemoved addObject:ingredient];
+                }
+            }
+        }
     }
     
     // remove objects that aren't visible
