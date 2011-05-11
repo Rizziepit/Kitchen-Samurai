@@ -65,18 +65,6 @@ float GRAVITY=-320.0f;
     if (rand()%100<6){
         Ingredient* i = nil;
         float rad= 30.0f;
-        /*if(rand()%100<50){
-         type =[[NSBundle mainBundle] pathForResource:@"test" ofType:@"jpg"];
-         x=150;
-         }
-         else
-         {
-         type =[[NSBundle mainBundle] pathForResource:@"recipe_button_locked" ofType:@"png"];
-         
-         }*/
-        //UIImageView *ingredientView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:type]]; //this disables userinteractions, may want to reenable.
-        //ingredientView.frame=CGRectMake(x, y, ingredientView.image.size.width, ingredientView.image.size.height); 
-        //[gameScreen.view addSubview:ingredientView];
         IngredientType type = [self pickType];
         NSArray* start = [self pickStartCoords];
         i=[[Ingredient alloc] init:[[start objectAtIndex:0] floatValue]	 :[[start objectAtIndex:1] floatValue] :[[start objectAtIndex:2] floatValue] :[[start objectAtIndex:3] floatValue] :rad :type];

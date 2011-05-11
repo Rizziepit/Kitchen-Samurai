@@ -28,5 +28,7 @@
 - (void)dragPot:(id)sender;
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
 -(UIImageView*)addPotToView:(PhysicalObject *)p;
+- (void)addProgressFrame;
+
 
 @end

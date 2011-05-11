@@ -39,10 +39,10 @@ float prevTime;
     ingredientsLeft = [recipe valueForKey:@"Ingredients"];
     self.generator = [[IngredientGenerator alloc] initWithRecipe:ingredientsLeft];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    
+    [viewController addProgressFrame];
     // add the pot
     self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
-    pot.image = [viewController addPotToView:pot];
+    pot.imageView = [viewController addPotToView:pot];
     
     prevTime=0;
 }
@@ -75,12 +75,12 @@ float prevTime;
     Ingredient*i=[generator giveIngredient];
     if(i!=nil){
         [ingredientsOnScreen addObject:i];
-        i.image = [viewController addIngredientToView:i];
+        i.imageView = [viewController addIngredientToView:i];
     }
 
     [self moveAndCatchIngredients: time];
     
-    [viewController.view setNeedsDisplay];
+    //[viewController.view setNeedsDisplay];
 }
 
 -(void) moveAndCatchIngredients:(float) timepassed{

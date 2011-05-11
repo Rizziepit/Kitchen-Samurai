@@ -28,10 +28,11 @@
     [super updatePosition:timeSinceLastFrame];
     if (isCut)
     {
-        counter += timeSinceLastFrame;
+        counter += timeSinceLastFrame*4;
         alpha = sinf(counter);
         if (alpha < 0)
             alpha *= -1;
+        [self.imageView setAlpha:alpha];
     }
 }
 @end

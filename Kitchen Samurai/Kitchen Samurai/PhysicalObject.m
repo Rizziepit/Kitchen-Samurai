@@ -16,7 +16,7 @@ float gravity = -320.0f;
 @synthesize xVel;
 @synthesize yVel;
 @synthesize radius;
-@synthesize image;
+@synthesize imageView;
 
 - (id)init:(float)xPosition : (float) yPosition : (float) xVelocity : (float) yVelocity :(float) collisionRadius
 {
@@ -36,7 +36,7 @@ float gravity = -320.0f;
     xPos += xVel * timeSinceLastFrame;
     yPos += yVel * timeSinceLastFrame;
     yVel = yVel + gravity * timeSinceLastFrame;
-    [image setCenter:CGPointMake(xPos, 768-yPos)];
+    [imageView setCenter:CGPointMake(xPos, 768-yPos)];
 }
 
 - (BOOL)checkCollisionWithLine:(float)startX: (float)startY: (float)endX: (float)endY
@@ -70,7 +70,7 @@ float gravity = -320.0f;
 
 - (void) dealloc
 {
-    [image removeFromSuperview];
+    [imageView removeFromSuperview];
     [super dealloc];
 }
 
