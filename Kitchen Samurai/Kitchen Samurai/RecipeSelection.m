@@ -312,29 +312,10 @@
     return [[tmpArray objectAtIndex:1] intValue];
 }
 
-- (void)playSoundEffect
-{
-    SystemSoundID swipe;
-    AudioServicesCreateSystemSoundID((CFURLRef)
-                                    [NSURL fileURLWithPath:
-                                    [[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]],&swipe);
-    AudioServicesPlaySystemSound(swipe);
-    
-    //SystemSoundID train;
-    
-    //AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("swoosh"), CFSTR("wav"), NULL), &train);
-    
-    //AudioServicesPlaySystemSound(train);
-
-}
-
 - (IBAction)getRecipe:(id)sender
 {
     //DetailedViewOpen = YES;//check out how to set bool correctly.
-    [self playSoundEffect];
    
-    //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-    
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
             
     NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
