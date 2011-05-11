@@ -7,7 +7,7 @@
 //
 
 #import "CustomSwipeGestureRecognizer.h"
-#import "PhysicalObject.h";
+#import "PhysicalObject.h"
 
 @implementation CustomSwipeGestureRecognizer
 
