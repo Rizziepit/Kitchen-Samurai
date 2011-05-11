@@ -32,7 +32,7 @@
         alpha = sinf(counter);
         if (alpha < 0)
             alpha *= -1;
-        [self.image setAlpha:alpha];
+        [self.imageView setAlpha:alpha];
     }
 }
 @end
