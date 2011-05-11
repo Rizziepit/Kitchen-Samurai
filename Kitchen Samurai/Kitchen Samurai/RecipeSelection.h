@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @class Kitchen_SamuraiAppDelegate;
 
@@ -24,6 +25,8 @@
     UIView *DetailedView;
     NSString* DataPath;
     NSMutableDictionary* chosenRecipe;
+    SystemSoundID swipe;
+
 
 }
 - (void)loadRecipeList;
@@ -34,6 +37,7 @@
 - (UIImageView *)getImageAtIndex:(NSInteger)index;
 - (UITextView *)getTextViewAtIndex:(NSInteger)index;
 - (void)saveGameState:(int)r forLevel:(int)l;
+- (void)playSoundEffect;
 - (int)getRating:(int)l;
 - (IBAction)goBack:(id)sender;
 - (IBAction)close:(id)sender;
