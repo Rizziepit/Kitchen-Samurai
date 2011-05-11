@@ -15,6 +15,7 @@
 @synthesize recipeSelection;
 @synthesize instructions;
 @synthesize videoURL;
+@synthesize slider;
 @synthesize appDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,7 +33,9 @@
     [self.instructions release];
     [self.videoURL release];
     [self.appDelegate release];
+    [slider release];
     [super dealloc];
+    [soundEffect release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,10 +51,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    prefs = [NSUserDefaults standardUserDefaults];
+    
+    float vol = [slider value];
+    [prefs setFloat:vol forKey:@"Volume"];
+    
+    soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil];  
+    
 }
 
 - (void)viewDidUnload
 {
+    [self setSlider:nil];
     [super viewDidUnload];
     NSLog(@"main did unload");
     // Release any retained subviews of the main view.
@@ -72,6 +83,13 @@
     [instructions.view removeFromSuperview];
 }
 
+- (IBAction)adjustVolume:(id)sender
+{
+    float vol = [slider value];
+    soundEffect.volume = vol;
+    [prefs setFloat:vol forKey:@"Volume"];
+}
+
 - (IBAction)startNewGame:(id)sender {
     //find which recipe
     NSMutableDictionary* recipe;
@@ -87,6 +105,7 @@
 
 - (IBAction)showRecipes:(id)sender {
     [recipeSelection setAppDelegate:self.appDelegate];
+    [soundEffect play];
     [self.view addSubview:recipeSelection.view];
 }
 

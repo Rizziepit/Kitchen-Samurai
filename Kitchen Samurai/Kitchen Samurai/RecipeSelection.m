@@ -181,7 +181,7 @@
     DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
     //NSLog(@"%@",DataPath);
     recipeList = [[NSMutableDictionary alloc] initWithContentsOfFile:DataPath];
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    //NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSArray* levelData;
     
     //cheching to see if game is being run for the first time or not.
@@ -247,8 +247,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //[self createButtons];
-    //[self createLabels];
+    prefs = [NSUserDefaults standardUserDefaults];
+    
+    soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil];
+    soundEffect.volume = [prefs floatForKey:@"Volume"];
+    
     [self loadRecipeList];
    
 
@@ -292,7 +295,6 @@
 
 - (void)saveGameState:(int)r forLevel:(int)l
 {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSString* ratingValue = [NSString stringWithFormat:@"%i",r];
     NSArray* levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
     
@@ -304,7 +306,7 @@
 
 - (int)getRating:(int)l
 {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    //NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSString* level = [NSString stringWithFormat:@"level-%i",l];
     
     NSArray* tmpArray = [prefs arrayForKey:level];
@@ -312,28 +314,10 @@
     return [[tmpArray objectAtIndex:1] intValue];
 }
 
-- (void)playSoundEffect
-{
-    AudioServicesCreateSystemSoundID((CFURLRef)
-                                     [NSURL fileURLWithPath:
-                                      [[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]],&swipe);
-    AudioServicesPlaySystemSound(swipe);
-    
-    //SystemSoundID train;
-    
-    //AudioServicesCreateSystemSoundID(CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("swoosh"), CFSTR("wav"), NULL), &train);
-    
-    //AudioServicesPlaySystemSound(train);
-    
-}
-
 
 - (IBAction)getRecipe:(id)sender
-{
-    //DetailedViewOpen = YES;//check out how to set bool correctly.
-    
-    [self playSoundEffect];
-   
+{    
+    [soundEffect play];
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
             
     NSMutableDictionary* recipe = [recipeList valueForKey:buttonTag];
