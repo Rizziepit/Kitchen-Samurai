@@ -44,9 +44,7 @@ float prevTime;
         NSNumber* newAmount=[NSNumber numberWithInt:currentAmount];
        // NSLog(@"%i",[[ingredientsLeft valueForKey:keyString] intValue]);
         [ingredientsLeft setValue:newAmount forKey:keyString];
-        NSLog(@"2");
         [viewController updateProgressFrame:i.ingredientType];
-        NSLog(@"3");
     }
 
 }
