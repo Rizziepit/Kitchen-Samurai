@@ -38,6 +38,8 @@ float prevTime;
         //do nothing for now, could punish them
     }
     else{
+        //[soundEffect play];
+        
         currentAmount--;
         NSNumber* newAmount=[NSNumber numberWithInt:currentAmount];
        // NSLog(@"%i",[[ingredientsLeft valueForKey:keyString] intValue]);
@@ -62,6 +64,8 @@ float prevTime;
     // add the pot
     self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
     pot.imageView = [viewController addPotToView:pot];
+    
+    //soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil]; 
     
     prevTime=0;
 }
@@ -120,7 +124,7 @@ float prevTime;
                 if (ingredient.xPos > pot.xPos-64 && ingredient.xPos < pot.xPos+64)
                 {
                     [toBeRemoved addObject:ingredient];
-                    [self catchIngredient:ingredient];
+                    //[self catchIngredient:ingredient];
                 }
             }
         }

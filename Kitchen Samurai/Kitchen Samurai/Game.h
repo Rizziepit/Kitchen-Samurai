@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 
 @class GameScreen;
 @class IngredientGenerator;
@@ -15,6 +17,7 @@
 @class Ingredient;
 
 @interface Game : NSObject {
+    AVAudioPlayer* soundEffect;
 }
 
 - (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
