@@ -44,8 +44,9 @@
 }
 
 - (void) updateProgressFrame:(int) type{
-    int numLeft = [[game.ingredientsLeft valueForKey:[NSString stringWithFormat:@"%@",type]] intValue];
+    int numLeft = [[game.ingredientsLeft valueForKey:[NSString stringWithFormat:@"%i",type]] intValue];
     UIImageView* numberimage = [numberImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
+    NSLog(@"%i",numLeft);
     if (numLeft==0){
         [numberimage removeFromSuperview];
         UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
@@ -116,6 +117,7 @@
         [numberimage setContentMode:UIViewContentModeScaleToFill];
         [ingredientCountersView addSubview:numberimage];
         [progressImageDictionary setValue:image forKey:[number stringValue]];
+        //[progressImageDictionary valueForKey:[number stringValue]];
         [numberImageDictionary setValue:numberimage forKey:[number stringValue]];
         [image release];
         [numberimage release];
