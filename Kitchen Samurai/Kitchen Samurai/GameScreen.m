@@ -14,9 +14,13 @@
 #import "Ingredient.h"
 
 @implementation GameScreen
+@synthesize quitButton;
 
 @synthesize appDelegate;
 @synthesize game;
+
+@synthesize numberImageDictionary;
+@synthesize progressImageDictionary;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +33,29 @@
 
 - (void)performSwipe:(id)sender
 {
-    NSLog(@"swipe performed");
+    CGPoint touchPoint = [((UILongPressGestureRecognizer*)sender) locationInView:tempSwipe.view];
+    for (Ingredient* i in game.ingredientsOnScreen)
+    {
+        if (CGRectContainsPoint(i.imageView.frame, touchPoint)){
+            i.isCut = true;
+        }
+    }
+}
+
+- (void) updateProgressFrame:(int) type{
+    int numLeft = [[game.ingredientsLeft valueForKey:[NSString stringWithFormat:@"%@",type]] intValue];
+    UIImageView* numberimage = [numberImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
+    if (numLeft==0){
+        [numberimage removeFromSuperview];
+        UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
+        UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:numLeft]];
+        [crossOutImage setCenter:image.center];
+        [self.view addSubview:crossOutImage];
+        [crossOutImage release];
+    }
+    else{
+        [numberimage setImage:[((GameView*)self.view).numberImages objectAtIndex:numLeft]];
+    }
 }
 
 - (void)dragPot:(id)sender
@@ -43,6 +69,7 @@
 {
     [appDelegate release];
     [game release];
+    [quitButton release];
     [super dealloc];
 }
 
@@ -63,12 +90,14 @@
 - (void)addProgressFrame 
 {
     //Draw topleft window
-    NSLog(@"asddd");
     float x=20;
     float y=20;
+    progressImageDictionary = [[NSMutableDictionary alloc] init];
+    numberImageDictionary = [[NSMutableDictionary alloc] init];
+
     for(id type in game.ingredientsLeft)
     {
-        id number = [game.ingredientsLeft valueForKey:type];
+        NSNumber* number = [game.ingredientsLeft valueForKey:type];
         UIImageView* image = [[UIImageView alloc] initWithImage: [((GameView*)self.view).ingredientImages objectAtIndex:[type intValue]]];
         [image setCenter:CGPointMake(x,y)];
         UIImageView* numberimage = [[UIImageView alloc] initWithImage:[((GameView*)self.view).numberImages objectAtIndex:[number intValue]]];
@@ -80,9 +109,10 @@
         }
         [self.view addSubview:image];
         [self.view addSubview:numberimage];
+        [progressImageDictionary setValue:image forKey:[number stringValue]];
+        [numberImageDictionary setValue:numberimage forKey:[number stringValue]];
         [image release];
         [numberimage release];
-        
         y+=100;
     }
 }
@@ -95,13 +125,20 @@
     [gameView setGameModel:game];
     [gameView initIngredientImages];
     
-    // Set up swipe gesture recognizers
+    /*// Set up swipe gesture recognizers
     swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
     [swipe1 setDelegate:self];
     [swipe1 setNumberOfTouchesRequired:1];
     [swipe1 setDirection:(UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionUp)];
     [gameView addGestureRecognizer:swipe1];
-    [swipe1 release];
+    [swipe1 release];*/
+    tempSwipe = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
+    [tempSwipe setDelegate:self];
+    [tempSwipe setNumberOfTouchesRequired:1];
+    [tempSwipe setAllowableMovement:INFINITY];
+    [tempSwipe setMinimumPressDuration:0];
+    [tempSwipe setNumberOfTapsRequired:0];
+    [gameView addGestureRecognizer:tempSwipe];
     
     // Set up drag gesture recognizer
     drag = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(dragPot:)];
@@ -117,6 +154,7 @@
 
 - (void)viewDidUnload
 {
+    [self setQuitButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -132,7 +170,7 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    if (gestureRecognizer==drag)
+    /*if (gestureRecognizer==drag)
     {
         CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
         CGPoint touch = [gestureRecognizer locationInView:self.view];
@@ -141,24 +179,34 @@
         else
             return NO;
     }
+    else
+        return YES;*/
+    CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
+    CGPoint touch = [gestureRecognizer locationInView:self.view];
+    if (CGRectContainsPoint(pot, touch))
+        if (gestureRecognizer==drag)
+            return YES;
+        else
+            return NO;
+    else
+        if (gestureRecognizer==tempSwipe)
+            return YES;
+        else
+            return NO;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if (CGRectContainsPoint(quitButton.frame, [touch locationInView:self.view]))
+        return NO;
     else
         return YES;
 }
-
-/*- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    if (gestureRecognizer==drag)
-    {
-        CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
-        CGPoint touch = [gestureRecognizer locationInView:self.view];
-        if (CGRectContainsPoint(pot, touch))
-            return YES;
-        else
-            return NO;
-    }
-    else
-        return YES;
-}*/
 
 -(UIImageView*)addIngredientToView:(Ingredient *)i
 {
