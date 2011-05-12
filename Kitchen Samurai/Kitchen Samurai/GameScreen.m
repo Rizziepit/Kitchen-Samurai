@@ -51,7 +51,7 @@
         [numberimage removeFromSuperview];
         UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
         UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:numLeft]];
-        [crossOutImage setFrame:CGRectMake(image.frame.origin.x/40, image.frame.origin.y/40, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
+        [crossOutImage setFrame:CGRectMake(0, 0, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
         [crossOutImage setContentMode:UIViewContentModeScaleToFill];
 
         [image addSubview:crossOutImage];
