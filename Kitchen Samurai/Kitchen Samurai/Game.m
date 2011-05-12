@@ -120,7 +120,7 @@ float prevTime;
                 if (ingredient.xPos > pot.xPos-64 && ingredient.xPos < pot.xPos+64)
                 {
                     [toBeRemoved addObject:ingredient];
-                 //   [self catchIngredient:ingredient];
+                    [self catchIngredient:ingredient];
                 }
             }
         }

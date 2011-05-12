@@ -15,6 +15,7 @@
 
 @implementation GameScreen
 @synthesize quitButton;
+@synthesize ingredientCountersView;
 
 @synthesize appDelegate;
 @synthesize game;
@@ -50,7 +51,7 @@
         UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
         UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:numLeft]];
         [crossOutImage setCenter:image.center];
-        [self.view addSubview:crossOutImage];
+        [image addSubview:crossOutImage];
         [crossOutImage release];
     }
     else{
@@ -70,6 +71,7 @@
     [appDelegate release];
     [game release];
     [quitButton release];
+    [ingredientCountersView release];
     [super dealloc];
 }
 
@@ -90,8 +92,8 @@
 - (void)addProgressFrame 
 {
     //Draw topleft window
-    float x=20;
-    float y=20;
+    float x=16;
+    float y=16;
     progressImageDictionary = [[NSMutableDictionary alloc] init];
     numberImageDictionary = [[NSMutableDictionary alloc] init];
 
@@ -101,19 +103,23 @@
         UIImageView* image = [[UIImageView alloc] initWithImage: [((GameView*)self.view).ingredientImages objectAtIndex:[type intValue]]];
         [image setCenter:CGPointMake(x,y)];
         UIImageView* numberimage = [[UIImageView alloc] initWithImage:[((GameView*)self.view).numberImages objectAtIndex:[number intValue]]];
-        if([number intValue]==0){
+        /*if([number intValue]==0){
             [numberimage setCenter:CGPointMake(x,y)];
         }
         else{
             [numberimage setCenter:CGPointMake(x+100,y)];
-        }
-        [self.view addSubview:image];
-        [self.view addSubview:numberimage];
+        }*/
+        [image setFrame:CGRectMake(16, y, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
+        [image setContentMode:UIViewContentModeScaleToFill];
+        [ingredientCountersView addSubview:image];
+        [numberimage setFrame:CGRectMake(80, image.center.y-numberimage.image.size.height * 0.4f, numberimage.image.size.width * 0.8f, numberimage.image.size.height * 0.8f)];
+        [numberimage setContentMode:UIViewContentModeScaleToFill];
+        [ingredientCountersView addSubview:numberimage];
         [progressImageDictionary setValue:image forKey:[number stringValue]];
         [numberImageDictionary setValue:numberimage forKey:[number stringValue]];
         [image release];
         [numberimage release];
-        y+=100;
+        y+=image.frame.size.height + 16;
     }
 }
 
@@ -155,6 +161,7 @@
 - (void)viewDidUnload
 {
     [self setQuitButton:nil];
+    [self setIngredientCountersView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -214,7 +221,7 @@
     UIImage* image = [gameView.ingredientImages objectAtIndex:(int)i.ingredientType];
     UIImageView *imageView = [ [ UIImageView alloc ] initWithFrame:CGRectMake(i.xPos-image.size.width/2, 768 - i.yPos-image.size.height/2, image.size.width, image.size.height)];
     imageView.image = image;
-    [gameView addSubview:imageView];
+    [gameView insertSubview:imageView belowSubview:ingredientCountersView];
     [image release];
     [imageView autorelease];
     return imageView;

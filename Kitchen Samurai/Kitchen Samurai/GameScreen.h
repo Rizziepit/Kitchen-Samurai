@@ -19,6 +19,7 @@
     UILongPressGestureRecognizer *tempSwipe;
     
     UIButton *quitButton;
+    UIView *ingredientCountersView;
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
@@ -36,6 +37,7 @@
 
 
 @property (nonatomic, retain) IBOutlet UIButton *quitButton;
+@property (nonatomic, retain) IBOutlet UIView *ingredientCountersView;
 
 
 @end
