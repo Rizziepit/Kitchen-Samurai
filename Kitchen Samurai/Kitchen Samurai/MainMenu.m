@@ -99,6 +99,9 @@
 }
 
 - (IBAction)startNewGame:(id)sender {
+    
+    [soundEffect play];
+
     //find which recipe
     NSString* path = [[NSBundle mainBundle] bundlePath];
     NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
