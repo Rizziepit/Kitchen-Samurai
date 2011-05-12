@@ -102,7 +102,7 @@
     //find which recipe
     NSString* path = [[NSBundle mainBundle] bundlePath];
     NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
-    NSDictionary* recipeList = [[NSDictionary alloc] initWithContentsOfFile:DataPath];
+    NSMutableDictionary* recipeList = [[NSMutableDictionary alloc] initWithContentsOfFile:DataPath];
     NSString* tmp = [NSString stringWithFormat:@"%i",1];
     
     NSMutableDictionary* recipe = [recipeList valueForKey:tmp];
