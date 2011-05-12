@@ -46,12 +46,14 @@
 - (void) updateProgressFrame:(int) type{
     int numLeft = [[game.ingredientsLeft valueForKey:[NSString stringWithFormat:@"%i",type]] intValue];
     UIImageView* numberimage = [numberImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
-    NSLog(@"%i",numLeft);
+    //NSLog(@"%i",numLeft);
     if (numLeft==0){
         [numberimage removeFromSuperview];
         UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
         UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:numLeft]];
-        [crossOutImage setCenter:image.center];
+        [crossOutImage setFrame:CGRectMake(image.frame.origin.x/40, image.frame.origin.y/40, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
+        [crossOutImage setContentMode:UIViewContentModeScaleToFill];
+
         [image addSubview:crossOutImage];
         [crossOutImage release];
     }
@@ -110,15 +112,15 @@
         else{
             [numberimage setCenter:CGPointMake(x+100,y)];
         }*/
-        [image setFrame:CGRectMake(16, y, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
+        [image setFrame:CGRectMake(x, y, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
         [image setContentMode:UIViewContentModeScaleToFill];
         [ingredientCountersView addSubview:image];
-        [numberimage setFrame:CGRectMake(80, image.center.y-numberimage.image.size.height * 0.4f, numberimage.image.size.width * 0.8f, numberimage.image.size.height * 0.8f)];
+        [numberimage setFrame:CGRectMake(x+64, image.center.y-numberimage.image.size.height * 0.4f, numberimage.image.size.width * 0.8f, numberimage.image.size.height * 0.8f)];
         [numberimage setContentMode:UIViewContentModeScaleToFill];
         [ingredientCountersView addSubview:numberimage];
-        [progressImageDictionary setValue:image forKey:[number stringValue]];
-        //[progressImageDictionary valueForKey:[number stringValue]];
-        [numberImageDictionary setValue:numberimage forKey:[number stringValue]];
+        [progressImageDictionary setValue:image forKey:type];
+    //    UIView* test = [progressImageDictionary valueForKey:[number stringValue]];
+        [numberImageDictionary setValue:numberimage forKey:type];
         [image release];
         [numberimage release];
         y+=image.frame.size.height + 16;
