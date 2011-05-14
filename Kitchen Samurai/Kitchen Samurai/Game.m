@@ -23,11 +23,13 @@ float prevTime;
 @synthesize ingredientsLeft;
 @synthesize generator;
 @synthesize pot;
+@synthesize difficulty;
 
 - (id)init
 {
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(gameLoop:)];
     [self.displayLink setFrameInterval:1];
+    prevTime = [self.displayLink timestamp];
     return self;
 }
 
@@ -43,7 +45,10 @@ float prevTime;
         
         currentAmount--;
         NSNumber* newAmount=[NSNumber numberWithInt:currentAmount];
+<<<<<<< HEAD
         NSLog(@"%i",[[ingredientsLeft valueForKey:keyString] intValue]);
+=======
+>>>>>>> 0e02c6d42f9aea0eae0dd294bac712abc286e45f
         [ingredientsLeft setValue:newAmount forKey:keyString];
         [viewController updateProgressFrame:i.ingredientType];
         number--;
@@ -53,6 +58,9 @@ float prevTime;
             NSLog(@"GAME Finished Well Done");
             [viewController endGame];
         }
+    }
+    if (currentAmount==0){
+        [ingredientsLeft removeObjectForKey:keyString];
     }
 
 }
@@ -64,8 +72,13 @@ float prevTime;
     NSLog(@"Starting game...");
     ingredientsOnScreen=[[NSMutableArray alloc] init];
     ingredientsLeft = [recipe valueForKey:@"Ingredients"];
+<<<<<<< HEAD
     number = [[recipe valueForKey:@"NumberIngredients"] intValue];
     self.generator = [[IngredientGenerator alloc] initWithRecipe:ingredientsLeft];
+=======
+    difficulty = [recipe valueForKey:@"Difficulty"];
+    self.generator = [[IngredientGenerator alloc] initForGame:self];
+>>>>>>> 0e02c6d42f9aea0eae0dd294bac712abc286e45f
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [viewController addProgressFrame];
     // add the pot
@@ -84,21 +97,26 @@ float prevTime;
     [pot release];
 }
 
-- (void)pauseGame
+- (void)pauseOrResumeGame
 {
-    self.isPaused = YES;
+    if(self.isPaused == NO){
+        self.isPaused = YES;
+        [self.displayLink setPaused:YES];
+    }
+    else{
+        self.isPaused = NO;
+        prevTime = [self.displayLink timestamp];
+        [self.displayLink setPaused:NO];
+    }
 }
 
-- (void)continueGame
-{
-    self.isPaused = NO;
-}
 
 - (void)gameLoop:(CADisplayLink *)sender
 {
     // calculate time step
     float time = [sender timestamp]-prevTime;
     prevTime = [sender timestamp];
+   // NSLog(@"%f",time);//[sender timestamp]);
     //make sure no bugs in physics/generator on first loop cal when prevTime has not been set.
     
     //generate ingredient

@@ -30,6 +30,7 @@
 @property (nonatomic, retain) NSMutableDictionary* numberImageDictionary;
 
 - (IBAction)quitGameButtonClicked:(id)sender;
+- (IBAction)pauseGameButtonClicked:(id)sender;
 - (void)performSwipe:(id)sender;
 - (void)dragPot:(id)sender;
 -(UIImageView*)addIngredientToView:(Ingredient *)i;

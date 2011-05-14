@@ -23,8 +23,7 @@
 
 - (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
 - (void) endGame;
-- (void) pauseGame;
-- (void) continueGame;
+- (void) pauseOrResumeGame;
 - (void) gameLoop:(CADisplayLink *)sender;
 - (void) moveAndCatchIngredients:(float) timepassed;
 - (void)catchIngredient:(Ingredient*)i;
@@ -33,8 +32,9 @@
 @property (nonatomic, retain) GameScreen* viewController;
 @property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) NSMutableArray* ingredientsOnScreen;
-@property (nonatomic, retain) NSDictionary* ingredientsLeft;
+@property (nonatomic, retain) NSMutableDictionary* ingredientsLeft;
 @property (nonatomic, retain) IngredientGenerator* generator;
 @property (nonatomic, retain) PhysicalObject* pot;
+@property (nonatomic, retain) NSNumber* difficulty;
 @end
 
