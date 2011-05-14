@@ -36,15 +36,23 @@ float prevTime;
     int currentAmount = [[ingredientsLeft valueForKey:keyString] intValue];
     if(currentAmount==0){
         //do nothing for now, could punish them
+        [viewController mistake];
     }
     else{
         //[soundEffect play];
         
         currentAmount--;
         NSNumber* newAmount=[NSNumber numberWithInt:currentAmount];
-       // NSLog(@"%i",[[ingredientsLeft valueForKey:keyString] intValue]);
+        NSLog(@"%i",[[ingredientsLeft valueForKey:keyString] intValue]);
         [ingredientsLeft setValue:newAmount forKey:keyString];
         [viewController updateProgressFrame:i.ingredientType];
+        number--;
+        NSLog(@"Ingredients left : %i",number);
+        if (number == 0)
+        {
+            NSLog(@"GAME Finished Well Done");
+            [viewController endGame];
+        }
     }
 
 }
@@ -56,6 +64,7 @@ float prevTime;
     NSLog(@"Starting game...");
     ingredientsOnScreen=[[NSMutableArray alloc] init];
     ingredientsLeft = [recipe valueForKey:@"Ingredients"];
+    number = [[recipe valueForKey:@"NumberIngredients"] intValue];
     self.generator = [[IngredientGenerator alloc] initWithRecipe:ingredientsLeft];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [viewController addProgressFrame];

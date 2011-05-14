@@ -20,6 +20,8 @@
     
     UIButton *quitButton;
     UIView *ingredientCountersView;
+    UIView *EndGameView;
+    int mistakes;
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
@@ -33,11 +35,14 @@
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
 -(UIImageView*)addPotToView:(PhysicalObject *)p;
 - (void)addProgressFrame;
+- (void) endGame;
+- (void) mistake;
 - (void) updateProgressFrame:(int) i;
 
 
 @property (nonatomic, retain) IBOutlet UIButton *quitButton;
 @property (nonatomic, retain) IBOutlet UIView *ingredientCountersView;
+@property (nonatomic, retain) IBOutlet UIView *EndGameView;
 
 
 @end

@@ -4,20 +4,22 @@
 <dict>
 	<key>1</key>
 	<dict>
+		<key>NumberIngredients</key>
+		<integer>7</integer>
 		<key>DetailsName</key>
 		<string>1-Tomato Soup</string>
 		<key>Difficulty</key>
 		<integer>1</integer>
 		<key>Ingredients</key>
 		<dict>
-			<key>8</key>
-			<integer>1</integer>
 			<key>10</key>
 			<integer>1</integer>
 			<key>15</key>
 			<integer>1</integer>
 			<key>20</key>
 			<integer>4</integer>
+			<key>8</key>
+			<integer>1</integer>
 		</dict>
 		<key>Name</key>
 		<string>Tomato Soup</string>
@@ -28,17 +30,19 @@
 	</dict>
 	<key>2</key>
 	<dict>
+		<key>NumberIngredients</key>
+		<integer>6</integer>
 		<key>DetailsName</key>
 		<string>1-Butternut Soup</string>
 		<key>Difficulty</key>
 		<integer>1</integer>
 		<key>Ingredients</key>
 		<dict>
-			<key>7</key>
-			<integer>2</integer>
 			<key>13</key>
 			<integer>2</integer>
 			<key>15</key>
+			<integer>2</integer>
+			<key>7</key>
 			<integer>2</integer>
 		</dict>
 		<key>Name</key>
@@ -50,19 +54,21 @@
 	</dict>
 	<key>3</key>
 	<dict>
+		<key>NumberIngredients</key>
+		<integer>8</integer>
 		<key>DetailsName</key>
 		<string>2-Bean Soup</string>
 		<key>Difficulty</key>
 		<integer>2</integer>
 		<key>Ingredients</key>
 		<dict>
-			<key>2</key>
-			<integer>4</integer>
-			<key>8</key>
-			<integer>1</integer>
 			<key>10</key>
 			<integer>2</integer>
 			<key>15</key>
+			<integer>1</integer>
+			<key>2</key>
+			<integer>4</integer>
+			<key>8</key>
 			<integer>1</integer>
 		</dict>
 		<key>Name</key>
@@ -74,6 +80,8 @@
 	</dict>
 	<key>4</key>
 	<dict>
+		<key>NumberIngredients</key>
+		<integer>17</integer>
 		<key>DetailsName</key>
 		<string>3-Vegetable Soup</string>
 		<key>Difficulty</key>
@@ -82,12 +90,6 @@
 		<dict>
 			<key>1</key>
 			<integer>4</integer>
-			<key>5</key>
-			<integer>2</integer>
-			<key>7</key>
-			<integer>1</integer>
-			<key>8</key>
-			<integer>3</integer>
 			<key>10</key>
 			<integer>2</integer>
 			<key>12</key>
@@ -96,6 +98,12 @@
 			<integer>1</integer>
 			<key>21</key>
 			<integer>2</integer>
+			<key>5</key>
+			<integer>2</integer>
+			<key>7</key>
+			<integer>1</integer>
+			<key>8</key>
+			<integer>3</integer>
 		</dict>
 		<key>Name</key>
 		<string>Vegetable Soup</string>

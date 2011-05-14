@@ -62,7 +62,7 @@ float GRAVITY=-320.0f;
 
 -(Ingredient*)giveIngredient{
     //Simple unbalanced one for now, just generates with 1%chance each frame
-    if (rand()%100<3){
+    if (rand()%100<5){
         Ingredient* i = nil;
         float rad= 30.0f;
         IngredientType type = [self pickType];

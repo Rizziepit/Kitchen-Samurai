@@ -16,6 +16,7 @@
 @implementation GameScreen
 @synthesize quitButton;
 @synthesize ingredientCountersView;
+@synthesize EndGameView;
 
 @synthesize appDelegate;
 @synthesize game;
@@ -75,6 +76,7 @@
     [game release];
     [quitButton release];
     [ingredientCountersView release];
+    [EndGameView release];
     [super dealloc];
 }
 
@@ -127,6 +129,21 @@
     }
 }
 
+- (void) mistake
+{
+    mistakes++;
+    UIImageView *chef = [[UIImageView alloc] init];
+    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60);
+    [chef setBackgroundColor:[UIColor clearColor]];
+    [chef setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i_chef",mistakes]]];
+    [ingredientCountersView addSubview:chef];
+}
+
+- (void) endGame
+{
+    EndGameView.hidden = NO;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -134,6 +151,8 @@
     GameView *gameView = ((GameView*)self.view);
     [gameView setGameModel:game];
     [gameView initIngredientImages];
+    
+    mistakes = 0;
     
     /*// Set up swipe gesture recognizers
     swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
@@ -166,6 +185,7 @@
 {
     [self setQuitButton:nil];
     [self setIngredientCountersView:nil];
+    [self setEndGameView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -18,6 +18,7 @@
 
 @interface Game : NSObject {
     AVAudioPlayer* soundEffect;
+    int number;
 }
 
 - (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
