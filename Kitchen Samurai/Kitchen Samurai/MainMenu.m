@@ -100,7 +100,7 @@
 
 - (IBAction)startNewGame:(id)sender {
     
-    [soundEffect play];
+    //[soundEffect play];
 
     //find which recipe
     NSString* path = [[NSBundle mainBundle] bundlePath];
@@ -121,7 +121,7 @@
 
 - (IBAction)showRecipes:(id)sender {
     [recipeSelection setAppDelegate:self.appDelegate];
-    [soundEffect play];
+    //[soundEffect play];
     [self.view addSubview:recipeSelection.view];
 }
 

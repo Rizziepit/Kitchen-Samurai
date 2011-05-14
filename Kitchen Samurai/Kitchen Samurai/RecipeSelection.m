@@ -318,7 +318,7 @@
 - (IBAction)getRecipe:(id)sender
 {    
     soundEffect.volume = [prefs floatForKey:@"Volume"];
-    [soundEffect play];
+    //[soundEffect play];
     
     NSString* buttonTag = [NSString stringWithFormat:@"%i",[sender tag]];
             

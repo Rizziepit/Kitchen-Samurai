@@ -10,15 +10,15 @@
 #import "Ingredient.h"
 
 @class Ingredient;
+@class Game;
 
 @interface IngredientGenerator : NSObject {
-    
 }
 
--(id)initWithRecipe:(NSDictionary*)recipe;
+-(id)initForGame:(Game*)g;
 -(Ingredient*)giveIngredient;
 -(IngredientType) pickType;
 -(NSArray*)pickStartCoords;
 
-
+@property (nonatomic, retain) Game *gameModel;
 @end

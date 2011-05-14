@@ -61,7 +61,7 @@ NSString * const numberToFileName[] = {
     if (self) {
         // Initialization code
     }
-    return self;
+    return self; 
 }
 
 
