@@ -36,8 +36,8 @@
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
 -(UIImageView*)addPotToView:(PhysicalObject *)p;
 - (void)addProgressFrame;
-- (void) endGame;
 - (void) mistake;
+- (void) endGame;
 - (void) updateProgressFrame:(int) i;
 
 

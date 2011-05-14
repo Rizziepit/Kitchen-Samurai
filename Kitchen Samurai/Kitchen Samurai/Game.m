@@ -45,19 +45,15 @@ float prevTime;
         
         currentAmount--;
         NSNumber* newAmount=[NSNumber numberWithInt:currentAmount];
-<<<<<<< HEAD
-        NSLog(@"%i",[[ingredientsLeft valueForKey:keyString] intValue]);
-=======
->>>>>>> 0e02c6d42f9aea0eae0dd294bac712abc286e45f
         [ingredientsLeft setValue:newAmount forKey:keyString];
         [viewController updateProgressFrame:i.ingredientType];
+        
         number--;
-        NSLog(@"Ingredients left : %i",number);
         if (number == 0)
         {
-            NSLog(@"GAME Finished Well Done");
             [viewController endGame];
         }
+        
     }
     if (currentAmount==0){
         [ingredientsLeft removeObjectForKey:keyString];
@@ -70,15 +66,11 @@ float prevTime;
 - (void)startGame: (NSDictionary*) recipe
 {
     NSLog(@"Starting game...");
+    number = [[recipe valueForKey:@"NumberIngredients"] intValue];
     ingredientsOnScreen=[[NSMutableArray alloc] init];
     ingredientsLeft = [recipe valueForKey:@"Ingredients"];
-<<<<<<< HEAD
-    number = [[recipe valueForKey:@"NumberIngredients"] intValue];
-    self.generator = [[IngredientGenerator alloc] initWithRecipe:ingredientsLeft];
-=======
     difficulty = [recipe valueForKey:@"Difficulty"];
     self.generator = [[IngredientGenerator alloc] initForGame:self];
->>>>>>> 0e02c6d42f9aea0eae0dd294bac712abc286e45f
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [viewController addProgressFrame];
     // add the pot

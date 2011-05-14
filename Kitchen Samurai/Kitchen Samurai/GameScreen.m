@@ -63,6 +63,20 @@
     }
 }
 
+- (void) mistake
+{
+    mistakes++;
+    UIImageView *chef = [[UIImageView alloc] init];
+    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60);
+    [chef setBackgroundColor:[UIColor clearColor]];
+    [chef setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i_chef",mistakes]]];
+    [ingredientCountersView addSubview:chef];
+}
+- (void) endGame
+{
+    EndGameView.hidden = NO;
+}
+
 - (void)dragPot:(id)sender
 {
     CGPoint touchPoint =  [drag locationOfTouch:0 inView:drag.view];
@@ -131,21 +145,6 @@
         [numberimage release];
         y+=image.frame.size.height + 16;
     }
-}
-
-- (void) mistake
-{
-    mistakes++;
-    UIImageView *chef = [[UIImageView alloc] init];
-    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60);
-    [chef setBackgroundColor:[UIColor clearColor]];
-    [chef setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i_chef",mistakes]]];
-    [ingredientCountersView addSubview:chef];
-}
-
-- (void) endGame
-{
-    EndGameView.hidden = NO;
 }
 
 - (void)viewDidLoad

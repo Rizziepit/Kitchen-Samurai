@@ -65,10 +65,6 @@
     }
     
     soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil];  
-    
-    soundEffect.volume = 0;
-    [soundEffect play];
-    
     soundEffect.volume = vol;
 }
 
