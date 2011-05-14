@@ -29,6 +29,7 @@ float prevTime;
 {
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(gameLoop:)];
     [self.displayLink setFrameInterval:1];
+    prevTime = [self.displayLink timestamp];
     return self;
 }
 
@@ -79,21 +80,26 @@ float prevTime;
     [pot release];
 }
 
-- (void)pauseGame
+- (void)pauseOrResumeGame
 {
-    self.isPaused = YES;
+    if(self.isPaused == NO){
+        self.isPaused = YES;
+        [self.displayLink setPaused:YES];
+    }
+    else{
+        self.isPaused = NO;
+        prevTime = [self.displayLink timestamp];
+        [self.displayLink setPaused:NO];
+    }
 }
 
-- (void)continueGame
-{
-    self.isPaused = NO;
-}
 
 - (void)gameLoop:(CADisplayLink *)sender
 {
     // calculate time step
     float time = [sender timestamp]-prevTime;
     prevTime = [sender timestamp];
+   // NSLog(@"%f",time);//[sender timestamp]);
     //make sure no bugs in physics/generator on first loop cal when prevTime has not been set.
     
     //generate ingredient

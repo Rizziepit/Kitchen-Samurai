@@ -22,8 +22,7 @@
 
 - (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
 - (void) endGame;
-- (void) pauseGame;
-- (void) continueGame;
+- (void) pauseOrResumeGame;
 - (void) gameLoop:(CADisplayLink *)sender;
 - (void) moveAndCatchIngredients:(float) timepassed;
 - (void)catchIngredient:(Ingredient*)i;
