@@ -31,6 +31,7 @@
 
 - (IBAction)quitGameButtonClicked:(id)sender;
 - (IBAction)pauseGameButtonClicked:(id)sender;
+- (IBAction)resumeGameButtonClicked:(id)sender;
 - (void)performSwipe:(id)sender;
 - (void)dragPot:(id)sender;
 -(UIImageView*)addIngredientToView:(Ingredient *)i;

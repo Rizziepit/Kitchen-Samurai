@@ -89,13 +89,17 @@ float prevTime;
     [pot release];
 }
 
-- (void)pauseOrResumeGame
+- (void)pauseGame
 {
     if(self.isPaused == NO){
         self.isPaused = YES;
         [self.displayLink setPaused:YES];
     }
-    else{
+}
+
+- (void)resumeGame
+{
+    if(self.isPaused == YES){
         self.isPaused = NO;
         prevTime = [self.displayLink timestamp];
         [self.displayLink setPaused:NO];

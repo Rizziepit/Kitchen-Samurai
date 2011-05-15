@@ -57,6 +57,7 @@
 
         [image addSubview:crossOutImage];
         [crossOutImage release];
+        [image release];
     }
     else{
         [numberimage setImage:[((GameView*)self.view).numberImages objectAtIndex:numLeft]];
@@ -67,10 +68,11 @@
 {
     mistakes++;
     UIImageView *chef = [[UIImageView alloc] init];
-    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60);
+    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60); //this position will not work for other levels besides first
     [chef setBackgroundColor:[UIColor clearColor]];
     [chef setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i_chef",mistakes]]];
     [ingredientCountersView addSubview:chef];
+    [chef release];
 }
 - (void) endGame
 {
@@ -100,7 +102,11 @@
 }
 
 -(void)pauseGameButtonClicked:(id)sender{
-    [game pauseOrResumeGame];
+    [game resumeGame];
+}
+
+-(void)resumeGameButtonClicked:(id)sender{
+    [game pauseGame];
 }
 
 - (void)didReceiveMemoryWarning
