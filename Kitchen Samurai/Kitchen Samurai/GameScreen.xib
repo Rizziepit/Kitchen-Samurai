@@ -83,7 +83,7 @@
 						<reference key="NSNextKeyView" ref="18314885"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MSAwLjUAA</bytes>
+							<bytes key="NSWhite">MSAwAA</bytes>
 							<object class="NSColorSpace" key="NSCustomColorSpace" id="661075937">
 								<int key="NSID">2</int>
 							</object>
@@ -123,7 +123,6 @@
 								<string key="NSFrame">{{95, 20}, {479, 53}}</string>
 								<reference key="NSSuperview" ref="235045201"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>

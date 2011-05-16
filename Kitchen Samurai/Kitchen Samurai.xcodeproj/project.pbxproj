@@ -52,6 +52,7 @@
 		80079E7F136078C9001ABBFD /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 80079E7D136078C9001ABBFD /* MainMenu.m */; };
 		80079E80136078C9001ABBFD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E7E136078C9001ABBFD /* MainMenu.xib */; };
 		80079E8A13607CA8001ABBFD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E8913607CA8001ABBFD /* MainWindow.xib */; };
+		8078CA20138158C300A6A1D2 /* fingerDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8078CA1F138158C300A6A1D2 /* fingerDot.png */; };
 		8079176113759E1A000F68D9 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8079176013759E1A000F68D9 /* GameView.m */; };
 		808A4E8C136AD1CF0058C7DA /* video_test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 808A4E8B136AD1CF0058C7DA /* video_test.mp4 */; };
 		8093096113697954007C1E8B /* GameScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093095F13697954007C1E8B /* GameScreen.m */; };
@@ -150,6 +151,7 @@
 		80079E7D136078C9001ABBFD /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		80079E7E136078C9001ABBFD /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		80079E8913607CA8001ABBFD /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		8078CA1F138158C300A6A1D2 /* fingerDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fingerDot.png; sourceTree = "<group>"; };
 		8079175F13759E1A000F68D9 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		8079176013759E1A000F68D9 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 		808A4E8B136AD1CF0058C7DA /* video_test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_test.mp4; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		E0A5B6EE1369FB3400408241 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				8078CA1F138158C300A6A1D2 /* fingerDot.png */,
 				E0A6CB3C137B09B300F5C6E2 /* swoosh.caf */,
 				E024C57D137AE205003A11F5 /* pot.png */,
 				E0C8C156137614AD00EF567E /* Ingredients */,
@@ -515,6 +518,7 @@
 				3A409CBB137F103E00035D11 /* 1_chef.png in Resources */,
 				3A409CBC137F103E00035D11 /* 2_chef.png in Resources */,
 				3A409CBD137F103E00035D11 /* 3_chef.png in Resources */,
+				8078CA20138158C300A6A1D2 /* fingerDot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
