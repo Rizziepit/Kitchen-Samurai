@@ -110,7 +110,7 @@ float prevTime;
     {
         score=1;
     }
-    NSLog(@"%@",score);
+    NSLog(@"%d",score);
 }
 
 - (void)pauseGame
