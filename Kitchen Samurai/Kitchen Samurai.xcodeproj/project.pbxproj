@@ -55,7 +55,6 @@
 		8078CA20138158C300A6A1D2 /* fingerDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8078CA1F138158C300A6A1D2 /* fingerDot.png */; };
 		8079176113759E1A000F68D9 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8079176013759E1A000F68D9 /* GameView.m */; };
 		808A4E8C136AD1CF0058C7DA /* video_test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 808A4E8B136AD1CF0058C7DA /* video_test.mp4 */; };
-		8093096113697954007C1E8B /* GameScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093095F13697954007C1E8B /* GameScreen.m */; };
 		8093096213697954007C1E8B /* GameScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096013697954007C1E8B /* GameScreen.xib */; };
 		8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093096D1369A4A0007C1E8B /* RecipeSelection.m */; };
 		809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809309761369A688007C1E8B /* MediaPlayer.framework */; };
@@ -65,7 +64,8 @@
 		80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB20213606D5200425F16 /* InfoPlist.strings */; };
 		80CEB20713606D5200425F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20613606D5200425F16 /* main.m */; };
 		80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */; };
-		E00834F813720B370098FFBF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = E00834F713720B370098FFBF /* Game.m */; };
+		DD8476131382D598001F853F /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8476121382D598001F853F /* Game.m */; };
+		DD8476161382D59D001F853F /* GameScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8476151382D59D001F853F /* GameScreen.m */; };
 		E00834FB1372199B0098FFBF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00834FA1372199B0098FFBF /* QuartzCore.framework */; };
 		E024C57E137AE205003A11F5 /* pot.png in Resources */ = {isa = PBXBuildFile; fileRef = E024C57D137AE205003A11F5 /* pot.png */; };
 		E078BE87136A204000818E87 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E078BE80136A204000818E87 /* back_button.png */; };
@@ -156,7 +156,6 @@
 		8079176013759E1A000F68D9 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 		808A4E8B136AD1CF0058C7DA /* video_test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_test.mp4; sourceTree = "<group>"; };
 		8093095E13697954007C1E8B /* GameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreen.h; sourceTree = "<group>"; };
-		8093095F13697954007C1E8B /* GameScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreen.m; sourceTree = "<group>"; };
 		8093096013697954007C1E8B /* GameScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameScreen.xib; sourceTree = "<group>"; };
 		8093096C1369A4A0007C1E8B /* RecipeSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSelection.h; sourceTree = "<group>"; };
 		8093096D1369A4A0007C1E8B /* RecipeSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSelection.m; sourceTree = "<group>"; };
@@ -171,8 +170,9 @@
 		80CEB20613606D5200425F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kitchen_SamuraiAppDelegate.h; sourceTree = "<group>"; };
 		80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kitchen_SamuraiAppDelegate.m; sourceTree = "<group>"; };
+		DD8476121382D598001F853F /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		DD8476151382D59D001F853F /* GameScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreen.m; sourceTree = "<group>"; };
 		E00834F613720B370098FFBF /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		E00834F713720B370098FFBF /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		E00834FA1372199B0098FFBF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E024C57D137AE205003A11F5 /* pot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pot.png; sourceTree = "<group>"; };
 		E078BE80136A204000818E87 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_button.png; sourceTree = "<group>"; };
@@ -246,14 +246,14 @@
 				80079E7D136078C9001ABBFD /* MainMenu.m */,
 				80079E7E136078C9001ABBFD /* MainMenu.xib */,
 				8093095E13697954007C1E8B /* GameScreen.h */,
-				8093095F13697954007C1E8B /* GameScreen.m */,
+				DD8476151382D59D001F853F /* GameScreen.m */,
 				3AF89E7E136AB1C300AA5905 /* Recipe_List.plist */,
 				8093096013697954007C1E8B /* GameScreen.xib */,
 				8093096C1369A4A0007C1E8B /* RecipeSelection.h */,
 				8093096D1369A4A0007C1E8B /* RecipeSelection.m */,
 				3AF718FA136C3A8F005D7971 /* RecipeSelection.xib */,
 				E00834F613720B370098FFBF /* Game.h */,
-				E00834F713720B370098FFBF /* Game.m */,
+				DD8476121382D598001F853F /* Game.m */,
 				0C92325F1377F9DA005F7C02 /* IngredientGenerator.h */,
 				0C9232601377F9DB005F7C02 /* IngredientGenerator.m */,
 				0C05BFFE13743D540026A4DE /* PhysicalObject.h */,
@@ -532,14 +532,14 @@
 				80CEB20713606D5200425F16 /* main.m in Sources */,
 				80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */,
 				80079E7F136078C9001ABBFD /* MainMenu.m in Sources */,
-				8093096113697954007C1E8B /* GameScreen.m in Sources */,
 				8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */,
-				E00834F813720B370098FFBF /* Game.m in Sources */,
 				0C0F12701372D95D00D059B2 /* Ingredient.m in Sources */,
 				0C05C00013743D540026A4DE /* PhysicalObject.m in Sources */,
 				8079176113759E1A000F68D9 /* GameView.m in Sources */,
 				0C9232611377F9DE005F7C02 /* IngredientGenerator.m in Sources */,
 				80007CE913797B5C00CC3C64 /* CustomSwipeGestureRecognizer.m in Sources */,
+				DD8476131382D598001F853F /* Game.m in Sources */,
+				DD8476161382D59D001F853F /* GameScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
