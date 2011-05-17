@@ -16,17 +16,21 @@
 
 @interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
     UILongPressGestureRecognizer *drag;
-    UISwipeGestureRecognizer *swipe1;
     UILongPressGestureRecognizer *tempSwipe;
     NSArray *timerpics;
     UIButton *quitButton;
     UIView *ingredientCountersView;
     UIView *EndGameView;
+    UIButton *pauseButton;
     int mistakes;
     CGFloat* fingerVelocities;
     CGPoint lastFingerPosition;
     CFTimeInterval lastFingerTime;
+    
     UIImage *dot;
+    UIImage *pause;
+    UIImage *play;
+    
     int dotCounter; // dot index used to get UIImageView from pool instead of creating one
     NSMutableArray *dotImageViews;
     UIImageView *timerM;
@@ -41,7 +45,6 @@
 
 - (IBAction)quitGameButtonClicked:(id)sender;
 - (IBAction)pauseGameButtonClicked:(id)sender;
-- (IBAction)resumeGameButtonClicked:(id)sender;
 - (IBAction)nextRecipe:(id)sender;
 - (void)performSwipe:(id)sender;
 - (void)dragPot:(id)sender;
@@ -53,6 +56,7 @@
 - (void) endGame;
 - (void) updateProgressFrame:(int) i;
 - (void)saveGameState:(int)r forLevel:(int)l;
+- (void)endGame;
 
 
 @property (nonatomic, retain) IBOutlet UIImageView *timerM;
@@ -61,6 +65,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *quitButton;
 @property (nonatomic, retain) IBOutlet UIView *ingredientCountersView;
 @property (nonatomic, retain) IBOutlet UIView *EndGameView;
+@property (nonatomic, retain) IBOutlet UIButton *pauseButton;
 
 
 @end

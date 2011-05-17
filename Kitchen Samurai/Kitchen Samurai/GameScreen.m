@@ -20,6 +20,7 @@
 @synthesize quitButton;
 @synthesize ingredientCountersView;
 @synthesize EndGameView;
+@synthesize pauseButton;
 
 @synthesize appDelegate;
 @synthesize game;
@@ -38,6 +39,10 @@
         fingerVelocities[2] = 0;
         lastFingerPosition.x = -1;
         lastFingerTime = -1;
+        
+        pause = [UIImage imageNamed:@"pause.png"];
+        play = [UIImage imageNamed:@"play.png"];
+        
         dot = [UIImage imageNamed:@"fingerDot.png"];
         dotCounter = 0;
         dotImageViews = [[NSMutableArray alloc] initWithCapacity:200];
@@ -174,13 +179,12 @@
 }
 
 - (void) endGame
-{
+{    
+    EndGameView.hidden = NO;    
+    [self saveGameState:3 forLevel:1];     
+    [game pauseGame];    
     [timerpics release];
-    EndGameView.hidden = NO;
-    [self saveGameState:3 forLevel:1]; 
-    [game pauseGame];
 }
-
 
 
 - (void)dragPot:(id)sender
@@ -197,6 +201,7 @@
     [quitButton release];
     [ingredientCountersView release];
     [EndGameView release];
+    [pauseButton release];
     [timerM release];
     [timerS release];
     [timerSS release];
@@ -214,11 +219,20 @@
 }
 
 -(void)pauseGameButtonClicked:(id)sender{
-    [game resumeGame];
-}
-
--(void)resumeGameButtonClicked:(id)sender{
-    [game pauseGame];
+    if (game.isPaused)
+    {
+        [pauseButton setImage:pause forState:UIControlStateNormal];
+        [tempSwipe setEnabled:YES];
+        [drag setEnabled:YES];
+        [game resumeGame];
+    }
+    else
+    {
+        [pauseButton setImage:play forState:UIControlStateNormal];
+        [tempSwipe setEnabled:NO];
+        [drag setEnabled:NO];
+        [game pauseGame];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -303,6 +317,7 @@
     [self setQuitButton:nil];
     [self setIngredientCountersView:nil];
     [self setEndGameView:nil];
+    [self setPauseButton:nil];
     [self setTimerM:nil];
     [self setTimerS:nil];
     [self setTimerSS:nil];
@@ -321,17 +336,6 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    /*if (gestureRecognizer==drag)
-    {
-        CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
-        CGPoint touch = [gestureRecognizer locationInView:self.view];
-        if (CGRectContainsPoint(pot, touch))
-            return YES;
-        else
-            return NO;
-    }
-    else
-        return YES;*/
     CGRect pot = CGRectMake(game.pot.xPos-75, 768-game.pot.yPos-70, 150, 140);
     CGPoint touch = [gestureRecognizer locationInView:self.view];
     if (CGRectContainsPoint(pot, touch))
@@ -339,11 +343,11 @@
             return YES;
         else
             return NO;
-    else
-        if (gestureRecognizer==tempSwipe)
-            return YES;
         else
-            return NO;
+            if (gestureRecognizer==tempSwipe)
+                return YES;
+            else
+                return NO;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -353,7 +357,8 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if (CGRectContainsPoint(quitButton.frame, [touch locationInView:self.view]))
+    CGPoint location = [touch locationInView:self.view];
+    if (CGRectContainsPoint(quitButton.frame, location) || CGRectContainsPoint(pauseButton.frame, location))
         return NO;
     else
         return YES;

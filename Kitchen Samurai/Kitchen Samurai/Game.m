@@ -30,7 +30,6 @@ float prevTime;
 {
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(gameLoop:)];
     [self.displayLink setFrameInterval:1];
-    prevTime = [self.displayLink timestamp];
     return self;
 }
 
@@ -73,7 +72,6 @@ float prevTime;
 
 }
 
-
 // initialise game with saved datas
 - (void)startGame: (NSDictionary*) recipe
 {
@@ -93,7 +91,8 @@ float prevTime;
     
     //soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil]; 
     
-    prevTime=0;
+    prevTime = -1;
+    isPaused = NO;
 }
 
 - (void)endGame
@@ -116,11 +115,9 @@ float prevTime;
 
 - (void)pauseGame
 {
-    if(self.isPaused == NO){
-        self.isPaused = YES;
-        [self.displayLink setPaused:YES];
-        [timer invalidate];
-    }
+    self.isPaused = YES;
+    [self.displayLink setPaused:YES];
+    [timer invalidate];
 }
 
 - (void)resumeGame
@@ -128,7 +125,7 @@ float prevTime;
     //if(self.isPaused == YES){
         NSLog(@"Resume");
         self.isPaused = NO;
-        prevTime = [self.displayLink timestamp];
+        prevTime = -1;
         [self.displayLink setPaused:NO];
         timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
     //}
@@ -138,7 +135,11 @@ float prevTime;
 - (void)gameLoop:(CADisplayLink *)sender
 {
     // calculate time step
-    float time = [sender timestamp]-prevTime;
+    float time;
+    if (prevTime < 0)
+        time = 0;
+    else
+        time = [sender timestamp]-prevTime;
     prevTime = [sender timestamp];
    // NSLog(@"%f",time);//[sender timestamp]);
     //make sure no bugs in physics/generator on first loop cal when prevTime has not been set.
@@ -151,8 +152,6 @@ float prevTime;
     }
 
     [self moveAndCatchIngredients: time];
-    
-    //[viewController.view setNeedsDisplay];
 }
 
 -(void) moveAndCatchIngredients:(float) timepassed{
