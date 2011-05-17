@@ -75,6 +75,7 @@
 - (void) endGame
 {
     EndGameView.hidden = NO;
+    [game pauseOrResumeGame];
 }
 
 - (void)dragPot:(id)sender
