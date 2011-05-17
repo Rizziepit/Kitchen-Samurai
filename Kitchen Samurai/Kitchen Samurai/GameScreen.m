@@ -14,6 +14,9 @@
 #import "Ingredient.h"
 
 @implementation GameScreen
+@synthesize timerM;
+@synthesize timerS;
+@synthesize timerSS;
 @synthesize quitButton;
 @synthesize ingredientCountersView;
 @synthesize EndGameView;
@@ -46,6 +49,21 @@
         }
     }
     return self;
+}
+
+- (void) updateTimerMinutes: (int) minutes andSeconds:(int) seconds
+{
+    
+    if (seconds==0){
+        [timerS setImage:[((GameView*)self.view).numberImages objectAtIndex:0]]; 
+        [timerSS setImage:[((GameView*)self.view).numberImages objectAtIndex:0]]; 
+    }
+    else{
+        [timerS setImage:[((GameView*)self.view).numberImages objectAtIndex:seconds/10]]; 
+        [timerSS setImage:[((GameView*)self.view).numberImages objectAtIndex:seconds%10]]; 
+    }
+    [timerM setImage:[((GameView*)self.view).numberImages objectAtIndex:minutes]]; 
+
 }
 
 - (void)performSwipe:(id)sender
@@ -157,6 +175,7 @@
 
 - (void) endGame
 {
+    [timerpics release];
     EndGameView.hidden = NO;
     [self saveGameState:3 forLevel:1]; 
     [game pauseGame];
@@ -178,6 +197,9 @@
     [quitButton release];
     [ingredientCountersView release];
     [EndGameView release];
+    [timerM release];
+    [timerS release];
+    [timerSS release];
     [super dealloc];
 }
 
@@ -241,6 +263,7 @@
         [numberimage release];
         y+=image.frame.size.height + 16;
     }
+    
 }
 
 - (void)viewDidLoad
@@ -280,6 +303,9 @@
     [self setQuitButton:nil];
     [self setIngredientCountersView:nil];
     [self setEndGameView:nil];
+    [self setTimerM:nil];
+    [self setTimerS:nil];
+    [self setTimerSS:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

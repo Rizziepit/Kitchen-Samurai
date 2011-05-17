@@ -18,7 +18,7 @@
     UILongPressGestureRecognizer *drag;
     UISwipeGestureRecognizer *swipe1;
     UILongPressGestureRecognizer *tempSwipe;
-    
+    NSArray *timerpics;
     UIButton *quitButton;
     UIView *ingredientCountersView;
     UIView *EndGameView;
@@ -29,6 +29,9 @@
     UIImage *dot;
     int dotCounter; // dot index used to get UIImageView from pool instead of creating one
     NSMutableArray *dotImageViews;
+    UIImageView *timerM;
+    UIImageView *timerS;
+    UIImageView *timerSS;
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
@@ -46,11 +49,15 @@
 -(UIImageView*)addPotToView:(PhysicalObject *)p;
 - (void)addProgressFrame;
 - (void) mistake;
+- (void) updateTimerMinutes:(int) minutes andSeconds:(int) seconds;
 - (void) endGame;
 - (void) updateProgressFrame:(int) i;
 - (void)saveGameState:(int)r forLevel:(int)l;
 
 
+@property (nonatomic, retain) IBOutlet UIImageView *timerM;
+@property (nonatomic, retain) IBOutlet UIImageView *timerS;
+@property (nonatomic, retain) IBOutlet UIImageView *timerSS;
 @property (nonatomic, retain) IBOutlet UIButton *quitButton;
 @property (nonatomic, retain) IBOutlet UIView *ingredientCountersView;
 @property (nonatomic, retain) IBOutlet UIView *EndGameView;

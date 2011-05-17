@@ -19,11 +19,15 @@
 @interface Game : NSObject {
     AVAudioPlayer* soundEffect;
     int number;
+    int timeleft;
+    NSTimer* timer;
+    int mistakes;
 }
 
 - (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
 - (void) endGame;
 - (void) pauseGame;
+- (void) updateTimer;
 - (void) resumeGame;
 - (void) gameLoop:(CADisplayLink *)sender;
 - (void) moveAndCatchIngredients:(float) timepassed;
@@ -37,5 +41,6 @@
 @property (nonatomic, retain) IngredientGenerator* generator;
 @property (nonatomic, retain) PhysicalObject* pot;
 @property (nonatomic, retain) NSNumber* difficulty;
+@property (nonatomic, retain) NSNumber* rating;
 @end
 

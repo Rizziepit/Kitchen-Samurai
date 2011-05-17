@@ -24,6 +24,7 @@ float prevTime;
 @synthesize generator;
 @synthesize pot;
 @synthesize difficulty;
+@synthesize rating;
 
 - (id)init
 {
@@ -33,11 +34,22 @@ float prevTime;
     return self;
 }
 
+- (void) updateTimer{
+    timeleft--;
+    int minutes = timeleft/60;
+    int seconds = timeleft%60;
+    [viewController updateTimerMinutes:minutes andSeconds:seconds];
+    if(timeleft==0){
+        //end game
+    }
+ //   NSLog(@"%@",dateString);
+}
+
 -(void)catchIngredient:(Ingredient*)i{
     NSString* keyString = [NSString stringWithFormat:@"%i",i.ingredientType];
     int currentAmount = [[ingredientsLeft valueForKey:keyString] intValue];
     if(currentAmount==0){
-        //do nothing for now, could punish them
+        mistakes++;
         [viewController mistake];
     }
     else{
@@ -71,6 +83,8 @@ float prevTime;
     ingredientsLeft = [recipe valueForKey:@"Ingredients"];
     difficulty = [recipe valueForKey:@"Difficulty"];
     self.generator = [[IngredientGenerator alloc] initForGame:self];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    timeleft = 180;
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [viewController addProgressFrame];
     // add the pot
@@ -85,8 +99,19 @@ float prevTime;
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [timer invalidate];
     [ingredientsOnScreen release];   //kill all ingredients and array
     [pot release];
+    //Work out rating
+    float tempscore = timeleft/36;
+    tempscore-=mistakes;
+    int score = tempscore;
+    score++;
+    if(score<=0)
+    {
+        score=1;
+    }
+    NSLog(@"%@",score);
 }
 
 - (void)pauseGame
@@ -94,6 +119,7 @@ float prevTime;
     if(self.isPaused == NO){
         self.isPaused = YES;
         [self.displayLink setPaused:YES];
+        [timer invalidate];
     }
 }
 
@@ -104,6 +130,7 @@ float prevTime;
         self.isPaused = NO;
         prevTime = [self.displayLink timestamp];
         [self.displayLink setPaused:NO];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
     //}
 }
 
