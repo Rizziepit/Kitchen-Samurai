@@ -24,11 +24,27 @@
 @synthesize numberImageDictionary;
 @synthesize progressImageDictionary;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        fingerVelocities = (CGFloat*)malloc(3*sizeof(CGFloat));
+        fingerVelocities[0] = 0;
+        fingerVelocities[1] = 0;
+        fingerVelocities[2] = 0;
+        lastFingerPosition.x = -1;
+        lastFingerTime = -1;
+        dot = [UIImage imageNamed:@"fingerDot.png"];
+        dotCounter = 0;
+        dotImageViews = [[NSMutableArray alloc] initWithCapacity:200];
+        for (int i = 0; i < 200; i++)
+        {
+            UIImageView* fingerDot = [[UIImageView alloc] initWithImage:dot];
+            [dotImageViews addObject:fingerDot];
+            [fingerDot release];
+        }
     }
     return self;
 }
@@ -36,12 +52,46 @@
 - (void)performSwipe:(id)sender
 {
     CGPoint touchPoint = [((UILongPressGestureRecognizer*)sender) locationInView:tempSwipe.view];
-    for (Ingredient* i in game.ingredientsOnScreen)
+    CFTimeInterval currentTime = CACurrentMediaTime();
+    CGFloat timeDif = currentTime - lastFingerTime;
+    if (lastFingerPosition.x != -1 && timeDif < 0.033f)
     {
-        if (CGRectContainsPoint(i.imageView.frame, touchPoint)){
-            i.isCut = true;
+        fingerVelocities[2] = fingerVelocities[1];
+        fingerVelocities[1] = fingerVelocities[0];
+        CGFloat difX = touchPoint.x - lastFingerPosition.x;
+        CGFloat difY = touchPoint.y - lastFingerPosition.y;
+        CGFloat size = sqrtf(difX*difX + difY*difY);
+        fingerVelocities[0] = size/timeDif;
+        CGFloat meanVelocity = (fingerVelocities[0] + fingerVelocities[1] + fingerVelocities[2])/3.0f;
+        if (meanVelocity > 2000)
+        {
+            CGPoint vector = CGPointMake(difX/size, difY/size);
+            CGPoint current = lastFingerPosition;
+            CGFloat increment = size/10;
+            for (int i = 0; i < increment; i++)
+            {
+                current.x = current.x + 10*vector.x;
+                current.y = current.y + 10*vector.y;
+                //UIImageView* fingerDot = [[UIImageView alloc] initWithImage:dot];
+                UIImageView* fingerDot = [dotImageViews objectAtIndex:dotCounter];
+                [fingerDot setAlpha:1];
+                [fingerDot setCenter:current];
+                [UIImageView animateWithDuration:0.1 delay:i/increment*timeDif options:UIViewAnimationOptionAllowUserInteraction animations:^{fingerDot.alpha = 0.0;} completion:^(BOOL finished){ [fingerDot removeFromSuperview]; }];
+                [self.view insertSubview:fingerDot aboveSubview:ingredientCountersView];
+                dotCounter++;
+                if (dotCounter > 199)
+                    dotCounter = 0;
+            }
+            for (Ingredient* i in game.ingredientsOnScreen)
+            {
+                if (CGRectContainsPoint(i.imageView.frame, touchPoint)){
+                    i.isCut = true;
+                }
+            }
         }
     }
+    lastFingerPosition = touchPoint;
+    lastFingerTime = currentTime;
 }
 
 - (void) updateProgressFrame:(int) type{
@@ -57,6 +107,7 @@
 
         [image addSubview:crossOutImage];
         [crossOutImage release];
+        [image release];
     }
     else{
         [numberimage setImage:[((GameView*)self.view).numberImages objectAtIndex:numLeft]];
@@ -67,10 +118,11 @@
 {
     mistakes++;
     UIImageView *chef = [[UIImageView alloc] init];
-    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60);
+    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60); //this position will not work for other levels besides first
     [chef setBackgroundColor:[UIColor clearColor]];
     [chef setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i_chef",mistakes]]];
     [ingredientCountersView addSubview:chef];
+    [chef release];
 }
 - (void) endGame
 {
@@ -101,7 +153,11 @@
 }
 
 -(void)pauseGameButtonClicked:(id)sender{
-    [game pauseOrResumeGame];
+    [game resumeGame];
+}
+
+-(void)resumeGameButtonClicked:(id)sender{
+    [game pauseGame];
 }
 
 - (void)didReceiveMemoryWarning
@@ -158,13 +214,7 @@
     
     mistakes = 0;
     
-    /*// Set up swipe gesture recognizers
-    swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
-    [swipe1 setDelegate:self];
-    [swipe1 setNumberOfTouchesRequired:1];
-    [swipe1 setDirection:(UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionDown | UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionUp)];
-    [gameView addGestureRecognizer:swipe1];
-    [swipe1 release];*/
+    // Set up swipe gesture recognizers
     tempSwipe = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
     [tempSwipe setDelegate:self];
     [tempSwipe setNumberOfTouchesRequired:1];

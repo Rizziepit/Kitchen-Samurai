@@ -12,6 +12,7 @@
 @class Kitchen_SamuraiAppDelegate;
 @class Game;
 @class Ingredient;
+@class CATransition;
 
 @interface GameScreen : UIViewController <UIGestureRecognizerDelegate> {
     UILongPressGestureRecognizer *drag;
@@ -22,6 +23,12 @@
     UIView *ingredientCountersView;
     UIView *EndGameView;
     int mistakes;
+    CGFloat* fingerVelocities;
+    CGPoint lastFingerPosition;
+    CFTimeInterval lastFingerTime;
+    UIImage *dot;
+    int dotCounter; // dot index used to get UIImageView from pool instead of creating one
+    NSMutableArray *dotImageViews;
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
@@ -31,6 +38,7 @@
 
 - (IBAction)quitGameButtonClicked:(id)sender;
 - (IBAction)pauseGameButtonClicked:(id)sender;
+- (IBAction)resumeGameButtonClicked:(id)sender;
 - (void)performSwipe:(id)sender;
 - (void)dragPot:(id)sender;
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
