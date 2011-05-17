@@ -99,11 +99,12 @@ float prevTime;
 
 - (void)resumeGame
 {
-    if(self.isPaused == YES){
+    //if(self.isPaused == YES){
+        NSLog(@"Resume");
         self.isPaused = NO;
         prevTime = [self.displayLink timestamp];
         [self.displayLink setPaused:NO];
-    }
+    //}
 }
 
 

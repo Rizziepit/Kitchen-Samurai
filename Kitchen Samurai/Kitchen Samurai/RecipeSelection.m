@@ -199,6 +199,8 @@
         NSString* level = [NSString stringWithFormat: @"level-%i",number];
         levelData = [prefs arrayForKey:level];
         
+        NSLog(@"Loading recipe %i",number);
+        
         UILabel *tmp = [self getLabelAtIndex:number];
         NSString *key = [NSString stringWithFormat:@"%i",number];
         NSMutableDictionary* recipe = [recipeList valueForKey:key];

@@ -21,6 +21,8 @@
 -(void)loadPlist;
 -(void)switchToGame:(NSMutableDictionary*) recipe;
 -(void)switchToMenu;
+- (void)startNextRecipe:(int)level;
+
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) MainMenu *mainMenu;

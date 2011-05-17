@@ -20,7 +20,9 @@
     
     NSUserDefaults *prefs;
     
+    UIButton *ContinueButton;
 }
+@property (nonatomic, retain) IBOutlet UIButton *ContinueButton;
 
 @property (nonatomic, retain) IBOutlet RecipeSelection *recipeSelection;
 @property (readwrite, retain) MPMoviePlayerViewController *instructions;
@@ -29,6 +31,7 @@
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
 
 - (void)instructionVideoDone:(NSNotification*)aNotification;
+- (void) checkContinue;
 
 - (IBAction)startNewGame:(id)sender;
 - (IBAction)continueGame:(id)sender;

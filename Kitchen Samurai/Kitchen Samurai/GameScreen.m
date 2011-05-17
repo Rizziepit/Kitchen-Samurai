@@ -20,7 +20,6 @@
 
 @synthesize appDelegate;
 @synthesize game;
-
 @synthesize numberImageDictionary;
 @synthesize progressImageDictionary;
 
@@ -123,12 +122,47 @@
     [chef setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i_chef",mistakes]]];
     [ingredientCountersView addSubview:chef];
     [chef release];
+    if (mistakes == 4)
+    {
+        EndGameView.hidden = NO;
+        [game pauseGame];
+    }
 }
+
+- (void)saveGameState:(int)r forLevel:(int)l
+{
+    NSString* ratingValue = [NSString stringWithFormat:@"%i",r];
+    NSArray* levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
+    
+    NSString* level = [NSString stringWithFormat:@"level-%i",l];
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:levelData forKey:level];
+    
+    l++;
+    //unlock next recipe
+    ratingValue = @"0";
+    levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
+    level = [NSString stringWithFormat:@"level-%i",l];
+    [prefs setObject:levelData forKey:level];
+    [prefs setInteger:l forKey:@"CurrentLevel"];
+
+    [prefs synchronize];
+    
+    EndGameView.hidden = YES;
+    [game resumeGame];
+    //[game endGame];
+    //[appDelegate startNextRecipe:l]; 
+}
+
 - (void) endGame
 {
     EndGameView.hidden = NO;
-    [game pauseOrResumeGame];
+    [self saveGameState:3 forLevel:1]; 
+    [game pauseGame];
 }
+
+
 
 - (void)dragPot:(id)sender
 {
@@ -145,6 +179,11 @@
     [ingredientCountersView release];
     [EndGameView release];
     [super dealloc];
+}
+
+-(IBAction)nextRecipe:(id)sender
+{
+    NSLog(@"NEXT");
 }
 
 -(void)quitGameButtonClicked:(id)sender{
@@ -211,6 +250,7 @@
     GameView *gameView = ((GameView*)self.view);
     [gameView setGameModel:game];
     [gameView initIngredientImages];
+    EndGameView.hidden = YES;
     
     mistakes = 0;
     
@@ -304,6 +344,8 @@
     [imageView autorelease];
     return imageView;
 }
+
+
 
 -(UIImageView*)addPotToView:(PhysicalObject *)p
 {

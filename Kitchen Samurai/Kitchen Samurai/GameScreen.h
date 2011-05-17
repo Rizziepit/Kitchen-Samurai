@@ -39,6 +39,7 @@
 - (IBAction)quitGameButtonClicked:(id)sender;
 - (IBAction)pauseGameButtonClicked:(id)sender;
 - (IBAction)resumeGameButtonClicked:(id)sender;
+- (IBAction)nextRecipe:(id)sender;
 - (void)performSwipe:(id)sender;
 - (void)dragPot:(id)sender;
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
@@ -47,6 +48,7 @@
 - (void) mistake;
 - (void) endGame;
 - (void) updateProgressFrame:(int) i;
+- (void)saveGameState:(int)r forLevel:(int)l;
 
 
 @property (nonatomic, retain) IBOutlet UIButton *quitButton;

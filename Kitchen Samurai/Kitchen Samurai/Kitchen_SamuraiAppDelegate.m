@@ -131,6 +131,20 @@
     [self.game startGame:recipe];
 }
 
+- (void)startNextRecipe:(int)level
+{
+    //find which recipe
+    NSString* path = [[NSBundle mainBundle] bundlePath];
+    NSString* DataPath = [path stringByAppendingPathComponent:@"Recipe_List.plist"];
+    NSMutableDictionary* recipeList = [[NSMutableDictionary alloc] initWithContentsOfFile:DataPath];
+    NSString* tmp = [NSString stringWithFormat:@"%i",level];
+    
+    NSMutableDictionary* recipe = [recipeList valueForKey:tmp];
+    
+    [self switchToGame:recipe];
+}
+
+
 - (void)switchToMenu
 {
     isInGame = NO;

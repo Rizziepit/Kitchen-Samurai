@@ -825,7 +825,7 @@
 								<string key="NSFrame">{{56, 186}, {781, 420}}</string>
 								<reference key="NSSuperview" ref="92513297"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="465997913"/>
+								<reference key="NSNextKeyView" ref="263751187"/>
 								<reference key="IBUIBackgroundColor" ref="249114630"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -908,7 +908,7 @@
 								<string key="NSFrame">{{603, 114}, {62, 51}}</string>
 								<reference key="NSSuperview" ref="92513297"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="263751187"/>
+								<reference key="NSNextKeyView" ref="1012550506"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -926,23 +926,23 @@
 							<object class="IBUIButton" id="263751187">
 								<reference key="NSNextResponder" ref="92513297"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{673, 109}, {173, 63}}</string>
+								<string key="NSFrame">{{617, 109}, {229, 85}}</string>
 								<reference key="NSSuperview" ref="92513297"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1012550506"/>
+								<reference key="NSNextKeyView" ref="465997913"/>
+								<reference key="IBUIBackgroundColor" ref="249114630"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="871286173"/>
-								<int key="IBUIButtonType">1</int>
-								<string key="IBUINormalTitle">Cook</string>
 								<reference key="IBUIHighlightedTitleColor" ref="508677136"/>
-								<object class="NSColor" key="IBUINormalTitleColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								<reference key="IBUINormalTitleColor" ref="249114630"/>
+								<reference key="IBUINormalTitleShadowColor" ref="249114630"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">cook_button.png</string>
 								</object>
-								<reference key="IBUINormalTitleShadowColor" ref="301764704"/>
 							</object>
 						</object>
 						<string key="NSFrame">{{46, 49}, {932, 671}}</string>
@@ -1483,6 +1483,7 @@
 					<string>109.IBPluginDependency</string>
 					<string>110.IBPluginDependency</string>
 					<string>114.IBPluginDependency</string>
+					<string>114.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>20.IBPluginDependency</string>
@@ -1538,6 +1539,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="0.0"/>
 					<string>{{353, 156}, {1024, 768}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1730,6 +1732,7 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>back_button.png</string>
+				<string>cook_button.png</string>
 				<string>recipe_button_locked.png</string>
 				<string>recipe_frame.png</string>
 				<string>rising_sun_yellow2.jpg</string>
@@ -1737,6 +1740,7 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{126, 76}</string>
+				<string>{345, 120}</string>
 				<string>{260, 258}</string>
 				<string>{781, 526}</string>
 				<string>{1024, 768}</string>
