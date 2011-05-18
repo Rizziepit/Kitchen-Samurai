@@ -38,7 +38,7 @@ NSString * const ingredientTypeToFileName[] = {
 };
 
 NSString * const numberToFileName[] = {
-    @"x.jpg",
+    @"x.png",
     @"1.png",
     @"2.png",
     @"3.png",

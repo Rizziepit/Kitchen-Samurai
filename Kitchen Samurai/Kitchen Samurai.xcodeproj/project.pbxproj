@@ -44,7 +44,6 @@
 		3AFFB47B137A6ECF00E1C037 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFB471137A6ECF00E1C037 /* 7.png */; };
 		3AFFB47C137A6ECF00E1C037 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFB472137A6ECF00E1C037 /* 8.png */; };
 		3AFFB47D137A6ECF00E1C037 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFB473137A6ECF00E1C037 /* 9.png */; };
-		3AFFB47E137A6ECF00E1C037 /* x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFB474137A6ECF00E1C037 /* x.jpg */; };
 		80007CE913797B5C00CC3C64 /* CustomSwipeGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80007CE813797B5C00CC3C64 /* CustomSwipeGestureRecognizer.m */; };
 		80079E7F136078C9001ABBFD /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 80079E7D136078C9001ABBFD /* MainMenu.m */; };
 		80079E80136078C9001ABBFD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80079E7E136078C9001ABBFD /* MainMenu.xib */; };
@@ -67,6 +66,8 @@
 		80BBC36C1383ED970054DD89 /* startScreenView.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC36B1383ED970054DD89 /* startScreenView.png */; };
 		80BBC36E1383EE0E0054DD89 /* iPhoneIcon_Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC36D1383EE0D0054DD89 /* iPhoneIcon_Medium.png */; };
 		80BBC3701383EE170054DD89 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC36F1383EE160054DD89 /* Default-Landscape~ipad.png */; };
+		80BBC37A1383F3840054DD89 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC3791383F3840054DD89 /* x.png */; };
+		80BBC37D1383FC0F0054DD89 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC37C1383FC0E0054DD89 /* background.png */; };
 		80CEB1FA13606D5200425F16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1F913606D5200425F16 /* UIKit.framework */; };
 		80CEB1FC13606D5200425F16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FB13606D5200425F16 /* Foundation.framework */; };
 		80CEB1FE13606D5200425F16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB1FD13606D5200425F16 /* CoreGraphics.framework */; };
@@ -150,7 +151,6 @@
 		3AFFB471137A6ECF00E1C037 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		3AFFB472137A6ECF00E1C037 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		3AFFB473137A6ECF00E1C037 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
-		3AFFB474137A6ECF00E1C037 /* x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = x.jpg; sourceTree = "<group>"; };
 		80007CE713797B5C00CC3C64 /* CustomSwipeGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipeGestureRecognizer.h; sourceTree = "<group>"; };
 		80007CE813797B5C00CC3C64 /* CustomSwipeGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipeGestureRecognizer.m; sourceTree = "<group>"; };
 		80079E7C136078C9001ABBFD /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
@@ -178,6 +178,8 @@
 		80BBC36B1383ED970054DD89 /* startScreenView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startScreenView.png; sourceTree = "<group>"; };
 		80BBC36D1383EE0D0054DD89 /* iPhoneIcon_Medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Medium.png; sourceTree = "<group>"; };
 		80BBC36F1383EE160054DD89 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		80BBC3791383F3840054DD89 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		80BBC37C1383FC0E0054DD89 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		80CEB1F513606D5200425F16 /* Kitchen Samurai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Samurai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CEB1F913606D5200425F16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80CEB1FB13606D5200425F16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -354,6 +356,7 @@
 				8078CA1F138158C300A6A1D2 /* fingerDot.png */,
 				E0A6CB3C137B09B300F5C6E2 /* swoosh.caf */,
 				E024C57D137AE205003A11F5 /* pot.png */,
+				80BBC3791383F3840054DD89 /* x.png */,
 				E0C8C156137614AD00EF567E /* Ingredients */,
 				0C05BFFC13742EA30026A4DE /* 1-Tomato Soup.txt */,
 				3AFFB440137981F100E1C037 /* 1-Butternut Soup.txt */,
@@ -368,7 +371,6 @@
 				3AFFB471137A6ECF00E1C037 /* 7.png */,
 				3AFFB472137A6ECF00E1C037 /* 8.png */,
 				3AFFB473137A6ECF00E1C037 /* 9.png */,
-				3AFFB474137A6ECF00E1C037 /* x.jpg */,
 				3AF89E8D136ADDA700AA5905 /* 120px-Crystal_Clear_action_lock.png */,
 				808A4E8B136AD1CF0058C7DA /* video_test.mp4 */,
 				80BBC3461383CA9F0054DD89 /* 1_chef.png */,
@@ -381,6 +383,7 @@
 				3A233B4C1371B448006A97FA /* Detailed Recipe View Items */,
 				E078BE80136A204000818E87 /* back_button.png */,
 				3A25C1F91370895F00689C28 /* 0_stars.png */,
+				80BBC37C1383FC0E0054DD89 /* background.png */,
 				3A25C1FA1370895F00689C28 /* 1_stars.png */,
 				3A25C1FB1370895F00689C28 /* 2_stars.png */,
 				3A25C1FC1370895F00689C28 /* 3_stars.png */,
@@ -539,7 +542,6 @@
 				3AFFB47B137A6ECF00E1C037 /* 7.png in Resources */,
 				3AFFB47C137A6ECF00E1C037 /* 8.png in Resources */,
 				3AFFB47D137A6ECF00E1C037 /* 9.png in Resources */,
-				3AFFB47E137A6ECF00E1C037 /* x.jpg in Resources */,
 				E024C57E137AE205003A11F5 /* pot.png in Resources */,
 				E0A6CB3D137B09B300F5C6E2 /* swoosh.caf in Resources */,
 				8078CA20138158C300A6A1D2 /* fingerDot.png in Resources */,
@@ -555,6 +557,8 @@
 				80BBC36C1383ED970054DD89 /* startScreenView.png in Resources */,
 				80BBC36E1383EE0E0054DD89 /* iPhoneIcon_Medium.png in Resources */,
 				80BBC3701383EE170054DD89 /* Default-Landscape~ipad.png in Resources */,
+				80BBC37A1383F3840054DD89 /* x.png in Resources */,
+				80BBC37D1383FC0F0054DD89 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

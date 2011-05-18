@@ -54,8 +54,8 @@
             [fingerDot release];
         }
     }
+    baarMetLarge = [UIFont fontWithName:@"Baar Metanoia" size:48];
     return self;
-    [timeLabel setFont:[UIFont fontWithName:@"BaarMetanoia" size:48]];
 }
 
 - (void) updateTimerMinutes: (int) minutes andSeconds:(int) seconds
@@ -120,21 +120,21 @@
 
 - (void) updateProgressFrame:(int) type{
     int numLeft = [[game.ingredientsLeft valueForKey:[NSString stringWithFormat:@"%i",type]] intValue];
-    UIImageView* numberimage = [numberImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
+    UILabel* numberLabel = [numberImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
     //NSLog(@"%i",numLeft);
     if (numLeft==0){
-        [numberimage removeFromSuperview];
+        [numberLabel setText:@""];
         UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
         UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:numLeft]];
-        [crossOutImage setFrame:CGRectMake(0, 0, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
+        [crossOutImage setFrame:CGRectMake(0, 0, crossOutImage.image.size.width * 0.5f, crossOutImage.image.size.height * 0.5f)];
         [crossOutImage setContentMode:UIViewContentModeScaleToFill];
-
-        [image addSubview:crossOutImage];
+        [crossOutImage setCenter:[image center]];
+        [ingredientCountersView addSubview:crossOutImage];
         [crossOutImage release];
         [image release];
     }
     else{
-        [numberimage setImage:[((GameView*)self.view).numberImages objectAtIndex:numLeft]];
+        [numberLabel setText:[NSString stringWithFormat:@"%i", numLeft]];
     }
 }
 
@@ -254,18 +254,18 @@
         NSNumber* number = [game.ingredientsLeft valueForKey:type];
         UIImageView* image = [[UIImageView alloc] initWithImage: [((GameView*)self.view).ingredientImages objectAtIndex:[type intValue]]];
         [image setCenter:CGPointMake(x,y)];
-        UIImageView* numberimage = [[UIImageView alloc] initWithImage:[((GameView*)self.view).numberImages objectAtIndex:[number intValue]]];
-        [image setFrame:CGRectMake(x, y, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
+        [image setFrame:CGRectMake(x, y, image.image.size.width * 0.6f, image.image.size.height * 0.6f)];
         [image setContentMode:UIViewContentModeScaleToFill];
         [ingredientCountersView addSubview:image];
-        [numberimage setFrame:CGRectMake(x+64, image.center.y-numberimage.image.size.height * 0.4f, numberimage.image.size.width * 0.8f, numberimage.image.size.height * 0.8f)];
-        [numberimage setContentMode:UIViewContentModeScaleToFill];
-        [ingredientCountersView addSubview:numberimage];
+        UILabel* numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(x + 80, y, image.image.size.width * 0.6f, image.image.size.height * 0.6f)];
+        [numberLabel setText:[number stringValue]];
+        [numberLabel setBackgroundColor:[UIColor clearColor]];
+        [numberLabel setFont:baarMetLarge];
+        [ingredientCountersView addSubview:numberLabel];
         [progressImageDictionary setValue:image forKey:type];
-    //    UIView* test = [progressImageDictionary valueForKey:[number stringValue]];
-        [numberImageDictionary setValue:numberimage forKey:type];
+        [numberImageDictionary setValue:numberLabel forKey:type];
         [image release];
-        [numberimage release];
+        [numberLabel release];
         y+=image.frame.size.height + 16;
     }
     
@@ -298,6 +298,8 @@
     EndGameView.hidden = YES;
     
     mistakes = 0;
+    
+    [timeLabel setFont:baarMetLarge];
     
     // Set up swipe gesture recognizers
     tempSwipe = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];

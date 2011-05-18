@@ -34,6 +34,8 @@
     UIImage *pause;
     UIImage *play;
     
+    UIFont *baarMetLarge;
+    
     int dotCounter; // dot index used to get UIImageView from pool instead of creating one
     NSMutableArray *dotImageViews;
     UILabel *timeLabel;
