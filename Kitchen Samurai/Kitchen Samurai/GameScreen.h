@@ -52,6 +52,7 @@
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
 -(UIImageView*)addPotToView:(PhysicalObject *)p;
 - (void)addProgressFrame;
+- (void)removeProgressFrame;
 - (void) mistake;
 - (void) updateTimerMinutes:(int) minutes andSeconds:(int) seconds;
 - (void) endGame;

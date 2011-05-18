@@ -98,10 +98,13 @@ float prevTime;
 
 - (void)endGame
 {
+    [self pauseGame];
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    //[timer invalidate];
     [ingredientsOnScreen release];   //kill all ingredients and array
     [pot release];
+    [viewController removeProgressFrame];
+    [viewController.pauseButton setHidden:YES];
+    
     //Work out rating
     float tempscore = timeleft/36;
     tempscore-=mistakes;
@@ -118,7 +121,7 @@ float prevTime;
 {
     self.isPaused = YES;
     [self.displayLink setPaused:YES];
-    [timer invalidate];
+    //[timer invalidate];
 }
 
 - (void)resumeGame
