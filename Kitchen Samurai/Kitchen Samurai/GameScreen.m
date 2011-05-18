@@ -151,7 +151,7 @@
     else if (mistakes == 4)
     {
         EndGameView.hidden = NO;
-        [game pauseGame];
+        [game endGame];
     }
 }
 
@@ -185,7 +185,7 @@
 {    
     EndGameView.hidden = NO;    
     [self saveGameState:3 forLevel:1];     
-    [game pauseGame];    
+    [game endGame];    
     [timerpics release];
 }
 
@@ -264,12 +264,6 @@
         UIImageView* image = [[UIImageView alloc] initWithImage: [((GameView*)self.view).ingredientImages objectAtIndex:[type intValue]]];
         [image setCenter:CGPointMake(x,y)];
         UIImageView* numberimage = [[UIImageView alloc] initWithImage:[((GameView*)self.view).numberImages objectAtIndex:[number intValue]]];
-        /*if([number intValue]==0){
-            [numberimage setCenter:CGPointMake(x,y)];
-        }
-        else{
-            [numberimage setCenter:CGPointMake(x+100,y)];
-        }*/
         [image setFrame:CGRectMake(x, y, image.image.size.width * 0.5f, image.image.size.height * 0.5f)];
         [image setContentMode:UIViewContentModeScaleToFill];
         [ingredientCountersView addSubview:image];
@@ -284,6 +278,14 @@
         y+=image.frame.size.height + 16;
     }
     
+}
+
+-(void)removeProgressFrame
+{
+    for (UIView *view in self.ingredientCountersView.subviews) 
+    {
+        [view removeFromSuperview];
+    }
 }
 
 - (void)viewDidLoad
