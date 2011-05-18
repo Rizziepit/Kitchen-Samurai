@@ -22,10 +22,11 @@
     int timeleft;
     NSTimer* timer;
     int mistakes;
+    int levelNumber;
 }
 
-- (void) startGame: (NSDictionary*) recipe; // initialise game with saved data
-- (void) endGame;
+- (void) startGame: (NSDictionary*) recipe: (int)level; // initialise game with saved data
+- (void) endGame:(BOOL)win;
 - (void) pauseGame;
 - (void) updateTimer;
 - (void) resumeGame;

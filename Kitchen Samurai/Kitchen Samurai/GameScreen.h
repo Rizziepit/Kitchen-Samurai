@@ -57,7 +57,8 @@
 - (void) updateTimerMinutes:(int) minutes andSeconds:(int) seconds;
 - (void) updateProgressFrame:(int) i;
 - (void)saveGameState:(int)r forLevel:(int)l;
-- (void)endGame:(BOOL)win;
+- (void) endGame:(BOOL)win:(int)score:(int)level;
+- (void) enableGestureRecognizers:(BOOL)enable;
 
 
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;

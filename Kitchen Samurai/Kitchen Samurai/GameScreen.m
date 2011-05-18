@@ -147,10 +147,6 @@
         [chef2 setAlpha:1];
     else if (mistakes == 3)
         [chef3 setAlpha:1];
-    else if (mistakes == 4)
-    {
-        [self endGame:NO];
-    }
 }
 
 - (void)saveGameState:(int)r forLevel:(int)l
@@ -174,25 +170,25 @@
     [prefs synchronize];
 }
 
-- (void) endGame:(BOOL)win
-{    
-    EndGameView.hidden = NO;
-    if (win)
-        [self saveGameState:3 forLevel:1]; 
-    else
-    {
-        
-    }
-    [game endGame];    
-    [timerpics release];
-}
-
-
 - (void)dragPot:(id)sender
 {
     CGPoint touchPoint =  [drag locationOfTouch:0 inView:drag.view];
     game.pot.xPos = touchPoint.x;
     [game.pot.imageView setCenter:CGPointMake(game.pot.xPos, 768 - game.pot.yPos)];
+}
+
+- (void)endGame:(BOOL)win:(int)score:(int)level
+{
+    EndGameView.hidden = NO;
+    [pauseButton setEnabled:NO];
+    [quitButton setEnabled:NO];
+    [self resetGameScreen];
+    if (win)
+        [self saveGameState:score forLevel:level]; 
+    else
+    {
+        
+    }  
 }
 
 - (void)dealloc
@@ -216,7 +212,8 @@
 }
 
 -(void)quitGameButtonClicked:(id)sender{
-    [game endGame];
+    [game endGame:NO];
+    [EndGameView setHidden:YES];
     [self.appDelegate switchToMenu];
 }
 
@@ -224,15 +221,13 @@
     if (game.isPaused)
     {
         [pauseButton setImage:pause forState:UIControlStateNormal];
-        [tempSwipe setEnabled:YES];
-        [drag setEnabled:YES];
+        [self enableGestureRecognizers:YES];
         [game resumeGame];
     }
     else
     {
         [pauseButton setImage:play forState:UIControlStateNormal];
-        [tempSwipe setEnabled:NO];
-        [drag setEnabled:NO];
+        [self enableGestureRecognizers:NO];
         [game pauseGame];
     }
 }
@@ -274,6 +269,12 @@
         y+=image.frame.size.height + 16;
     }
     
+}
+
+- (void) enableGestureRecognizers:(BOOL)enabled
+{
+    [tempSwipe setEnabled:enabled];
+    [drag setEnabled:enabled];
 }
 
 -(void)resetGameScreen

@@ -26,7 +26,7 @@
     NSString* DataPath;
     NSMutableDictionary* chosenRecipe;
     AVAudioPlayer* soundEffect;
-
+    int levelNumber;
     NSUserDefaults *prefs;
 
 

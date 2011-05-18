@@ -40,7 +40,7 @@ float prevTime;
     [viewController updateTimerMinutes:minutes andSeconds:seconds];
     if(timeleft==0){
         [timer invalidate];
-        [self endGame];
+        [self endGame:NO];
     }
 }
 
@@ -60,11 +60,6 @@ float prevTime;
         [viewController updateProgressFrame:i.ingredientType];
         
         number--;
-        if (number == 0)
-        {
-            [viewController endGame:YES];
-        }
-        
     }
     if (currentAmount==0){
         [ingredientsLeft removeObjectForKey:keyString];
@@ -73,19 +68,21 @@ float prevTime;
 }
 
 // initialise game with saved datas
-- (void)startGame: (NSDictionary*) recipe
+- (void)startGame: (NSDictionary*) recipe:(int)level
 {
     NSLog(@"Starting game...");
     number = [[recipe valueForKey:@"NumberIngredients"] intValue];
     ingredientsOnScreen=[[NSMutableArray alloc] init];
     ingredientsLeft = [recipe valueForKey:@"Ingredients"];
     difficulty = [recipe valueForKey:@"Difficulty"];
+    levelNumber = level;
     self.generator = [[IngredientGenerator alloc] initForGame:self];
     timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-    timeleft = 5;
+    timeleft = 180;
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [viewController resetGameScreen];
-    [viewController.pauseButton setHidden:NO];
+    [viewController.pauseButton setEnabled:YES];
+    [viewController.quitButton setEnabled:YES];
+    [viewController updateTimerMinutes:3 andSeconds:0];
     [viewController addProgressFrame];
     // add the pot
     self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
@@ -95,26 +92,34 @@ float prevTime;
     
     prevTime = -1;
     isPaused = NO;
+    [self.displayLink setPaused:NO];
+    [viewController enableGestureRecognizers:YES];
 }
 
-- (void)endGame
+- (void)endGame:(BOOL)win
 {
     [self pauseGame];
+    [viewController enableGestureRecognizers:NO];
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [ingredientsOnScreen release];   //kill all ingredients and array
     [pot release];
-    [viewController.pauseButton setHidden:YES];
     
-    //Work out rating
-    float tempscore = timeleft/36;
-    tempscore-=mistakes;
-    int score = tempscore;
-    score++;
-    if(score<=0)
+    if (win)
     {
-        score=1;
+        //Work out rating
+        float tempscore = timeleft/36;
+        tempscore-=mistakes;
+        int score = tempscore;
+        score++;
+        if(score<=0)
+        {
+            score=1;
+        }
+        NSLog(@"%d",score);
+        [viewController endGame:YES :score :levelNumber]; // add correct level number
     }
-    NSLog(@"%d",score);
+    else
+        [viewController endGame:NO :0 :0];
 }
 
 - (void)pauseGame
@@ -188,6 +193,10 @@ float prevTime;
         [ingredientsOnScreen removeObject:offscreen];
     }
     [toBeRemoved release]; //this calls release on all objects in the array too
+    if (mistakes > 3)
+        [self endGame:NO];
+    else if (number <= 0)
+        [self endGame:YES];
 }
 
 - (void)dealloc

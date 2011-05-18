@@ -123,12 +123,12 @@
     [super dealloc];
 }
 
-- (void)switchToGame:(NSMutableDictionary*) recipe
+- (void)switchToGame:(NSMutableDictionary*) recipe:(int)level
 {
     isInGame = YES;
     self.window.rootViewController = self.gameScreen;
     // start the game
-    [self.game startGame:recipe];
+    [self.game startGame:recipe:level];
 }
 
 - (void)startNextRecipe:(int)level
@@ -141,7 +141,7 @@
     
     NSMutableDictionary* recipe = [recipeList valueForKey:tmp];
     
-    [self switchToGame:recipe];
+    [self switchToGame:recipe:level];
 }
 
 

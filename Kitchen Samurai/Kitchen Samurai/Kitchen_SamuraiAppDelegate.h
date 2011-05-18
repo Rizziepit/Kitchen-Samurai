@@ -19,7 +19,7 @@
 }
 
 -(void)loadPlist;
--(void)switchToGame:(NSMutableDictionary*) recipe;
+-(void)switchToGame:(NSMutableDictionary*) recipe:(int)level;
 -(void)switchToMenu;
 - (void)startNextRecipe:(int)level;
 
