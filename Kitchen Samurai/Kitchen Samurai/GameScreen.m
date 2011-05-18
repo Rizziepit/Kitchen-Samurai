@@ -14,6 +14,7 @@
 #import "Ingredient.h"
 
 @implementation GameScreen
+@synthesize endGameLabel;
 @synthesize timeLabel;
 @synthesize quitButton;
 @synthesize ingredientCountersView;
@@ -203,12 +204,20 @@
     [chef2 release];
     [chef3 release];
     [timeLabel release];
+    [endGameLabel release];
     [super dealloc];
 }
 
 -(IBAction)nextRecipe:(id)sender
 {
     NSLog(@"NEXT");
+}
+
+- (IBAction)mainMenuButton:(id)sender
+{
+    [game endGame:NO];
+    [EndGameView setHidden:YES];
+    [self.appDelegate switchToMenu];
 }
 
 -(void)quitGameButtonClicked:(id)sender{
@@ -332,6 +341,7 @@
     [self setChef2:nil];
     [self setChef3:nil];
     [self setTimeLabel:nil];
+    [self setEndGameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
