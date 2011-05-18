@@ -150,8 +150,7 @@
         [chef3 setAlpha:1];
     else if (mistakes == 4)
     {
-        EndGameView.hidden = NO;
-        [game endGame];
+        [self endGame:NO];
     }
 }
 
@@ -174,17 +173,17 @@
     [prefs setInteger:l forKey:@"CurrentLevel"];
 
     [prefs synchronize];
-    
-    EndGameView.hidden = YES;
-    [game resumeGame];
-    //[game endGame];
-    //[appDelegate startNextRecipe:l]; 
 }
 
-- (void) endGame
+- (void) endGame:(BOOL)win
 {    
-    EndGameView.hidden = NO;    
-    [self saveGameState:3 forLevel:1];     
+    EndGameView.hidden = NO;
+    if (win)
+        [self saveGameState:3 forLevel:1]; 
+    else
+    {
+        
+    }
     [game endGame];    
     [timerpics release];
 }
@@ -280,12 +279,15 @@
     
 }
 
--(void)removeProgressFrame
+-(void)resetGameScreen
 {
     for (UIView *view in self.ingredientCountersView.subviews) 
     {
         [view removeFromSuperview];
     }
+    [chef1 setAlpha:0.3f];
+    [chef2 setAlpha:0.3f];
+    [chef3 setAlpha:0.3f];
 }
 
 - (void)viewDidLoad

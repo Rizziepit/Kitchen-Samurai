@@ -54,13 +54,12 @@
 -(UIImageView*)addIngredientToView:(Ingredient *)i;
 -(UIImageView*)addPotToView:(PhysicalObject *)p;
 - (void)addProgressFrame;
-- (void)removeProgressFrame;
+- (void)resetGameScreen;
 - (void) mistake;
 - (void) updateTimerMinutes:(int) minutes andSeconds:(int) seconds;
-- (void) endGame;
 - (void) updateProgressFrame:(int) i;
 - (void)saveGameState:(int)r forLevel:(int)l;
-- (void)endGame;
+- (void)endGame:(BOOL)win;
 
 
 @property (nonatomic, retain) IBOutlet UIImageView *timerM;

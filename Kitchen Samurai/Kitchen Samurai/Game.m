@@ -62,7 +62,7 @@ float prevTime;
         number--;
         if (number == 0)
         {
-            [viewController endGame];
+            [viewController endGame:YES];
         }
         
     }
@@ -84,6 +84,8 @@ float prevTime;
     timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
     timeleft = 180;
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [viewController resetGameScreen];
+    [viewController.pauseButton setHidden:NO];
     [viewController addProgressFrame];
     // add the pot
     self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
@@ -101,7 +103,6 @@ float prevTime;
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [ingredientsOnScreen release];   //kill all ingredients and array
     [pot release];
-    [viewController removeProgressFrame];
     [viewController.pauseButton setHidden:YES];
     
     //Work out rating
