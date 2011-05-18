@@ -42,7 +42,6 @@ float prevTime;
         [timer invalidate];
         [self endGame];
     }
- //   NSLog(@"%@",dateString);
 }
 
 -(void)catchIngredient:(Ingredient*)i{
@@ -121,7 +120,7 @@ float prevTime;
 {
     self.isPaused = YES;
     [self.displayLink setPaused:YES];
-    //[timer invalidate];
+    [timer invalidate];
 }
 
 - (void)resumeGame
@@ -145,9 +144,9 @@ float prevTime;
     else
         time = [sender timestamp]-prevTime;
     prevTime = [sender timestamp];
-   // NSLog(@"%f",time);//[sender timestamp]);
-    //make sure no bugs in physics/generator on first loop cal when prevTime has not been set.
     
+    //update Timer
+    //[self updateTimer];
     //generate ingredient
     Ingredient*i=[generator giveIngredient];
     if(i!=nil){
