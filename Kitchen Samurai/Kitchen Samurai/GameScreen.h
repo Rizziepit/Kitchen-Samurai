@@ -24,8 +24,11 @@
     UIButton *pauseButton;
     UIImageView *chef1;
     UIImageView *chef2;
+    UIButton *nextButton;
     UIImageView *chef3;
     int mistakes;
+    UIImageView *starsImage;
+    UIButton *retryButton;
     CGFloat* fingerVelocities;
     CGPoint lastFingerPosition;
     CFTimeInterval lastFingerTime;
@@ -35,6 +38,8 @@
     UIImage *play;
     
     UIFont *baarMetLarge;
+    UIFont *baarMetSmall;
+    UIFont *baarMetXLarge;
     
     int dotCounter; // dot index used to get UIImageView from pool instead of creating one
     NSMutableArray *dotImageViews;
@@ -59,6 +64,7 @@
 - (void)resetGameScreen;
 - (void) mistake;
 - (void) updateTimerMinutes:(int) minutes andSeconds:(int) seconds;
+- (IBAction)retry:(id)sender;
 - (void) updateProgressFrame:(int) i;
 - (void)saveGameState:(int)r forLevel:(int)l;
 - (void) endGame:(BOOL)win:(int)score:(int)level;
@@ -73,7 +79,15 @@
 @property (nonatomic, retain) IBOutlet UIButton *pauseButton;
 @property (nonatomic, retain) IBOutlet UIImageView *chef1;
 @property (nonatomic, retain) IBOutlet UIImageView *chef2;
+@property (nonatomic, retain) IBOutlet UIButton *nextButton;
 @property (nonatomic, retain) IBOutlet UIImageView *chef3;
+@property (nonatomic) int mistakes;
+@property (nonatomic, retain) IBOutlet UIImageView *starsImage;
+@property (nonatomic, retain) IBOutlet UIButton *retryButton;
+@property (nonatomic, retain) UIImage* play;
+@property (nonatomic, retain) UIImage* pause;
+@property (nonatomic, retain) UILongPressGestureRecognizer* tempSwipe;
+@property (nonatomic, retain) UILongPressGestureRecognizer* drag;
 
 
 @end

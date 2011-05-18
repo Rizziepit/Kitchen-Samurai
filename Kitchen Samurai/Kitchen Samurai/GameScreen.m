@@ -22,12 +22,20 @@
 @synthesize pauseButton;
 @synthesize chef1;
 @synthesize chef2;
+@synthesize nextButton;
 @synthesize chef3;
 
 @synthesize appDelegate;
 @synthesize game;
 @synthesize numberImageDictionary;
 @synthesize progressImageDictionary;
+@synthesize mistakes;
+@synthesize starsImage;
+@synthesize retryButton;
+@synthesize play;
+@synthesize pause;
+@synthesize tempSwipe;
+@synthesize drag;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,7 +53,7 @@
         pause = [UIImage imageNamed:@"pause.png"];
         play = [UIImage imageNamed:@"play.png"];
         
-        dot = [UIImage imageNamed:@"fingerDot.png"];
+        dot = [UIImage imageNamed:@"fingerDot.jpg"];
         dotCounter = 0;
         dotImageViews = [[NSMutableArray alloc] initWithCapacity:200];
         for (int i = 0; i < 200; i++)
@@ -56,6 +64,8 @@
         }
     }
     baarMetLarge = [UIFont fontWithName:@"Baar Metanoia" size:48];
+    baarMetXLarge = [UIFont fontWithName:@"Baar Metanoia" size:64];
+    baarMetSmall = [UIFont fontWithName:@"Baar Metanoia" size:24];
     return self;
 }
 
@@ -74,6 +84,12 @@
 
 }
 
+- (IBAction)retry:(id)sender 
+{
+    NSLog(@"retry pressed");
+    [appDelegate startNextRecipe:game.levelNumber];
+}
+
 - (void)performSwipe:(id)sender
 {
     CGPoint touchPoint = [((UILongPressGestureRecognizer*)sender) locationInView:tempSwipe.view];
@@ -88,20 +104,19 @@
         CGFloat size = sqrtf(difX*difX + difY*difY);
         fingerVelocities[0] = size/timeDif;
         CGFloat meanVelocity = (fingerVelocities[0] + fingerVelocities[1] + fingerVelocities[2])/3.0f;
-        if (meanVelocity > 2000)
+        if (meanVelocity > 1500)
         {
             CGPoint vector = CGPointMake(difX/size, difY/size);
             CGPoint current = lastFingerPosition;
-            CGFloat increment = size/10;
+            CGFloat increment = size/16;
             for (int i = 0; i < increment; i++)
             {
-                current.x = current.x + 10*vector.x;
-                current.y = current.y + 10*vector.y;
-                //UIImageView* fingerDot = [[UIImageView alloc] initWithImage:dot];
+                current.x = current.x + 16*vector.x;
+                current.y = current.y + 16*vector.y;
                 UIImageView* fingerDot = [dotImageViews objectAtIndex:dotCounter];
                 [fingerDot setAlpha:1];
                 [fingerDot setCenter:current];
-                [UIImageView animateWithDuration:0.1 delay:i/increment*timeDif options:UIViewAnimationOptionAllowUserInteraction animations:^{fingerDot.alpha = 0.0;} completion:^(BOOL finished){ [fingerDot removeFromSuperview]; }];
+                [UIImageView animateWithDuration:0.1 delay:i/increment*timeDif options:UIViewAnimationOptionAllowUserInteraction animations:^{fingerDot.alpha = 0.0;} completion:^(BOOL finished){ [fingerDot removeFromSuperview];}];
                 [self.view insertSubview:fingerDot aboveSubview:ingredientCountersView];
                 dotCounter++;
                 if (dotCounter > 199)
@@ -109,8 +124,11 @@
             }
             for (Ingredient* i in game.ingredientsOnScreen)
             {
-                if (CGRectContainsPoint(i.imageView.frame, touchPoint)){
-                    i.isCut = true;
+                if (abs(i.xPos - touchPoint.x) < 98 && abs(i.yPos - 768 + touchPoint.y) < 98)
+                {
+                    if (CGRectContainsPoint(i.imageView.frame, touchPoint)){
+                        i.isCut = true;
+                    }
                 }
             }
         }
@@ -126,7 +144,7 @@
     if (numLeft==0){
         [numberLabel setText:@""];
         UIImageView* image = [progressImageDictionary valueForKey:[NSString stringWithFormat:@"%i",type]];
-        UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:numLeft]];
+        UIImageView* crossOutImage = [[UIImageView alloc] initWithImage: [((GameView*)self.view).numberImages objectAtIndex:0]];
         [crossOutImage setFrame:CGRectMake(0, 0, crossOutImage.image.size.width * 0.5f, crossOutImage.image.size.height * 0.5f)];
         [crossOutImage setContentMode:UIViewContentModeScaleToFill];
         [crossOutImage setCenter:[image center]];
@@ -152,21 +170,35 @@
 
 - (void)saveGameState:(int)r forLevel:(int)l
 {
-    NSString* ratingValue = [NSString stringWithFormat:@"%i",r];
-    NSArray* levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
-    
-    NSString* level = [NSString stringWithFormat:@"level-%i",l];
-    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:levelData forKey:level];
+    NSString* level = [NSString stringWithFormat:@"level-%i",l];
+    NSArray* levelData = [prefs arrayForKey:level];
+    NSString* ratingValue;
+    int currentRating = [[levelData objectAtIndex:1] intValue];
+    if (currentRating < r) {
+        ratingValue = [NSString stringWithFormat:@"%i",r];
+        levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
+        [prefs setObject:levelData forKey:level];
+    }
     
     l++;
-    //unlock next recipe
-    ratingValue = @"0";
-    levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
+    //need to check if previous level has been unlocked or not
     level = [NSString stringWithFormat:@"level-%i",l];
-    [prefs setObject:levelData forKey:level];
+    levelData = [prefs arrayForKey:level];
+    if ([levelData count] == 0)
+    {
+        //unlock next recipe
+        ratingValue = @"0";
+        levelData = [NSArray arrayWithObjects:@"1",ratingValue,nil];
+        level = [NSString stringWithFormat:@"level-%i",l];
+        [prefs setObject:levelData forKey:level];
+    }
+    
+    if (l == 5)
+        l = 1;
+    
     [prefs setInteger:l forKey:@"CurrentLevel"];
+
 
     [prefs synchronize];
 }
@@ -185,10 +217,42 @@
     [quitButton setEnabled:NO];
     [self resetGameScreen];
     if (win)
-        [self saveGameState:score forLevel:level]; 
+    {
+        [self saveGameState:score forLevel:level];
+        [endGameLabel setText:@"Congratulations! You win!"];
+        if (level < 4)
+        {
+            [nextButton setHidden:NO];
+            [nextButton setEnabled:YES];
+        }
+        else
+        {
+            [nextButton setHidden:YES];
+            [nextButton setEnabled:NO];
+        }
+        [retryButton setHidden:YES];
+        [retryButton setEnabled:NO];
+        if (score == 0)
+            [starsImage setImage:[UIImage imageNamed:@"0stars_large"]];
+        else if (score == 1)
+            [starsImage setImage:[UIImage imageNamed:@"1stars_large"]];
+        else if (score == 2)
+            [starsImage setImage:[UIImage imageNamed:@"2stars_large"]];
+        else if (score == 3)
+            [starsImage setImage:[UIImage imageNamed:@"3stars_large"]];
+        else if (score == 4)
+            [starsImage setImage:[UIImage imageNamed:@"4stars_large"]];
+        else
+            [starsImage setImage:[UIImage imageNamed:@"5stars_large"]];
+    }
     else
     {
-        
+        [endGameLabel setText:@"You lose! Try again."];
+        [starsImage setImage:[UIImage imageNamed:@"0stars_large"]];
+        [nextButton setEnabled:NO];
+        [nextButton setHidden:YES];
+        [retryButton setEnabled:YES];
+        [retryButton setHidden:NO];
     }  
 }
 
@@ -205,17 +269,20 @@
     [chef3 release];
     [timeLabel release];
     [endGameLabel release];
+    [starsImage release];
+    [retryButton release];
+    [nextButton release];
     [super dealloc];
 }
 
 -(IBAction)nextRecipe:(id)sender
 {
     NSLog(@"NEXT");
+    [appDelegate startNextRecipe:(game.levelNumber+1)];
 }
 
 - (IBAction)mainMenuButton:(id)sender
 {
-    [game endGame:NO];
     [EndGameView setHidden:YES];
     [self.appDelegate switchToMenu];
 }
@@ -309,6 +376,7 @@
     mistakes = 0;
     
     [timeLabel setFont:baarMetLarge];
+    [endGameLabel setFont:baarMetXLarge];
     
     // Set up swipe gesture recognizers
     tempSwipe = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(performSwipe:)];
@@ -342,6 +410,13 @@
     [self setChef3:nil];
     [self setTimeLabel:nil];
     [self setEndGameLabel:nil];
+    [self setStarsImage:nil];
+    [self setRetryButton:nil];
+    [self setNextButton:nil];
+    [play release];
+    [pause release];
+    [tempSwipe release];
+    [drag release];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -392,8 +467,8 @@
     UIImageView *imageView = [ [ UIImageView alloc ] initWithFrame:CGRectMake(i.xPos-image.size.width/2, 768 - i.yPos-image.size.height/2, image.size.width, image.size.height)];
     imageView.image = image;
     [gameView insertSubview:imageView belowSubview:ingredientCountersView];
-    [image release];
-    [imageView autorelease];
+    //[image release];
+    //[imageView autorelease];
     return imageView;
 }
 
@@ -406,8 +481,8 @@
     UIImageView *imageView = [ [ UIImageView alloc ] initWithFrame:CGRectMake(p.xPos-image.size.width/2, 768 - p.yPos-image.size.height/2, image.size.width, image.size.height)];
     imageView.image = image;
     [gameView addSubview:imageView];
-    [image release];
-    [imageView autorelease];
+    //[image release];
+    //[imageView autorelease];
     return imageView;
 }
 

@@ -25,6 +25,7 @@ float prevTime;
 @synthesize pot;
 @synthesize difficulty;
 @synthesize rating;
+@synthesize levelNumber;
 
 - (id)init
 {
@@ -70,19 +71,24 @@ float prevTime;
 // initialise game with saved datas
 - (void)startGame: (NSDictionary*) recipe:(int)level
 {
+    mistakes = 0;
+    number = 0;
+    [viewController setMistakes:0];
+    prevTime = -1;
+    difficulty = [recipe valueForKey:@"Difficulty"];
+    timeleft = [difficulty intValue] * 60;
+    totaltime = timeleft;
+    
     NSLog(@"Starting game...");
     number = [[recipe valueForKey:@"NumberIngredients"] intValue];
     ingredientsOnScreen=[[NSMutableArray alloc] init];
     ingredientsLeft = [recipe valueForKey:@"Ingredients"];
-    difficulty = [recipe valueForKey:@"Difficulty"];
     levelNumber = level;
     self.generator = [[IngredientGenerator alloc] initForGame:self];
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-    timeleft = 180;
-    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [viewController.pauseButton setEnabled:YES];
     [viewController.quitButton setEnabled:YES];
-    [viewController updateTimerMinutes:3 andSeconds:0];
+    [viewController.EndGameView setHidden:YES];
+    [viewController updateTimerMinutes:timeleft/60 andSeconds:timeleft%60];
     [viewController addProgressFrame];
     // add the pot
     self.pot = [[PhysicalObject alloc] init:512 :64 :0 :0 :64];
@@ -90,15 +96,19 @@ float prevTime;
     
     //soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil]; 
     
-    prevTime = -1;
     isPaused = NO;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
     [self.displayLink setPaused:NO];
     [viewController enableGestureRecognizers:YES];
 }
 
 - (void)endGame:(BOOL)win
 {
-    [self pauseGame];
+    if (!isPaused)
+        [self pauseGame];
     [viewController enableGestureRecognizers:NO];
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [ingredientsOnScreen release];   //kill all ingredients and array
@@ -107,10 +117,22 @@ float prevTime;
     if (win)
     {
         //Work out rating
-        float tempscore = timeleft/36;
-        tempscore-=mistakes;
-        int score = tempscore;
-        score++;
+        float timerate = timeleft/((float)totaltime);
+        int score;
+        if (timerate < 0.2f)
+            score = 1;
+        else if (timerate < 0.4f)
+            score = 2;
+        else
+            score = 3;
+        if (mistakes == 0)
+            score += 2;
+        else if (mistakes == 1)
+            score += 1;
+        else if (mistakes == 2)
+            score -= 1;
+        else
+            score -= 2;
         if(score<=0)
         {
             score=1;

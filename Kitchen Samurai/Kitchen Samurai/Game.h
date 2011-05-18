@@ -23,6 +23,7 @@
     NSTimer* timer;
     int mistakes;
     int levelNumber;
+    int totaltime;
 }
 
 - (void) startGame: (NSDictionary*) recipe: (int)level; // initialise game with saved data
@@ -43,5 +44,6 @@
 @property (nonatomic, retain) PhysicalObject* pot;
 @property (nonatomic, retain) NSNumber* difficulty;
 @property (nonatomic, retain) NSNumber* rating;
+@property (nonatomic) int levelNumber;
 @end
 

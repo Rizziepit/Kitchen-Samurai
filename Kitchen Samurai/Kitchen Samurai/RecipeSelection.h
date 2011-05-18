@@ -19,6 +19,7 @@
     UILabel *DetailedDifficulty;
     UIImageView *DetailedStars;
     UILabel *DetailedTitle;
+    UILabel *DetailedDifficultyLabel;
     NSMutableDictionary* recipeList;
     NSMutableArray* starsArray;
     BOOL* DetailedViewOpen;
@@ -28,7 +29,9 @@
     AVAudioPlayer* soundEffect;
     int levelNumber;
     NSUserDefaults *prefs;
-
+    UIFont* baarMetSmall;
+    UIFont* baarMetLarge;
+    UIFont* baarMetXLarge;
 
 }
 - (void)loadRecipeList;
@@ -51,6 +54,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *DetailedDifficulty;
 @property (nonatomic, retain) IBOutlet UIImageView *DetailedStars;
 @property (nonatomic, retain) IBOutlet UILabel *DetailedTitle;
+@property (nonatomic, retain) IBOutlet UILabel *DetailedDifficultyLabel;
 
 
 

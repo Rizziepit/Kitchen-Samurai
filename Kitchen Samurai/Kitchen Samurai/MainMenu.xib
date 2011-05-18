@@ -51,7 +51,7 @@
 						<string key="NSFrameSize">{1024, 748}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="851923161"/>
+						<reference key="NSNextKeyView" ref="815201021"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -175,7 +175,7 @@
 						<string key="NSFrame">{{245, 706}, {196, 23}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="915559095"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -188,7 +188,7 @@
 						<string key="NSFrame">{{-30, -17}, {1148, 283}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="815201021"/>
+						<reference key="NSNextKeyView" ref="429277740"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -196,11 +196,25 @@
 							<string key="NSResourceName">Heading.png</string>
 						</object>
 					</object>
+					<object class="IBUIImageView" id="915559095">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{662, 364}, {362, 384}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">wallpaper.png</string>
+						</object>
+					</object>
 				</object>
 				<string key="NSFrame">{{0, 20}, {1024, 748}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="429277740"/>
+				<reference key="NSNextKeyView" ref="851923161"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -344,6 +358,7 @@
 							<reference ref="685998144"/>
 							<reference ref="600078007"/>
 							<reference ref="851923161"/>
+							<reference ref="915559095"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -388,6 +403,11 @@
 						<reference key="object" ref="851923161"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">25</int>
+						<reference key="object" ref="915559095"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -403,6 +423,7 @@
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
+					<string>25.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>4.IBUIButtonInspectorSelectedEdgeInsetMetadataKey</string>
 					<string>5.IBPluginDependency</string>
@@ -419,6 +440,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{353, 156}, {1024, 768}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -441,7 +463,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">23</int>
+			<int key="maxID">25</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -593,6 +615,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>DetailedDifficulty</string>
+							<string>DetailedDifficultyLabel</string>
 							<string>DetailedStars</string>
 							<string>DetailedTextView</string>
 							<string>DetailedTitle</string>
@@ -602,6 +625,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UIImageView</string>
 							<string>UITextView</string>
@@ -616,6 +640,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>DetailedDifficulty</string>
+							<string>DetailedDifficultyLabel</string>
 							<string>DetailedStars</string>
 							<string>DetailedTextView</string>
 							<string>DetailedTitle</string>
@@ -627,6 +652,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">DetailedDifficulty</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">DetailedDifficultyLabel</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -680,6 +709,7 @@
 				<string>new_game_button.png</string>
 				<string>pick_recipe_button.png</string>
 				<string>rising_sun_yellow2.jpg</string>
+				<string>wallpaper.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
@@ -689,6 +719,7 @@
 				<string>{345, 120}</string>
 				<string>{345, 120}</string>
 				<string>{1024, 768}</string>
+				<string>{200, 200}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>

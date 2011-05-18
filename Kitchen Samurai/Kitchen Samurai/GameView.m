@@ -38,17 +38,8 @@ NSString * const ingredientTypeToFileName[] = {
 };
 
 NSString * const numberToFileName[] = {
-    @"x.png",
-    @"1.png",
-    @"2.png",
-    @"3.png",
-    @"4.png",
-    @"5.png",
-    @"6.png",
-    @"7.png",
-    @"8.png",
-    @"9.png",
-};
+    @"x.png"};
+
 
 @synthesize gameModel;
 @synthesize ingredientImages;
@@ -74,15 +65,12 @@ NSString * const numberToFileName[] = {
     {
         UIImage* image = [UIImage imageNamed:ingredientTypeToFileName[i]];
         [ingredientImages addObject:image];
-        [image release];
+        //[image release];
     }
-    numberImages = [[NSMutableArray alloc] initWithCapacity:10];
-    for (int i = 0; i < 10; i++)
-    {
-        UIImage* image = [UIImage imageNamed:numberToFileName[i]];
-        [numberImages addObject:image];
-        [image release];
-    }
+    numberImages = [[NSMutableArray alloc] initWithCapacity:1];
+    UIImage* image = [UIImage imageNamed:numberToFileName[0]];
+    [numberImages addObject:image];
+    //[image release];
     
     // set up the pot images
     pot = [UIImage imageNamed:@"pot.png"];

@@ -21,6 +21,7 @@
 @synthesize DetailedDifficulty;
 @synthesize DetailedStars;
 @synthesize DetailedTitle;
+@synthesize DetailedDifficultyLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +49,7 @@
             [newLabel setTextAlignment:UITextAlignmentCenter];
             newLabel.lineBreakMode = UILineBreakModeWordWrap;
             [newLabel setBackgroundColor:[UIColor clearColor]];
+            [newLabel setFont:baarMetSmall];
             [self.view addSubview:newLabel];
             [newLabel release],newLabel = nil;
             n++;
@@ -164,6 +166,7 @@
     [DetailedStars release];
     [DetailedDifficulty release];
     [DetailedView release];
+    [DetailedDifficultyLabel release];
     [super dealloc];
 }
 
@@ -254,9 +257,17 @@
     soundEffect = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"swoosh" ofType:@"caf"]] error:nil];
     soundEffect.volume = [prefs floatForKey:@"Volume"];
     
+    baarMetLarge = [UIFont fontWithName:@"Baar Metanoia" size:24];
+    baarMetXLarge = [UIFont fontWithName:@"Baar Metanoia" size:32];
+    baarMetSmall = [UIFont fontWithName:@"Baar Metanoia" size:18];
+    
     [self loadRecipeList];
-   
-
+    
+    // do font stuff
+    DetailedDifficulty.font = baarMetLarge;
+    DetailedTextView.font = baarMetSmall;
+    DetailedTitle.font = baarMetXLarge;
+    DetailedDifficultyLabel.font = baarMetLarge;
 }
 
 - (void)viewDidUnload
@@ -269,6 +280,7 @@
     [self setDetailedDifficulty:nil];
     [self setDetailedView:nil];
     [recipeList release];
+    [self setDetailedDifficultyLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -291,6 +303,8 @@
 - (IBAction)Cook:(id)sender
 {
     NSLog(@"ASD");
+    [DetailedView setHidden:YES];
+    [self.view removeFromSuperview];
     [appDelegate switchToGame:chosenRecipe:levelNumber];
 
 }
@@ -347,7 +361,6 @@
     DetailedView.hidden = NO;
     chosenRecipe = [[NSMutableDictionary alloc] initWithDictionary:recipe];
     levelNumber = [buttonTag intValue];
-        
 }
 
 - (IBAction)goBack:(id)sender {

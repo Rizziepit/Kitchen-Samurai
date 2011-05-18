@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>1</key>
+	<key>2</key>
 	<dict>
 		<key>DetailsName</key>
 		<string>1-Tomato Soup</string>
@@ -28,7 +28,7 @@
 		<key>Unlocked</key>
 		<true/>
 	</dict>
-	<key>2</key>
+	<key>1</key>
 	<dict>
 		<key>DetailsName</key>
 		<string>1-Butternut Soup</string>
@@ -91,22 +91,20 @@
 			<key>10</key>
 			<integer>2</integer>
 			<key>12</key>
-			<string>2</string>
+			<integer>2</integer>
 			<key>13</key>
 			<integer>1</integer>
 			<key>21</key>
 			<integer>2</integer>
 			<key>5</key>
 			<integer>2</integer>
-			<key>7</key>
-			<integer>1</integer>
 			<key>8</key>
 			<integer>3</integer>
 		</dict>
 		<key>Name</key>
 		<string>Vegetable Soup</string>
 		<key>NumberIngredients</key>
-		<integer>17</integer>
+		<integer>16</integer>
 		<key>Rating</key>
 		<integer>0</integer>
 		<key>Unlocked</key>

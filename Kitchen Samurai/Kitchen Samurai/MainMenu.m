@@ -134,6 +134,7 @@
 }
 
 - (IBAction)showRecipes:(id)sender {
+    [recipeSelection loadRecipeList];
     [recipeSelection setAppDelegate:self.appDelegate];
     //[soundEffect play];
     [self.view addSubview:recipeSelection.view];

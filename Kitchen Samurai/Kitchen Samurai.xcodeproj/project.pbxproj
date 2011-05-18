@@ -59,6 +59,7 @@
 		8093096213697954007C1E8B /* GameScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093096013697954007C1E8B /* GameScreen.xib */; };
 		8093096F1369A4A0007C1E8B /* RecipeSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093096D1369A4A0007C1E8B /* RecipeSelection.m */; };
 		809309771369A688007C1E8B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809309761369A688007C1E8B /* MediaPlayer.framework */; };
+		8093D79313842E1F00B968D3 /* fingerDot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8093D79213842E1D00B968D3 /* fingerDot.jpg */; };
 		80BBC3401383C5AE0054DD89 /* Heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC33F1383C5AE0054DD89 /* Heading.png */; };
 		80BBC3431383C8100054DD89 /* baar_metanoia.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC3421383C80F0054DD89 /* baar_metanoia.TTF */; };
 		80BBC3451383CA940054DD89 /* 3_chef.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BBC3441383CA930054DD89 /* 3_chef.png */; };
@@ -76,6 +77,7 @@
 		80CEB20413606D5200425F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB20213606D5200425F16 /* InfoPlist.strings */; };
 		80CEB20713606D5200425F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20613606D5200425F16 /* main.m */; };
 		80CEB20A13606D5200425F16 /* Kitchen_SamuraiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */; };
+		80F8D9C9138481390064F6A9 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 80F8D9C8138481390064F6A9 /* wallpaper.png */; };
 		DD8476131382D598001F853F /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8476121382D598001F853F /* Game.m */; };
 		DD8476161382D59D001F853F /* GameScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8476151382D59D001F853F /* GameScreen.m */; };
 		E00834FB1372199B0098FFBF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00834FA1372199B0098FFBF /* QuartzCore.framework */; };
@@ -173,6 +175,7 @@
 		8093096C1369A4A0007C1E8B /* RecipeSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSelection.h; sourceTree = "<group>"; };
 		8093096D1369A4A0007C1E8B /* RecipeSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSelection.m; sourceTree = "<group>"; };
 		809309761369A688007C1E8B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		8093D79213842E1D00B968D3 /* fingerDot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fingerDot.jpg; sourceTree = "<group>"; };
 		80BBC33F1383C5AE0054DD89 /* Heading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Heading.png; sourceTree = "<group>"; };
 		80BBC3421383C80F0054DD89 /* baar_metanoia.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = baar_metanoia.TTF; sourceTree = "<group>"; };
 		80BBC3441383CA930054DD89 /* 3_chef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_chef.png; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 		80CEB20613606D5200425F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80CEB20813606D5200425F16 /* Kitchen_SamuraiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kitchen_SamuraiAppDelegate.h; sourceTree = "<group>"; };
 		80CEB20913606D5200425F16 /* Kitchen_SamuraiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Kitchen_SamuraiAppDelegate.m; sourceTree = "<group>"; };
+		80F8D9C8138481390064F6A9 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
 		DD8476121382D598001F853F /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		DD8476151382D59D001F853F /* GameScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreen.m; sourceTree = "<group>"; };
 		E00834F613720B370098FFBF /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 		E0A5B6EE1369FB3400408241 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				8093D79213842E1D00B968D3 /* fingerDot.jpg */,
 				80BBC33F1383C5AE0054DD89 /* Heading.png */,
 				8015C9BF1382F038002A8E7B /* pause.png */,
 				80BBC36B1383ED970054DD89 /* startScreenView.png */,
@@ -382,6 +387,7 @@
 				80BBC3461383CA9F0054DD89 /* 1_chef.png */,
 				80BBC3441383CA930054DD89 /* 3_chef.png */,
 				80BBC3481383CAA50054DD89 /* 2_chef.png */,
+				80F8D9C8138481390064F6A9 /* wallpaper.png */,
 				80BBC3421383C80F0054DD89 /* baar_metanoia.TTF */,
 				0C0F126C1372D7ED00D059B2 /* test.jpg */,
 				3A25C1F4137055E300689C28 /* recipe_button_locked.png */,
@@ -567,6 +573,8 @@
 				80BBC37D1383FC0F0054DD89 /* background.png in Resources */,
 				3A5955C913841A6600D3BEC0 /* next_level.png in Resources */,
 				3A5955CA13841A6600D3BEC0 /* main_menu.png in Resources */,
+				8093D79313842E1F00B968D3 /* fingerDot.jpg in Resources */,
+				80F8D9C9138481390064F6A9 /* wallpaper.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
