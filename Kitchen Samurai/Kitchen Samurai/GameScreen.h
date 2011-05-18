@@ -22,6 +22,9 @@
     UIView *ingredientCountersView;
     UIView *EndGameView;
     UIButton *pauseButton;
+    UIImageView *chef1;
+    UIImageView *chef2;
+    UIImageView *chef3;
     int mistakes;
     CGFloat* fingerVelocities;
     CGPoint lastFingerPosition;
@@ -66,6 +69,9 @@
 @property (nonatomic, retain) IBOutlet UIView *ingredientCountersView;
 @property (nonatomic, retain) IBOutlet UIView *EndGameView;
 @property (nonatomic, retain) IBOutlet UIButton *pauseButton;
+@property (nonatomic, retain) IBOutlet UIImageView *chef1;
+@property (nonatomic, retain) IBOutlet UIImageView *chef2;
+@property (nonatomic, retain) IBOutlet UIImageView *chef3;
 
 
 @end

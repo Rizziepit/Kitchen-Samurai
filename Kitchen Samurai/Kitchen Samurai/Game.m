@@ -98,7 +98,7 @@ float prevTime;
 - (void)endGame
 {
     [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [timer invalidate];
+    //[timer invalidate];
     [ingredientsOnScreen release];   //kill all ingredients and array
     [pot release];
     //Work out rating

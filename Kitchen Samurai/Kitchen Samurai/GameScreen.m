@@ -21,6 +21,9 @@
 @synthesize ingredientCountersView;
 @synthesize EndGameView;
 @synthesize pauseButton;
+@synthesize chef1;
+@synthesize chef2;
+@synthesize chef3;
 
 @synthesize appDelegate;
 @synthesize game;
@@ -139,13 +142,13 @@
 - (void) mistake
 {
     mistakes++;
-    UIImageView *chef = [[UIImageView alloc] init];
-    chef.frame = CGRectMake(10+35*mistakes,300 ,30, 60); //this position will not work for other levels besides first
-    [chef setBackgroundColor:[UIColor clearColor]];
-    [chef setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i_chef",mistakes]]];
-    [ingredientCountersView addSubview:chef];
-    [chef release];
-    if (mistakes == 4)
+    if (mistakes == 1)
+        [chef1 setAlpha:1];
+    else if (mistakes == 2)
+        [chef2 setAlpha:1];
+    else if (mistakes == 3)
+        [chef3 setAlpha:1];
+    else if (mistakes == 4)
     {
         EndGameView.hidden = NO;
         [game pauseGame];
@@ -205,6 +208,9 @@
     [timerM release];
     [timerS release];
     [timerSS release];
+    [chef1 release];
+    [chef2 release];
+    [chef3 release];
     [super dealloc];
 }
 
@@ -321,6 +327,9 @@
     [self setTimerM:nil];
     [self setTimerS:nil];
     [self setTimerSS:nil];
+    [self setChef1:nil];
+    [self setChef2:nil];
+    [self setChef3:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
