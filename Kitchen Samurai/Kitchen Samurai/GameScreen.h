@@ -36,9 +36,7 @@
     
     int dotCounter; // dot index used to get UIImageView from pool instead of creating one
     NSMutableArray *dotImageViews;
-    UIImageView *timerM;
-    UIImageView *timerS;
-    UIImageView *timerSS;
+    UILabel *timeLabel;
 }
 
 @property (nonatomic, retain) Kitchen_SamuraiAppDelegate *appDelegate;
@@ -62,9 +60,7 @@
 - (void)endGame:(BOOL)win;
 
 
-@property (nonatomic, retain) IBOutlet UIImageView *timerM;
-@property (nonatomic, retain) IBOutlet UIImageView *timerS;
-@property (nonatomic, retain) IBOutlet UIImageView *timerSS;
+@property (nonatomic, retain) IBOutlet UILabel *timeLabel;
 @property (nonatomic, retain) IBOutlet UIButton *quitButton;
 @property (nonatomic, retain) IBOutlet UIView *ingredientCountersView;
 @property (nonatomic, retain) IBOutlet UIView *EndGameView;
