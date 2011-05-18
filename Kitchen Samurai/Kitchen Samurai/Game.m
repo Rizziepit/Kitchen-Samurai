@@ -39,7 +39,8 @@ float prevTime;
     int seconds = timeleft%60;
     [viewController updateTimerMinutes:minutes andSeconds:seconds];
     if(timeleft==0){
-        //end game
+        [timer invalidate];
+        [self endGame];
     }
  //   NSLog(@"%@",dateString);
 }
@@ -82,7 +83,7 @@ float prevTime;
     difficulty = [recipe valueForKey:@"Difficulty"];
     self.generator = [[IngredientGenerator alloc] initForGame:self];
     timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-    timeleft = 180;
+    timeleft = 5;
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [viewController addProgressFrame];
     // add the pot

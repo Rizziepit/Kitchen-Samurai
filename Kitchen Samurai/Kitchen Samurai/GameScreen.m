@@ -14,9 +14,7 @@
 #import "Ingredient.h"
 
 @implementation GameScreen
-@synthesize timerM;
-@synthesize timerS;
-@synthesize timerSS;
+@synthesize timeLabel;
 @synthesize quitButton;
 @synthesize ingredientCountersView;
 @synthesize EndGameView;
@@ -57,20 +55,21 @@
         }
     }
     return self;
+    [timeLabel setFont:[UIFont fontWithName:@"BaarMetanoia" size:48]];
 }
 
 - (void) updateTimerMinutes: (int) minutes andSeconds:(int) seconds
 {
     
     if (seconds==0){
-        [timerS setImage:[((GameView*)self.view).numberImages objectAtIndex:0]]; 
-        [timerSS setImage:[((GameView*)self.view).numberImages objectAtIndex:0]]; 
+        [timeLabel setText:[NSString stringWithFormat:@"%i:00",minutes]];    
+    }
+    else if(seconds<=9){
+        [timeLabel setText:[NSString stringWithFormat:@"%i:0%i",minutes,seconds]];    
     }
     else{
-        [timerS setImage:[((GameView*)self.view).numberImages objectAtIndex:seconds/10]]; 
-        [timerSS setImage:[((GameView*)self.view).numberImages objectAtIndex:seconds%10]]; 
+        [timeLabel setText:[NSString stringWithFormat:@"%i:%i",minutes,seconds]];    
     }
-    [timerM setImage:[((GameView*)self.view).numberImages objectAtIndex:minutes]]; 
 
 }
 
@@ -205,12 +204,10 @@
     [ingredientCountersView release];
     [EndGameView release];
     [pauseButton release];
-    [timerM release];
-    [timerS release];
-    [timerSS release];
     [chef1 release];
     [chef2 release];
     [chef3 release];
+    [timeLabel release];
     [super dealloc];
 }
 
@@ -324,12 +321,10 @@
     [self setIngredientCountersView:nil];
     [self setEndGameView:nil];
     [self setPauseButton:nil];
-    [self setTimerM:nil];
-    [self setTimerS:nil];
-    [self setTimerSS:nil];
     [self setChef1:nil];
     [self setChef2:nil];
     [self setChef3:nil];
+    [self setTimeLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
