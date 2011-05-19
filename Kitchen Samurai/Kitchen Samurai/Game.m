@@ -195,7 +195,7 @@ float prevTime;
             [toBeRemoved addObject:ingredient];
         else
         {
-            [ingredient updatePosition:timepassed]; //check that this is timesincelastframe
+            [ingredient updatePosition:(timepassed +timepassed*([difficulty floatValue])/5)]; //check that this is timesincelastframe
             
             // check for collision with pot
             if (ingredient.isCut && ingredient.yVel < 0 && ingredient.yPos < 144 && ingredient.yPos > 128)

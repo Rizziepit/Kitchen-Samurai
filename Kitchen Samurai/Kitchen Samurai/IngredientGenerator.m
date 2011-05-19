@@ -55,18 +55,17 @@ float GRAVITY=-320.0f;
     }
     else{
         x= (SCREENWIDTH/4)*3 + arc4random()%(int)(SCREENWIDTH/2);
-        float maxdistance = -(x-50);    
-        float mindistance=-SCREENWIDTH/2;
+        float maxdistance = (x-50);    
+        float mindistance=SCREENWIDTH/2;
         float distance = mindistance+arc4random()%(int)(maxdistance-mindistance);
-        vx = distance/timetravelled;
+        vx = -distance/timetravelled;
     }
     NSArray* start = [NSArray arrayWithObjects:[NSNumber numberWithFloat:x],[NSNumber numberWithFloat:y],[NSNumber numberWithFloat:vx],[NSNumber numberWithFloat:vy], nil];
     return start;
 }
 
 -(Ingredient*)giveIngredient{
-    //Simple unbalanced one for now, just generates with 1%chance each frame
-    if (arc4random()%100<5){
+    if (arc4random()%100<3+2*([gameModel.difficulty floatValue]/3.0f)){
         Ingredient* i = nil;
         float rad= 30.0f;
         IngredientType type = [self pickType];
