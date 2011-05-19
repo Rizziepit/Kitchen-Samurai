@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10J869</string>
+		<string key="IBDocument.SystemVersion">10J4138</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
@@ -185,7 +185,7 @@
 								<string key="NSFrame">{{107, 81}, {479, 109}}</string>
 								<reference key="NSSuperview" ref="235045201"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="95852186"/>
+								<reference key="NSNextKeyView" ref="497288306"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
@@ -195,7 +195,7 @@
 								<string key="NSFrame">{{187, 218}, {345, 120}}</string>
 								<reference key="NSSuperview" ref="235045201"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1043779068"/>
+								<reference key="NSNextKeyView" ref="95852186"/>
 								<reference key="IBUIBackgroundColor" ref="288358200"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -219,7 +219,7 @@
 								<string key="NSFrame">{{187, 218}, {345, 120}}</string>
 								<reference key="NSSuperview" ref="235045201"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="497288306"/>
+								<reference key="NSNextKeyView" ref="1043779068"/>
 								<reference key="IBUIBackgroundColor" ref="288358200"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -232,9 +232,9 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="500083280"/>
-								<object class="NSCustomResource" key="IBUINormalImage" id="628972630">
+								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">main_menu.png</string>
+									<string key="NSResourceName">retry.png</string>
 								</object>
 							</object>
 							<object class="IBUIButton" id="1043779068">
@@ -255,7 +255,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="500083280"/>
-								<reference key="IBUINormalImage" ref="628972630"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">main_menu.png</string>
+								</object>
 							</object>
 						</object>
 						<string key="NSFrame">{{163, 119}, {699, 509}}</string>
@@ -904,6 +907,7 @@
 				<string>pause.png</string>
 				<string>quit.png</string>
 				<string>recipe_frame.png</string>
+				<string>retry.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
@@ -916,6 +920,7 @@
 				<string>{74, 74}</string>
 				<string>{74, 74}</string>
 				<string>{781, 526}</string>
+				<string>{345, 120}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>
